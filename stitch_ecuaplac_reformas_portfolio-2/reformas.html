@@ -1,0 +1,624 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ecuaplac - Galería de Reformas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 300,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.4s ease forwards;
+        }
+        .animate-slide-up {
+          animation: slideUp 0.3s ease forwards;
+        }
+        .scroll-mt-20 {
+          scroll-margin-top: 5rem;
+        }
+        /* Dynamic Navigation bar & links */
+        nav {
+            transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+        nav.scrolled {
+            background-color: rgba(10, 10, 10, 0.85) !important;
+            backdrop-filter: blur(12px) !important;
+            border-color: rgba(28, 28, 30, 0.8) !important;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        nav:not(.scrolled) .nav-link:not(.active-nav) {
+            color: #FFFFFF !important;
+            border-color: transparent !important;
+            opacity: 0.85;
+        }
+        nav:not(.scrolled) .nav-link:not(.active-nav):hover {
+            opacity: 1;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+        }
+        nav.scrolled .nav-link:not(.active-nav) {
+            color: #C5C5C5 !important;
+            border-color: transparent !important;
+        }
+        nav.scrolled .nav-link:not(.active-nav):hover {
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+        }
+        .nav-link.active-nav {
+            color: #FFFFFF !important;
+            border-bottom: 2px solid #FFFFFF !important;
+            padding-bottom: 4px;
+            opacity: 1 !important;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary-fixed-variant": "#474747",
+                    "secondary": "#795746",
+                    "on-secondary-fixed": "#2d1509",
+                    "surface-dim": "#dadada",
+                    "monolith-white": "#FFFFFF",
+                    "outline-variant": "#cfc4c5",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9f9",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "surface-container": "#eeeeee",
+                    "tertiary-fixed": "#e2e2e2",
+                    "outline": "#7e7576",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary-container": "#ffd0bb",
+                    "surface-variant": "#e2e2e2",
+                    "primary": "#000000",
+                    "on-surface-variant": "#4c4546",
+                    "on-surface": "#1b1b1b",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-primary-fixed": "#1b1b1b",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "surface": "#f9f9f9",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#c6c6c6",
+                    "on-secondary-fixed-variant": "#5f3f30",
+                    "canvas-grey": "#F2F2F2",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "on-primary-container": "#848484",
+                    "on-secondary-container": "#7a5747",
+                    "tertiary-container": "#1b1b1b",
+                    "surface-tint": "#5e5e5e",
+                    "surface-container-low": "#f3f3f3",
+                    "primary-fixed": "#e2e2e2",
+                    "tertiary": "#000000",
+                    "on-error": "#ffffff",
+                    "mortar-grey": "#666666",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-container": "#848484",
+                    "on-tertiary-fixed": "#1b1b1b",
+                    "primary-container": "#1b1b1b",
+                    "on-background": "#1b1b1b",
+                    "inverse-on-surface": "#f1f1f1",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#eabda9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "max-width": "1440px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "caption": ["Open Sans"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Open Sans"],
+                    "body-md": ["Open Sans"],
+                    "headline-lg": ["Montserrat"],
+                    "headline-xl": ["Montserrat"],
+                    "label-caps": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-xl": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "300"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.15em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pt-20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-[#0A0A0A] border-b border-[#1C1C1E] z-50">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<!-- Brand -->
+<a class="flex items-center" href="code.html">
+  <div class="flex flex-col items-center justify-center font-['Montserrat'] select-none">
+    <div class="text-lg md:text-xl font-black tracking-tight leading-none flex">
+      <span class="text-[#FFB81C]">ECUA</span>
+      <span class="text-[#0033A0]">PL</span>
+      <span class="text-[#D52B1E]">AC</span>
+    </div>
+    <div class="w-[90%] h-[1px] bg-white/30 my-1"></div>
+    <div class="text-[6.5px] md:text-[7.5px] font-bold tracking-[0.25em] text-[#C5C5C5] uppercase italic leading-none">
+      REFORMAS INTEGRALES
+    </div>
+  </div>
+</a>
+<!-- Desktop Nav -->
+<ul class="hidden lg:flex items-center gap-8 uppercase font-semibold text-[13px] tracking-[0.18em]">
+<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="code.html#proyectos">PROYECTOS</a></li>
+<li><a class="nav-link active-nav pb-1 transition-all duration-300 cursor-pointer" href="code.html#reformas">REFORMAS</a></li>
+<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="code.html#servicios">SERVICIOS</a></li>
+<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="code.html#contacto">CONTACTO</a></li>
+</ul>
+<!-- Trailing Action -->
+<div class="hidden lg:block">
+<a class="uppercase font-semibold text-[13px] tracking-[0.18em] text-white border-2 border-white px-6 py-3 hover:bg-white hover:text-black transition-all duration-300 cursor-pointer active:opacity-70" onclick="openPresupuestoModal()">PRESUPUESTO</a>
+</div>
+<!-- Mobile Menu Icon (Functional) -->
+<div class="lg:hidden flex items-center cursor-pointer" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined text-white">menu</span>
+</div>
+</div>
+</nav>
+
+<main class="py-16">
+  <!-- Page Header -->
+  <section class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop mb-16">
+    <div class="border-b border-primary pb-6">
+      <span class="font-label-caps text-label-caps uppercase text-mortar-grey tracking-widest block mb-2">Galería Completa</span>
+      <h1 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary">Antes y Después</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl">
+        Explora la transformación integral de nuestros proyectos. Desde el estado original hasta soluciones arquitectónicas terminadas con acabados prémium.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Projects Stack -->
+  <section class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="space-y-32">
+
+      <!-- PROYECTO 1: Baño Minimalista (Completo) -->
+      <div class="border-b border-outline-variant pb-24">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+          <div>
+            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Proyecto I</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Reforma Integral de Baño</h2>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xl md:text-right">
+            Sustitución completa de revestimientos por gres porcelánico beige texturizado, plato de ducha a ras de suelo, grifería empotrada negra mate y mueble de roble natural con espejo retroiluminado.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Antes -->
+          <div>
+            <span class="font-label-caps text-label-caps uppercase text-mortar-grey mb-4 block">Estado Anterior (Antes)</span>
+            <div class="w-full aspect-[3/4] bg-surface-container overflow-hidden">
+              <img alt="Baño antes de reformar" class="w-full h-full object-cover" src="antes.jpg">
+            </div>
+          </div>
+          <!-- Después -->
+          <div>
+            <span class="font-label-caps text-label-caps uppercase text-primary mb-4 block">Resultado Final (Después)</span>
+            <div class="w-full aspect-[3/4] bg-surface-container overflow-hidden">
+              <img alt="Baño después de reformar" class="w-full h-full object-cover" src="despues.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROYECTO 2: Lavabo Flotante a Medida -->
+      <div class="border-b border-outline-variant pb-24">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+          <div>
+            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Proyecto II</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Lavabo Flotante a Medida</h2>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xl md:text-right">
+            Diseño e instalación de encimera volada de piedra tecnológica en tonos neutros, con lavabo cerámico sobre encimera en color negro mate, grifería mural empotrada e instalaciones totalmente ocultas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Antes -->
+          <div>
+            <span class="font-label-caps text-label-caps uppercase text-mortar-grey mb-4 block">Estado Anterior (Antes)</span>
+            <div class="w-full aspect-[4/3] bg-surface-container overflow-hidden">
+              <img alt="Encimera en fase de instalación" class="w-full h-full object-cover" src="antes2.jpg">
+            </div>
+          </div>
+          <!-- Después -->
+          <div>
+            <span class="font-label-caps text-label-caps uppercase text-primary mb-4 block">Resultado Final (Después)</span>
+            <div class="w-full aspect-[4/3] bg-surface-container overflow-hidden">
+              <img alt="Encimera terminada con lavabo negro" class="w-full h-full object-cover" src="despues2.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROYECTO 3: Vestidor de Pladur y Roble -->
+      <div class="border-b border-outline-variant pb-24">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+          <div>
+            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Proyecto III</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Vestidor de Pladur y Roble</h2>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xl md:text-right">
+            Construcción a medida de vestidor y estanterías integradas en pladur con acabados en blanco satinado, cajoneras suspendidas en madera de roble natural y cestas metálicas deslizantes, realzado por iluminación LED cálida indirecta.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Antes -->
+          <div>
+            <span class="font-label-caps text-label-caps uppercase text-mortar-grey mb-4 block">Estado Anterior (Antes)</span>
+            <div class="w-full aspect-[4/3] bg-surface-container overflow-hidden">
+              <img alt="Estructura de pladur del vestidor en construcción" class="w-full h-full object-cover" src="antes3.jpg">
+            </div>
+          </div>
+          <!-- Después -->
+          <div>
+            <span class="font-label-caps text-label-caps uppercase text-primary mb-4 block">Resultado Final (Después)</span>
+            <div class="w-full aspect-[4/3] bg-surface-container overflow-hidden">
+              <img alt="Vestidor terminado con cajones de roble e iluminación LED" class="w-full h-full object-cover" src="despues3.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROYECTO 4: Escalera y Distribuidor de Roble -->
+      <div class="pb-16">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+          <div>
+            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Proyecto IV</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Escalera y Distribuidor de Roble</h2>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xl md:text-right">
+            Instalación de peldaños y revestimiento de escalera en madera de roble natural, enmarcado por paredes lisas blancas con puertas empotradas sin marco y luminarias lineales LED de cortesía en los laterales.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Antes -->
+          <div>
+            <span class="font-label-caps text-label-caps uppercase text-mortar-grey mb-4 block">Estado Anterior (Antes)</span>
+            <div class="w-full aspect-[4/3] bg-surface-container overflow-hidden">
+              <img alt="Peldaños de hormigón en fase de nivelación" class="w-full h-full object-cover animate-fade-in" src="antes4.jpg">
+            </div>
+          </div>
+          <!-- Después -->
+          <div>
+            <span class="font-label-caps text-label-caps uppercase text-primary mb-4 block">Resultado Final (Después)</span>
+            <div class="w-full aspect-[4/3] bg-surface-container overflow-hidden">
+              <img alt="Escalera terminada en madera con luces LED empotradas" class="w-full h-full object-cover animate-fade-in" src="despues4.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Back Home Button -->
+  <div class="flex justify-center mt-24 mb-12">
+    <a class="font-label-caps text-label-caps uppercase tracking-widest text-monolith-white bg-primary px-8 py-4 hover:bg-mortar-grey transition-colors duration-300 cursor-pointer active:opacity-70" href="code.html">VOLVER AL INICIO</a>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full text-[#A3A3A3] border-t border-transparent py-10 transition-colors duration-150">
+  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-gutter mb-8">
+      <!-- Col 1: Brand & Logo -->
+      <div class="md:col-span-5 flex flex-col items-start">
+        <div class="mb-4 bg-white p-3.5 inline-flex items-center justify-center rounded-full border-4 border-[#FFB81C] shadow-lg w-24 h-24 overflow-hidden">
+          <img src="logo.png" alt="ECUAPLAC Logo" class="h-16 w-16 object-contain">
+        </div>
+        <p class="font-body-md text-body-md text-[#A3A3A3] leading-relaxed max-w-sm">
+          Especialistas en Pladur, Aislamiento Técnico y Reformas Integrales de Alto Standing con más de 20 años de trayectoria en Baleares.
+        </p>
+      </div>
+      
+      <!-- Col 2: Navegación -->
+      <div class="md:col-span-3">
+        <h4 class="font-label-caps text-label-caps uppercase text-monolith-white tracking-widest mb-6 border-l-2 border-secondary pl-3">Navegación</h4>
+        <ul class="space-y-3 font-body-md">
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="code.html#proyectos">Proyectos</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="code.html#reformas">Reformas</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="code.html#servicios">Servicios</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="code.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      
+      <!-- Col 3: Contacto -->
+      <div class="md:col-span-4">
+        <h4 class="font-label-caps text-label-caps uppercase text-monolith-white tracking-widest mb-6 border-l-2 border-secondary pl-3">Contacto</h4>
+        <ul class="space-y-3 font-body-md">
+          <li>Palma de Mallorca, Islas Baleares</li>
+          <li><a href="tel:+34600000000" class="hover:text-monolith-white transition-colors duration-300">+34 600 000 000</a></li>
+          <li><a href="mailto:proyectos@ecuaplac.com" class="hover:text-monolith-white transition-colors duration-300">proyectos@ecuaplac.com</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Divider -->
+    <div class="border-t border-[#23242A] pt-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <span class="font-caption text-caption text-[#737373]">
+        © 2026 ECUAPLAC. TODOS LOS DERECHOS RESERVADOS.
+      </span>
+      <ul class="flex gap-6 font-label-caps text-caption text-[#737373] tracking-widest">
+        <li><a class="hover:text-monolith-white transition-colors duration-300" href="#">INSTAGRAM</a></li>
+        <li><a class="hover:text-monolith-white transition-colors duration-300" href="#">LINKEDIN</a></li>
+        <li><a class="hover:text-monolith-white transition-colors duration-300" href="#">PINTEREST</a></li>
+        <li><a class="hover:text-monolith-white transition-colors duration-300" href="#">AVISO LEGAL</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- Presupuesto Modal (Functional overlay) -->
+<div id="presupuestoModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-margin-mobile">
+  <div class="bg-surface dark:bg-on-background w-full max-w-3xl border border-primary p-8 md:p-12 animate-fade-in relative max-h-[90vh] overflow-y-auto">
+    <!-- Close Button -->
+    <button class="absolute top-6 right-6 text-primary hover:opacity-75 transition-opacity" onclick="closePresupuestoModal()">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    
+    <!-- Modal Content -->
+    <div id="modalFormContent">
+      <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-2">Solicitud de Presupuesto</span>
+      <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary mb-8 leading-tight">Cuéntanos tu proyecto.</h2>
+      
+      <form onsubmit="submitPresupuesto(event)" class="space-y-8 font-body-md text-body-md text-on-surface-variant">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Nombre Completo</label>
+            <input type="text" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Juan Pérez">
+          </div>
+          <div>
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Correo Electrónico</label>
+            <input type="email" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. juan@correo.com">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-2">Tipo de Proyecto</label>
+            <select class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md">
+              <option value="reforma-integral" class="bg-surface text-primary">Reforma Integral</option>
+              <option value="reforma-cocina" class="bg-surface text-primary">Reforma de Cocina</option>
+              <option value="reforma-bano" class="bg-surface text-primary">Reforma de Baño</option>
+              <option value="arquitectura" class="bg-surface text-primary">Diseño & Arquitectura</option>
+              <option value="otro" class="bg-surface text-primary">Otro</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Superficie aprox. (m²)</label>
+              <input type="number" min="1" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md" placeholder="Ej. 90">
+            </div>
+            <div>
+              <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-2">Presupuesto Estimado</label>
+              <select class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md">
+                <option value="rango-1" class="bg-surface text-primary">&lt; 15.000 €</option>
+                <option value="rango-2" class="bg-surface text-primary">15.000 € - 45.000 €</option>
+                <option value="rango-3" class="bg-surface text-primary">45.000 € - 90.000 €</option>
+                <option value="rango-4" class="bg-surface text-primary">&gt; 90.000 €</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Localización de la Obra</label>
+            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Palma de Mallorca">
+          </div>
+          <div>
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Descripción del Proyecto</label>
+            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Reforma completa de piso con acabados limpios y de alta calidad">
+          </div>
+        </div>
+
+        <div class="flex justify-end pt-6">
+          <button type="submit" class="font-label-caps text-label-caps uppercase tracking-widest text-monolith-white bg-primary px-8 py-4 hover:bg-mortar-grey transition-colors duration-300 cursor-pointer transition-opacity active:opacity-70">ENVIAR SOLICITUD</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success Screen (Hidden by default) -->
+    <div id="modalSuccessContent" class="hidden py-12 text-center flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-6xl text-secondary mb-4">task_alt</span>
+      <h3 class="font-headline-lg text-headline-lg text-primary mb-2">¡Solicitud Recibida!</h3>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto mb-8">
+        Tu solicitud ha sido registrada correctamente. Nuestro equipo de arquitectura se pondrá en contacto contigo a la brevedad para agendar tu primera visita técnica.
+      </p>
+      <button onclick="closePresupuestoModal()" class="font-label-caps text-label-caps uppercase tracking-widest text-primary border border-primary px-8 py-4 hover:bg-primary hover:text-monolith-white transition-colors duration-300">Entendido</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Side Navigation Drawer (Functional) -->
+<div id="mobileMenu" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex justify-end">
+  <div class="bg-surface dark:bg-on-background w-[280px] h-full p-8 flex flex-col justify-between border-l border-primary animate-slide-up relative">
+    <button class="absolute top-6 right-6 text-primary" onclick="toggleMobileMenu()">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    <div class="mt-12 flex flex-col gap-6 font-label-caps text-label-caps uppercase tracking-widest">
+      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="code.html#proyectos">Proyectos</a>
+      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="code.html#reformas">Reformas</a>
+      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="code.html#servicios">Servicios</a>
+      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="code.html#contacto">Contacto</a>
+      <a class="font-bold text-secondary text-[14px]" onclick="openPresupuestoModalFromMobile()">Solicitar Presupuesto</a>
+    </div>
+    <div class="text-xs text-mortar-grey">
+      <div class="flex items-center mb-3">
+        <div class="flex flex-col items-center justify-center font-['Montserrat'] select-none">
+          <div class="text-xl font-black tracking-tight leading-none flex">
+            <span class="text-[#FFB81C]">ECUA</span>
+            <span class="text-[#0033A0]">PL</span>
+            <span class="text-[#D52B1E]">AC</span>
+          </div>
+          <div class="w-[90%] h-[1px] bg-black/20 dark:bg-white/30 my-1"></div>
+          <div class="text-[7.5px] font-bold tracking-[0.25em] text-mortar-grey dark:text-[#AEAEB2] uppercase italic leading-none">
+            REFORMAS INTEGRALES
+          </div>
+        </div>
+      </div>
+      <p>© 2026. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Budget Modal State Controls
+  function openPresupuestoModal() {
+    const modal = document.getElementById('presupuestoModal');
+    const formContent = document.getElementById('modalFormContent');
+    const successContent = document.getElementById('modalSuccessContent');
+    
+    // Reset contents visibility
+    formContent.classList.remove('hidden');
+    successContent.classList.add('hidden');
+    
+    modal.classList.remove('hidden');
+  }
+
+  function closePresupuestoModal() {
+    const modal = document.getElementById('presupuestoModal');
+    modal.classList.add('hidden');
+  }
+
+  function openPresupuestoModalFromMobile() {
+    toggleMobileMenu();
+    openPresupuestoModal();
+  }
+
+  function submitPresupuesto(event) {
+    event.preventDefault();
+    const formContent = document.getElementById('modalFormContent');
+    const successContent = document.getElementById('modalSuccessContent');
+    
+    // Hide form & show beautiful check success page
+    formContent.classList.add('hidden');
+    successContent.classList.remove('hidden');
+  }
+
+  // Mobile drawer controls
+  function toggleMobileMenu() {
+    const drawer = document.getElementById('mobileMenu');
+    if (drawer.classList.contains('hidden')) {
+      drawer.classList.remove('hidden');
+    } else {
+      drawer.classList.add('hidden');
+    }
+  }
+
+  // Scroll listener for dynamic navbar and footer styling
+  document.addEventListener('DOMContentLoaded', () => {
+    const navElement = document.querySelector('nav');
+    const footerElement = document.querySelector('footer');
+
+    function handleScroll() {
+      // Header scroll logic
+      if (window.scrollY > 20) {
+        navElement.classList.add('scrolled');
+      } else {
+        navElement.classList.remove('scrolled');
+      }
+
+      // Footer scroll logic: fade in background & border as user approaches the bottom
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollableHeight > 0) {
+        const threshold = 300; // start transition within 300px of bottom
+        const distanceToBottom = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
+        
+        if (distanceToBottom <= threshold) {
+          const opacity = 1 - (distanceToBottom / threshold);
+          footerElement.style.backgroundColor = `rgba(18, 19, 22, ${opacity})`;
+          footerElement.style.borderColor = `rgba(35, 36, 42, ${opacity})`;
+        } else {
+          footerElement.style.backgroundColor = 'rgba(18, 19, 22, 0)';
+          footerElement.style.borderColor = 'rgba(35, 36, 42, 0)';
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  });
+</script>
+</body></html>
