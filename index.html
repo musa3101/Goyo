@@ -385,6 +385,16 @@
     
   </div>
 </section>
+
+<!-- Separator Section with Animated Text -->
+<div class="py-16 bg-surface-container-lowest border-t border-b border-outline-variant overflow-hidden">
+  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop flex justify-center items-center">
+    <p id="separator-text" class="font-label-caps text-center tracking-[0.25em] text-primary uppercase transition-all duration-[1200ms] ease-out opacity-0 -translate-x-24 text-[14px] font-bold">
+      mas reformas de la casa by G and J
+    </p>
+  </div>
+</div>
+
 <!-- Asymmetrical Grid Gallery -->
 <section id="proyectos" class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto scroll-mt-20">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
@@ -993,17 +1003,29 @@
       // local progress within the current transition (0 to 1)
       const localProg = (progress - (transitionIndex * step)) / step;
       
-      // Set active layers and cross-fade their opacities, setting others to 0
+      // Set active layers with a clean vertical slide-up parallax transition
       layers.forEach((layer, idx) => {
         if (!layer) return;
         if (idx === transitionIndex) {
-          layer.style.opacity = 1 - localProg;
+          // Outgoing layer: drifts upward slightly (parallax) and stays active underneath
+          layer.style.transform = `translateY(${-localProg * 25}%)`;
+          layer.style.opacity = '1';
+          layer.style.zIndex = '1';
         } else if (idx === transitionIndex + 1) {
-          layer.style.opacity = localProg;
+          // Incoming layer: slides up from 100% to 0% on top of the outgoing layer
+          layer.style.transform = `translateY(${(1 - localProg) * 100}%)`;
+          layer.style.opacity = '1';
+          layer.style.zIndex = '2';
+        } else if (idx < transitionIndex) {
+          // Passed layers: completely out of view at the top
+          layer.style.transform = 'translateY(-100%)';
+          layer.style.opacity = '0';
+          layer.style.zIndex = '0';
         } else {
-          if (layer.style.opacity !== '0') {
-            layer.style.opacity = '0';
-          }
+          // Future layers: waiting below the screen
+          layer.style.transform = 'translateY(100%)';
+          layer.style.opacity = '0';
+          layer.style.zIndex = '0';
         }
       });
 
@@ -1095,6 +1117,24 @@
           footerElement.style.borderColor = 'rgba(35, 36, 42, 0)';
         }
       }
+    }
+
+    // Intersection Observer for separator text slide-in animation
+    const sepText = document.getElementById('separator-text');
+    if (sepText) {
+      const sepObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            sepText.classList.remove('opacity-0', '-translate-x-24');
+            sepText.classList.add('opacity-100', 'translate-x-0');
+          } else {
+            // Re-enable animation for repeat triggers on scroll
+            sepText.classList.add('opacity-0', '-translate-x-24');
+            sepText.classList.remove('opacity-100', 'translate-x-0');
+          }
+        });
+      }, { threshold: 0.15 });
+      sepObserver.observe(sepText);
     }
 
     window.addEventListener('scroll', () => {
