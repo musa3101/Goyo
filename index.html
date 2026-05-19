@@ -766,22 +766,22 @@
 </div>
 
 <!-- Minimalist Vertical Scroll Pagination Indicator -->
-<div id="vertical-pagination" class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center gap-6 transition-all duration-300">
-  <a href="#hero-scroll-container" class="pagination-dot group active" data-section="hero-scroll-container" aria-label="Inicio">
+<div id="vertical-pagination" class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center gap-6 transition-all duration-300 dark-bg">
+  <button class="pagination-dot group active" data-slide="0" aria-label="Imagen 1">
     <span class="pagination-tooltip">Inicio</span>
-  </a>
-  <a href="#proyectos" class="pagination-dot group" data-section="proyectos" aria-label="Proyectos">
-    <span class="pagination-tooltip">Proyectos</span>
-  </a>
-  <a href="#reformas" class="pagination-dot group" data-section="reformas" aria-label="Reformas">
-    <span class="pagination-tooltip">Reformas</span>
-  </a>
-  <a href="#servicios" class="pagination-dot group" data-section="servicios" aria-label="Servicios">
-    <span class="pagination-tooltip">Servicios</span>
-  </a>
-  <a href="#contacto" class="pagination-dot group" data-section="contacto" aria-label="Contacto">
-    <span class="pagination-tooltip">Contacto</span>
-  </a>
+  </button>
+  <button class="pagination-dot group" data-slide="1" aria-label="Imagen 2">
+    <span class="pagination-tooltip">Cocina</span>
+  </button>
+  <button class="pagination-dot group" data-slide="2" aria-label="Imagen 3">
+    <span class="pagination-tooltip">Reforma</span>
+  </button>
+  <button class="pagination-dot group" data-slide="3" aria-label="Imagen 4">
+    <span class="pagination-tooltip">Exteriores</span>
+  </button>
+  <button class="pagination-dot group" data-slide="4" aria-label="Imagen 5">
+    <span class="pagination-tooltip">Fachada</span>
+  </button>
 </div>
 
 <script>
@@ -900,6 +900,25 @@
       });
     });
 
+    // Add smooth scrolling to pagination dots representing hero collage slides
+    document.querySelectorAll('#vertical-pagination .pagination-dot').forEach(dot => {
+      dot.addEventListener('click', function () {
+        const slideIndex = parseInt(this.getAttribute('data-slide'));
+        const heroContainer = document.getElementById('hero-scroll-container');
+        if (heroContainer) {
+          const heroTop = heroContainer.offsetTop;
+          const containerHeight = heroContainer.getBoundingClientRect().height;
+          const viewportHeight = window.innerHeight;
+          const totalScrollable = containerHeight - viewportHeight;
+          const targetScroll = heroTop + (slideIndex * (totalScrollable / 4));
+          window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
     // IntersectionObserver to watch sections and update nav links active state
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -921,26 +940,6 @@
               link.classList.remove('active-nav');
             }
           });
-
-          // Sync vertical pagination dots active state
-          const paginationDots = document.querySelectorAll('.pagination-dot');
-          const paginationContainer = document.getElementById('vertical-pagination');
-          if (paginationDots.length > 0) {
-            paginationDots.forEach(dot => {
-              if (dot.getAttribute('href') === `#${currentId}`) {
-                dot.classList.add('active');
-              } else {
-                dot.classList.remove('active');
-              }
-            });
-          }
-          if (paginationContainer) {
-            if (currentId === 'hero-scroll-container') {
-              paginationContainer.classList.add('dark-bg');
-            } else {
-              paginationContainer.classList.remove('dark-bg');
-            }
-          }
         }
       });
     }, observerOptions);
@@ -1008,6 +1007,19 @@
         }
       });
 
+      // Update right-side vertical pagination dot active states
+      const paginationDots = document.querySelectorAll('#vertical-pagination .pagination-dot');
+      if (paginationDots.length === 5) {
+        const activeIdx = localProg < 0.5 ? transitionIndex : transitionIndex + 1;
+        paginationDots.forEach((dot, idx) => {
+          if (idx === activeIdx) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
       // Optimize text overlay cross-fading
       texts.forEach((text, idx) => {
         if (!text) return;
@@ -1054,6 +1066,18 @@
         navElement.classList.add('scrolled');
       } else {
         navElement.classList.remove('scrolled');
+      }
+
+      // Hide right-side pagination dots past the hero section
+      const paginationContainer = document.getElementById('vertical-pagination');
+      if (heroContainer && paginationContainer) {
+        const rect = heroContainer.getBoundingClientRect();
+        // If the bottom of the hero is above the middle of the screen, fade it out
+        if (rect.bottom < window.innerHeight / 2) {
+          paginationContainer.classList.add('opacity-0', 'pointer-events-none');
+        } else {
+          paginationContainer.classList.remove('opacity-0', 'pointer-events-none');
+        }
       }
 
       // Footer scroll logic: fade in background & border as user approaches the bottom
