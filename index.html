@@ -33,14 +33,10 @@
         /* Dynamic Navigation bar & links */
         nav {
             transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
-            background-color: rgba(10, 10, 10, 0.75) !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
+            background-color: #000000 !important;
         }
         nav.scrolled {
-            background-color: rgba(10, 10, 10, 0.85) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
+            background-color: #000000 !important;
             border-color: rgba(28, 28, 30, 0.8) !important;
         }
         .nav-link {
@@ -294,7 +290,7 @@
 <nav class="fixed top-0 w-full border-b border-[#1C1C1E] z-50">
 <div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <!-- Brand -->
-<a class="flex items-center" href="#">
+<a class="flex items-center" href="index.html">
   <div class="flex flex-col items-center justify-center font-['Montserrat'] select-none">
     <div class="text-lg md:text-xl font-black tracking-tight leading-none flex">
       <span class="text-[#F1A214]">EC</span>
@@ -717,7 +713,7 @@
 <div id="mobileMenu" class="fixed inset-0 z-50 bg-surface dark:bg-on-background invisible opacity-0 transition-all duration-300 ease-in-out flex flex-col justify-between p-8">
   <!-- Top Bar inside Mobile Menu -->
   <div class="flex justify-between items-center h-20">
-    <a class="flex items-center" href="#" onclick="toggleMobileMenu()">
+    <a class="flex items-center" href="index.html" onclick="toggleMobileMenu()">
       <div class="flex flex-col items-center justify-center font-['Montserrat'] select-none">
         <div class="text-2xl font-black tracking-tight leading-none flex">
           <span class="text-[#F1A214]">EC</span>
