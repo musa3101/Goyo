@@ -69,6 +69,73 @@
             padding-bottom: 4px;
             opacity: 1 !important;
         }
+
+        /* Minimalist Vertical Scroll Pagination Dots */
+        .pagination-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: rgba(0, 0, 0, 0.3);
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          cursor: pointer;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .pagination-dot:hover {
+          transform: scale(1.25);
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+        .pagination-dot.active {
+          width: 14px;
+          height: 14px;
+          background-color: rgba(40, 40, 40, 0.9);
+          border: 2px solid rgba(255, 255, 255, 0.9);
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+        }
+        .pagination-tooltip {
+          position: absolute;
+          right: 24px;
+          opacity: 0;
+          transform: translateX(10px);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          background-color: rgba(20, 20, 20, 0.9);
+          color: #FFFFFF;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          padding: 4px 8px;
+          border-radius: 2px;
+          pointer-events: none;
+          white-space: nowrap;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .pagination-dot:hover .pagination-tooltip {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        
+        /* Dark theme styling for dots (e.g. over the black Hero section) */
+        .dark-bg .pagination-dot {
+          background-color: rgba(255, 255, 255, 0.4);
+          border-color: rgba(255, 255, 255, 0.1);
+        }
+        .dark-bg .pagination-dot:hover {
+          background-color: rgba(255, 255, 255, 0.85);
+        }
+        .dark-bg .pagination-dot.active {
+          background-color: rgba(255, 255, 255, 0.95);
+          border-color: rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+        }
+        .dark-bg .pagination-tooltip {
+          background-color: rgba(255, 255, 255, 0.95);
+          color: #121212;
+        }
     </style>
 <script id="tailwind-config">
       tailwind.config = {
@@ -279,11 +346,11 @@
     <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent z-10"></div>
     
     <!-- Hero Text Overlays (Scrollytelling Content) -->
-    <div class="absolute inset-0 z-20 flex items-end pb-gutter px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+    <div class="absolute inset-x-0 bottom-0 z-20 h-full max-w-5xl mx-auto pointer-events-none">
       
       <!-- Stage 1 Content -->
-      <div id="hero-text-1" class="w-full transition-all duration-500 transform translate-y-0 opacity-100">
-        <h1 class="font-headline-xl text-headline-xl md:text-[72px] leading-tight text-monolith-white max-w-3xl">
+      <div id="hero-text-1" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-0 opacity-100 pointer-events-auto">
+        <h1 class="font-headline-xl text-headline-xl md:text-[56px] lg:text-[72px] leading-tight text-monolith-white max-w-3xl">
           Arquitectura de<br>espacios limpios.
         </h1>
         <p class="font-body-lg text-body-lg text-monolith-white/80 mt-unit max-w-xl">
@@ -292,8 +359,8 @@
       </div>
 
       <!-- Stage 2 Content -->
-      <div id="hero-text-2" class="w-full absolute pb-gutter transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
-        <h1 class="font-headline-xl text-headline-xl md:text-[72px] leading-tight text-monolith-white max-w-3xl">
+      <div id="hero-text-2" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
+        <h1 class="font-headline-xl text-headline-xl md:text-[56px] lg:text-[72px] leading-tight text-monolith-white max-w-3xl">
           Ingeniería técnica<br>invisible.
         </h1>
         <p class="font-body-lg text-body-lg text-monolith-white/80 mt-unit max-w-xl">
@@ -302,8 +369,8 @@
       </div>
 
       <!-- Stage 3 Content -->
-      <div id="hero-text-3" class="w-full absolute pb-gutter transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
-        <h1 class="font-headline-xl text-headline-xl md:text-[72px] leading-tight text-monolith-white max-w-3xl">
+      <div id="hero-text-3" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
+        <h1 class="font-headline-xl text-headline-xl md:text-[56px] lg:text-[72px] leading-tight text-monolith-white max-w-3xl">
           El resultado que<br>siempre imaginaste.
         </h1>
         <p class="font-body-lg text-body-lg text-monolith-white/80 mt-unit max-w-xl">
@@ -695,6 +762,25 @@
   </div>
 </div>
 
+<!-- Minimalist Vertical Scroll Pagination Indicator -->
+<div id="vertical-pagination" class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center gap-6 transition-all duration-300">
+  <a href="#hero-scroll-container" class="pagination-dot group active" data-section="hero-scroll-container" aria-label="Inicio">
+    <span class="pagination-tooltip">Inicio</span>
+  </a>
+  <a href="#proyectos" class="pagination-dot group" data-section="proyectos" aria-label="Proyectos">
+    <span class="pagination-tooltip">Proyectos</span>
+  </a>
+  <a href="#reformas" class="pagination-dot group" data-section="reformas" aria-label="Reformas">
+    <span class="pagination-tooltip">Reformas</span>
+  </a>
+  <a href="#servicios" class="pagination-dot group" data-section="servicios" aria-label="Servicios">
+    <span class="pagination-tooltip">Servicios</span>
+  </a>
+  <a href="#contacto" class="pagination-dot group" data-section="contacto" aria-label="Contacto">
+    <span class="pagination-tooltip">Contacto</span>
+  </a>
+</div>
+
 <script>
   // Mobile Menu state toggle
   function toggleMobileMenu() {
@@ -832,6 +918,26 @@
               link.classList.remove('active-nav');
             }
           });
+
+          // Sync vertical pagination dots active state
+          const paginationDots = document.querySelectorAll('.pagination-dot');
+          const paginationContainer = document.getElementById('vertical-pagination');
+          if (paginationDots.length > 0) {
+            paginationDots.forEach(dot => {
+              if (dot.getAttribute('href') === `#${currentId}`) {
+                dot.classList.add('active');
+              } else {
+                dot.classList.remove('active');
+              }
+            });
+          }
+          if (paginationContainer) {
+            if (currentId === 'hero-scroll-container') {
+              paginationContainer.classList.add('dark-bg');
+            } else {
+              paginationContainer.classList.remove('dark-bg');
+            }
+          }
         }
       });
     }, observerOptions);
