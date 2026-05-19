@@ -326,23 +326,23 @@
   <div id="hero-sticky-element" class="sticky top-[72px] w-full h-[calc(100vh-72px)] overflow-hidden">
     <!-- Image Layers -->
     <!-- Image 1: Villa Minimalista (Actual) -->
-    <div id="hero-layer-1" class="absolute inset-0 z-0 transition-opacity duration-500 ease-out opacity-100">
+    <div id="hero-layer-1" class="absolute inset-0 z-0 opacity-100">
       <img alt="Villa minimalista de lujo en Palma de Mallorca" class="w-full h-full object-cover object-center" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1920&auto=format&fit=crop">
     </div>
     <!-- Image 2: Cocina de diseño con vistas al mar (Usuario) -->
-    <div id="hero-layer-2" class="absolute inset-0 z-0 transition-opacity duration-500 ease-out opacity-0">
+    <div id="hero-layer-2" class="absolute inset-0 z-0 opacity-0">
       <img alt="Cocina de diseño con vistas al mar Ecuaplac" class="w-full h-full object-cover object-center" loading="lazy" src="hero2.jpg">
     </div>
     <!-- Image 3: Resultado Final Reforma Integral (Nueva fotorrealista) -->
-    <div id="hero-layer-3" class="absolute inset-0 z-0 transition-opacity duration-500 ease-out opacity-0">
+    <div id="hero-layer-3" class="absolute inset-0 z-0 opacity-0">
       <img alt="Resultado Final de Reforma Integral Ecuaplac" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1920&auto=format&fit=crop">
     </div>
     <!-- Image 4: Villa minimalista moderna con caballo en césped (Usuario) -->
-    <div id="hero-layer-4" class="absolute inset-0 z-0 transition-opacity duration-500 ease-out opacity-0">
+    <div id="hero-layer-4" class="absolute inset-0 z-0 opacity-0">
       <img alt="Villa minimalista con paisaje natural Ecuaplac" class="w-full h-full object-cover object-center" loading="lazy" src="hero4.jpg">
     </div>
     <!-- Image 5: Fachada de casa minimalista con arboleda y camino (Usuario) -->
-    <div id="hero-layer-5" class="absolute inset-0 z-0 transition-opacity duration-500 ease-out opacity-0">
+    <div id="hero-layer-5" class="absolute inset-0 z-0 opacity-0">
       <img alt="Fachada de casa de lujo y exteriores Ecuaplac" class="w-full h-full object-cover object-center" loading="lazy" src="hero5.jpg">
     </div>
     
@@ -994,26 +994,32 @@
       // local progress within the current transition (0 to 1)
       const localProg = (progress - (transitionIndex * step)) / step;
       
-      // Reset all layers and texts to hidden
-      layers.forEach((layer) => {
-        if (layer) layer.style.opacity = 0;
+      // Set active layers and cross-fade their opacities, setting others to 0
+      layers.forEach((layer, idx) => {
+        if (!layer) return;
+        if (idx === transitionIndex) {
+          layer.style.opacity = 1 - localProg;
+        } else if (idx === transitionIndex + 1) {
+          layer.style.opacity = localProg;
+        } else {
+          if (layer.style.opacity !== '0') {
+            layer.style.opacity = '0';
+          }
+        }
       });
-      texts.forEach((text) => {
-        if (text) {
-          text.style.opacity = 0;
-          text.style.transform = 'translateY(16px)';
-          text.style.pointerEvents = 'none';
+
+      // Optimize text overlay cross-fading
+      texts.forEach((text, idx) => {
+        if (!text) return;
+        if (idx !== transitionIndex && idx !== transitionIndex + 1) {
+          if (text.style.opacity !== '0') {
+            text.style.opacity = '0';
+            text.style.transform = 'translateY(16px)';
+            text.style.pointerEvents = 'none';
+          }
         }
       });
       
-      // Determine active layers and cross-fade their opacities
-      const fromLayer = layers[transitionIndex];
-      const toLayer = layers[transitionIndex + 1];
-      
-      if (fromLayer) fromLayer.style.opacity = 1 - localProg;
-      if (toLayer) toLayer.style.opacity = localProg;
-      
-      // Determine active texts and cross-fade their opacities
       const fromText = texts[transitionIndex];
       const toText = texts[transitionIndex + 1];
       
@@ -1023,11 +1029,21 @@
           fromText.style.transform = `translateY(${-localProg * 16}px)`;
           fromText.style.pointerEvents = 'auto';
         }
+        if (toText && toText.style.opacity !== '0') {
+          toText.style.opacity = '0';
+          toText.style.transform = 'translateY(16px)';
+          toText.style.pointerEvents = 'none';
+        }
       } else {
         if (toText) {
           toText.style.opacity = (localProg - 0.5) * 2;
           toText.style.transform = `translateY(${(1 - localProg) * 32}px)`;
           toText.style.pointerEvents = 'auto';
+        }
+        if (fromText && fromText.style.opacity !== '0') {
+          fromText.style.opacity = '0';
+          fromText.style.transform = 'translateY(-16px)';
+          fromText.style.pointerEvents = 'none';
         }
       }
     }
