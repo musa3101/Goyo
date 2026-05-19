@@ -28,15 +28,19 @@
           animation: slideUp 0.3s ease forwards;
         }
         .scroll-mt-20 {
-          scroll-margin-top: 5rem;
+          scroll-margin-top: 72px;
         }
         /* Dynamic Navigation bar & links */
         nav {
             transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+            background-color: rgba(10, 10, 10, 0.75) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
         }
         nav.scrolled {
             background-color: rgba(10, 10, 10, 0.85) !important;
-            backdrop-filter: blur(12px) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
             border-color: rgba(28, 28, 30, 0.8) !important;
         }
         .nav-link {
@@ -218,10 +222,10 @@
       }
     </script>
 </head>
-<body class="bg-background text-on-background font-body-md antialiased pt-20">
+<body class="bg-background text-on-background font-body-md antialiased pt-[72px]">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full bg-[#0A0A0A] border-b border-[#1C1C1E] z-50">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<nav class="fixed top-0 w-full border-b border-[#1C1C1E] z-50">
+<div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <!-- Brand -->
 <a class="flex items-center" href="#">
   <div class="flex flex-col items-center justify-center font-['Montserrat'] select-none">
@@ -238,7 +242,7 @@
 </a>
 <!-- Desktop Nav -->
 <ul class="hidden lg:flex items-center gap-8 uppercase font-semibold text-[13px] tracking-[0.18em]">
-<li><a id="nav-proyectos" class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="#proyectos">PROYECTOS</a></li>
+<li><a id="nav-proyectos" class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="#">INICIO</a></li>
 <li><a id="nav-reformas" class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="#reformas">REFORMAS</a></li>
 <li><a id="nav-servicios" class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="#servicios">SERVICIOS</a></li>
 <li><a id="nav-contacto" class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="#contacto">CONTACTO</a></li>
@@ -254,21 +258,62 @@
 </div>
 </nav>
 <main>
-<!-- Hero Section -->
-<section class="w-full h-[calc(100vh-80px)] relative bg-surface-dim overflow-hidden flex items-end">
-<div class="absolute inset-0 z-0">
-<img alt="Villa minimalista de lujo en Palma de Mallorca frente al mar Mediterráneo" class="w-full h-full object-cover object-center animate-fade-in" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1920&auto=format&fit=crop">
-</div>
-<!-- Subtle gradient to ensure text readability if needed, though minimalist prefers none, a slight burn at bottom helps -->
-<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
-<div class="relative z-20 w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto pb-gutter">
-<h1 class="font-headline-xl text-headline-xl md:text-[72px] leading-tight text-monolith-white max-w-3xl">
-                    Arquitectura de<br>espacios limpios.
-                </h1>
-<p class="font-body-lg text-body-lg text-monolith-white/80 mt-unit max-w-xl">
-                    Reformas integrales que redefinen la luz y la estructura.
-                </p>
-</div>
+<!-- Pinned Hero Section with Scroll-Triggered Collage Animation -->
+<section id="hero-scroll-container" class="relative w-full h-[300vh] bg-black">
+  <div id="hero-sticky-element" class="sticky top-[72px] w-full h-[calc(100vh-72px)] overflow-hidden">
+    <!-- Image Layers -->
+    <!-- Image 1: Villa Minimalista (Actual) -->
+    <div id="hero-layer-1" class="absolute inset-0 z-0 transition-opacity duration-500 ease-out opacity-100">
+      <img alt="Villa minimalista de lujo en Palma de Mallorca" class="w-full h-full object-cover object-center" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1920&auto=format&fit=crop">
+    </div>
+    <!-- Image 2: Aislamiento Técnico y Pladur (Nueva fotorrealista) -->
+    <div id="hero-layer-2" class="absolute inset-0 z-0 transition-opacity duration-500 ease-out opacity-0">
+      <img alt="Aislamiento Técnico y Pladur Ecuaplac" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1920&auto=format&fit=crop">
+    </div>
+    <!-- Image 3: Resultado Final Reforma Integral (Nueva fotorrealista) -->
+    <div id="hero-layer-3" class="absolute inset-0 z-0 transition-opacity duration-500 ease-out opacity-0">
+      <img alt="Resultado Final de Reforma Integral Ecuaplac" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1920&auto=format&fit=crop">
+    </div>
+    
+    <!-- Subtle gradient to ensure text readability -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent z-10"></div>
+    
+    <!-- Hero Text Overlays (Scrollytelling Content) -->
+    <div class="absolute inset-0 z-20 flex items-end pb-gutter px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+      
+      <!-- Stage 1 Content -->
+      <div id="hero-text-1" class="w-full transition-all duration-500 transform translate-y-0 opacity-100">
+        <h1 class="font-headline-xl text-headline-xl md:text-[72px] leading-tight text-monolith-white max-w-3xl">
+          Arquitectura de<br>espacios limpios.
+        </h1>
+        <p class="font-body-lg text-body-lg text-monolith-white/80 mt-unit max-w-xl">
+          Reformas integrales que redefinen la luz y la estructura.
+        </p>
+      </div>
+
+      <!-- Stage 2 Content -->
+      <div id="hero-text-2" class="w-full absolute pb-gutter transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
+        <h1 class="font-headline-xl text-headline-xl md:text-[72px] leading-tight text-monolith-white max-w-3xl">
+          Ingeniería técnica<br>invisible.
+        </h1>
+        <p class="font-body-lg text-body-lg text-monolith-white/80 mt-unit max-w-xl">
+          Aislamiento de altas prestaciones y sistemas de Pladur de precisión milimétrica.
+        </p>
+      </div>
+
+      <!-- Stage 3 Content -->
+      <div id="hero-text-3" class="w-full absolute pb-gutter transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
+        <h1 class="font-headline-xl text-headline-xl md:text-[72px] leading-tight text-monolith-white max-w-3xl">
+          El resultado que<br>siempre imaginaste.
+        </h1>
+        <p class="font-body-lg text-body-lg text-monolith-white/80 mt-unit max-w-xl">
+          Acabados premium en microcemento pulido, carpintería integrada y confort absoluto.
+        </p>
+      </div>
+      
+    </div>
+    
+  </div>
 </section>
 <!-- Asymmetrical Grid Gallery -->
 <section id="proyectos" class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto scroll-mt-20">
@@ -469,7 +514,7 @@
 
 <!-- Footer -->
 <footer class="w-full text-[#A3A3A3] border-t border-transparent py-10 transition-colors duration-150">
-  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+  <div class="max-w-5xl mx-auto px-margin-mobile md:px-margin-desktop">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-gutter mb-8">
       <!-- Col 1: Brand & Logo -->
       <div class="md:col-span-5 flex flex-col items-start">
@@ -485,7 +530,7 @@
       <div class="md:col-span-3">
         <h4 class="font-label-caps text-label-caps uppercase text-monolith-white tracking-widest mb-6 border-l-2 border-secondary pl-3">Navegación</h4>
         <ul class="space-y-3 font-body-md">
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="code.html#proyectos">Proyectos</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="#">Inicio</a></li>
           <li><a class="hover:text-monolith-white transition-colors duration-300" href="code.html#reformas">Reformas</a></li>
           <li><a class="hover:text-monolith-white transition-colors duration-300" href="code.html#servicios">Servicios</a></li>
           <li><a class="hover:text-monolith-white transition-colors duration-300" href="code.html#contacto">Contacto</a></li>
@@ -632,7 +677,7 @@
   
   <!-- Navigation Links -->
   <ul class="flex flex-col gap-8 font-headline-xl text-3xl uppercase tracking-wider text-center mt-12">
-    <li><a class="text-primary dark:text-monolith-white hover:text-secondary block py-2 transition-colors" href="#proyectos" onclick="toggleMobileMenu()">PROYECTOS</a></li>
+    <li><a class="text-primary dark:text-monolith-white hover:text-secondary block py-2 transition-colors" href="#" onclick="toggleMobileMenu()">INICIO</a></li>
     <li><a class="text-primary dark:text-monolith-white hover:text-secondary block py-2 transition-colors" href="#reformas" onclick="toggleMobileMenu()">REFORMAS</a></li>
     <li><a class="text-primary dark:text-monolith-white hover:text-secondary block py-2 transition-colors" href="#servicios" onclick="toggleMobileMenu()">SERVICIOS</a></li>
     <li><a class="text-primary dark:text-monolith-white hover:text-secondary block py-2 transition-colors" href="#contacto" onclick="toggleMobileMenu()">CONTACTO</a></li>
@@ -797,6 +842,115 @@
     const navElement = document.querySelector('nav');
     const footerElement = document.querySelector('footer');
 
+    // Scrollytelling Pinned Hero Logic
+    const heroContainer = document.getElementById('hero-scroll-container');
+    const layer1 = document.getElementById('hero-layer-1');
+    const layer2 = document.getElementById('hero-layer-2');
+    const layer3 = document.getElementById('hero-layer-3');
+
+    const text1 = document.getElementById('hero-text-1');
+    const text2 = document.getElementById('hero-text-2');
+    const text3 = document.getElementById('hero-text-3');
+
+    function handleHeroScroll() {
+      if (!heroContainer) return;
+      
+      const rect = heroContainer.getBoundingClientRect();
+      const containerHeight = rect.height;
+      const viewportHeight = window.innerHeight;
+      
+      // Calculate scroll progress (0 to 1) for the entire container scrollable area
+      const totalScrollable = containerHeight - viewportHeight;
+      let progress = -rect.top / totalScrollable;
+      progress = Math.min(Math.max(progress, 0), 1);
+      
+      // Scrollytelling logic based on progress percentage:
+      // Stage 1: 0% - 33% (progress: 0.0 to 0.33)
+      // Stage 2: 34% - 66% (progress: 0.34 to 0.66)
+      // Stage 3: 67% - 100% (progress: 0.67 to 1.0)
+      
+      if (progress <= 0.33) {
+        // Stage 1 active
+        layer1.style.opacity = 1;
+        layer2.style.opacity = 0;
+        layer3.style.opacity = 0;
+        
+        text1.style.opacity = 1;
+        text1.style.transform = 'translateY(0)';
+        text1.style.pointerEvents = 'auto';
+        
+        text2.style.opacity = 0;
+        text2.style.transform = 'translateY(16px)';
+        text2.style.pointerEvents = 'none';
+        
+        text3.style.opacity = 0;
+        text3.style.transform = 'translateY(16px)';
+        text3.style.pointerEvents = 'none';
+        
+      } else if (progress > 0.33 && progress <= 0.66) {
+        // Stage 2 active (Transitioning between 1 and 2)
+        const localProg = (progress - 0.33) / 0.33; // 0 to 1
+        
+        layer1.style.opacity = 1 - localProg;
+        layer2.style.opacity = localProg;
+        layer3.style.opacity = 0;
+        
+        // Text cross-fade
+        if (localProg < 0.5) {
+          text1.style.opacity = 1 - (localProg * 2);
+          text1.style.transform = `translateY(${-localProg * 16}px)`;
+          text1.style.pointerEvents = 'none';
+          
+          text2.style.opacity = 0;
+          text2.style.transform = 'translateY(16px)';
+          text2.style.pointerEvents = 'none';
+        } else {
+          text1.style.opacity = 0;
+          text1.style.transform = 'translateY(-16px)';
+          text1.style.pointerEvents = 'none';
+          
+          text2.style.opacity = (localProg - 0.5) * 2;
+          text2.style.transform = `translateY(${(1 - localProg) * 32}px)`;
+          text2.style.pointerEvents = 'auto';
+        }
+        
+        text3.style.opacity = 0;
+        text3.style.transform = 'translateY(16px)';
+        text3.style.pointerEvents = 'none';
+        
+      } else {
+        // Stage 3 active (Transitioning between 2 and 3)
+        const localProg = (progress - 0.66) / 0.34; // 0 to 1
+        
+        layer1.style.opacity = 0;
+        layer2.style.opacity = 1 - localProg;
+        layer3.style.opacity = localProg;
+        
+        text1.style.opacity = 0;
+        text1.style.transform = 'translateY(-16px)';
+        text1.style.pointerEvents = 'none';
+        
+        // Text cross-fade
+        if (localProg < 0.5) {
+          text2.style.opacity = 1 - (localProg * 2);
+          text2.style.transform = `translateY(${-localProg * 16}px)`;
+          text2.style.pointerEvents = 'none';
+          
+          text3.style.opacity = 0;
+          text3.style.transform = 'translateY(16px)';
+          text3.style.pointerEvents = 'none';
+        } else {
+          text2.style.opacity = 0;
+          text2.style.transform = 'translateY(-16px)';
+          text2.style.pointerEvents = 'none';
+          
+          text3.style.opacity = (localProg - 0.5) * 2;
+          text3.style.transform = `translateY(${(1 - localProg) * 32}px)`;
+          text3.style.pointerEvents = 'auto';
+        }
+      }
+    }
+
     function handleScroll() {
       // Header scroll logic
       if (window.scrollY > 20) {
@@ -822,8 +976,12 @@
       }
     }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', () => {
+      handleScroll();
+      handleHeroScroll();
+    });
     handleScroll();
+    handleHeroScroll();
   });
 </script>
 </body></html>
