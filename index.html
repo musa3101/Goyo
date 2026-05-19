@@ -322,7 +322,7 @@
 </nav>
 <main>
 <!-- Pinned Hero Section with Scroll-Triggered Collage Animation -->
-<section id="hero-scroll-container" class="relative w-full h-[500vh] bg-black">
+<section id="hero-scroll-container" class="relative w-full h-[600vh] bg-black">
   <div id="hero-sticky-element" class="sticky top-[72px] w-full h-[calc(100vh-72px)] overflow-hidden">
     <!-- Image Layers -->
     <!-- Image 1: Villa Minimalista (Actual) -->
@@ -333,17 +333,17 @@
     <div id="hero-layer-2" class="absolute inset-0 z-0 opacity-0">
       <img alt="Cocina de alta gama a medida" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1920&auto=format&fit=crop">
     </div>
-    <!-- Image 3: Resultado Final Reforma Integral (Nueva fotorrealista) -->
+    <!-- Image 3: Fachada de piedra y arquitectura mediterránea -->
     <div id="hero-layer-3" class="absolute inset-0 z-0 opacity-0">
-      <img alt="Resultado Final de Reforma Integral Ecuaplac" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1920&auto=format&fit=crop">
+      <img alt="Fachada de piedra y arquitectura mediterránea" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1920&auto=format&fit=crop">
     </div>
     <!-- Image 4: Terraza de lujo con vistas al mar mediterráneo -->
     <div id="hero-layer-4" class="absolute inset-0 z-0 opacity-0">
       <img alt="Terraza de lujo con vistas al mar mediterráneo" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1920&auto=format&fit=crop">
     </div>
-    <!-- Image 5: Fachada de piedra y arquitectura mediterránea -->
+    <!-- Image 5: Resultado Final Reforma Integral (Nueva fotorrealista) -->
     <div id="hero-layer-5" class="absolute inset-0 z-0 opacity-0">
-      <img alt="Fachada de piedra y arquitectura mediterránea" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1920&auto=format&fit=crop">
+      <img alt="Resultado Final de Reforma Integral Ecuaplac" class="w-full h-full object-cover object-center" loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1920&auto=format&fit=crop">
     </div>
     
     <!-- Subtle gradient to ensure text readability -->
@@ -365,8 +365,14 @@
       <!-- Stage 2 Content (Clean view) -->
       <div id="hero-text-2" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none"></div>
 
-      <!-- Stage 3 Content -->
-      <div id="hero-text-3" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
+      <!-- Stage 3 Content (Clean view) -->
+      <div id="hero-text-3" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none"></div>
+
+      <!-- Stage 4 Content (Clean view) -->
+      <div id="hero-text-4" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none"></div>
+
+      <!-- Stage 5 Content -->
+      <div id="hero-text-5" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
         <h1 class="font-headline-xl text-headline-xl md:text-[56px] lg:text-[72px] leading-tight text-monolith-white max-w-3xl">
           El resultado que<br>siempre imaginaste.
         </h1>
@@ -374,12 +380,6 @@
           Acabados premium en microcemento pulido, carpintería integrada y confort absoluto.
         </p>
       </div>
-
-      <!-- Stage 4 Content (Clean view) -->
-      <div id="hero-text-4" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none"></div>
-
-      <!-- Stage 5 Content (Clean view) -->
-      <div id="hero-text-5" class="absolute bottom-12 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none"></div>
       
     </div>
     
@@ -920,7 +920,8 @@
           const containerHeight = heroContainer.getBoundingClientRect().height;
           const viewportHeight = window.innerHeight;
           const totalScrollable = containerHeight - viewportHeight;
-          const targetScroll = heroTop + (slideIndex * (totalScrollable / 4));
+          // Map index 0..4 to progress 0..0.80 of total scrollable height
+          const targetScroll = heroTop + (slideIndex * 0.2 * totalScrollable);
           window.scrollTo({
             top: targetScroll,
             behavior: 'smooth'
@@ -990,18 +991,23 @@
       let progress = -rect.top / totalScrollable;
       progress = Math.min(Math.max(progress, 0), 1);
       
+      // We want the transitions between the 5 images to finish at 80% of scroll progress.
+      // The remaining 20% acts as a "mini descanso" (static pause) on the 5th image.
+      let transitionProgress = progress / 0.8;
+      transitionProgress = Math.min(Math.max(transitionProgress, 0), 1);
+      
       const numStages = 5;
       const numTransitions = numStages - 1;
       const step = 1 / numTransitions; // 0.25
       
-      // Find current transition index
-      let transitionIndex = Math.floor(progress / step);
+      // Find current transition index based on transitionProgress (0 to 1)
+      let transitionIndex = Math.floor(transitionProgress / step);
       if (transitionIndex >= numTransitions) {
         transitionIndex = numTransitions - 1;
       }
       
       // local progress within the current transition (0 to 1)
-      const localProg = (progress - (transitionIndex * step)) / step;
+      const localProg = (transitionProgress - (transitionIndex * step)) / step;
       
       // Set active layers with a clean vertical slide-up parallax transition
       layers.forEach((layer, idx) => {
