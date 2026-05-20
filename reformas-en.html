@@ -202,7 +202,7 @@
 <nav class="fixed top-0 w-full border-b border-[#1C1C1E] z-50">
 <div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <!-- Brand -->
-<a class="flex items-center" href="index.html">
+<a class="flex items-center" href="index-en.html">
   <div class="flex flex-col items-center justify-center font-['Montserrat'] select-none">
     <div class="text-lg md:text-xl font-black tracking-tight leading-none flex">
       <span class="text-[#F1A214]">EC</span>
@@ -217,10 +217,10 @@
 </a>
 <!-- Desktop Nav -->
 <ul class="hidden lg:flex items-center gap-8 uppercase font-semibold text-[13px] tracking-[0.18em]">
-<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="index.html">HOME</a></li>
-<li><a class="nav-link active-nav pb-1 transition-all duration-300 cursor-pointer" href="index.html#reformas">REMODELS</a></li>
-<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="index.html#servicios">SERVICES</a></li>
-<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="index.html#contacto">CONTACT</a></li>
+<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="index-en.html">HOME</a></li>
+<li><a class="nav-link active-nav pb-1 transition-all duration-300 cursor-pointer" href="index-en.html#reformas">REMODELS</a></li>
+<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="index-en.html#servicios">SERVICES</a></li>
+<li><a class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="index-en.html#contacto">CONTACT</a></li>
 <li class="flex items-center gap-3 border-l border-outline-variant pl-8 ml-2">
 <a href="reformas.html" class="text-mortar-grey hover:text-primary transition-colors cursor-pointer opacity-50 hover:opacity-100">ES</a>
 <span class="text-primary cursor-default opacity-100 transition-opacity">EN</span>
@@ -446,7 +446,7 @@
 
   <!-- Back Home Button -->
   <div class="flex justify-center mt-24 mb-12">
-    <a class="font-label-caps text-label-caps uppercase tracking-widest text-monolith-white bg-primary px-8 py-4 hover:bg-mortar-grey transition-colors duration-300 cursor-pointer active:opacity-70" href="index.html">BACK TO HOME</a>
+    <a class="font-label-caps text-label-caps uppercase tracking-widest text-monolith-white bg-primary px-8 py-4 hover:bg-mortar-grey transition-colors duration-300 cursor-pointer active:opacity-70" href="index-en.html">BACK TO HOME</a>
   </div>
 </main>
 
@@ -468,10 +468,10 @@
       <div class="md:col-span-3">
         <h4 class="font-label-caps text-label-caps uppercase text-monolith-white tracking-widest mb-6 border-l-2 border-secondary pl-3">Navigation</h4>
         <ul class="space-y-3 font-body-md">
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index.html">Home</a></li>
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index.html#reformas">Remodels</a></li>
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index.html#servicios">Services</a></li>
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index.html#contacto">Contact</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index-en.html">Home</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index-en.html#reformas">Remodels</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index-en.html#servicios">Services</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index-en.html#contacto">Contact</a></li>
         </ul>
       </div>
       
@@ -518,11 +518,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Full Name</label>
-            <input type="text" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Juan Pérez">
+            <input type="text" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="E.g. John Doe">
           </div>
           <div>
             <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Email Address</label>
-            <input type="email" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. juan@correo.com">
+            <input type="email" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="E.g. john@email.com">
           </div>
         </div>
 
@@ -530,7 +530,7 @@
           <div>
             <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-2">Project Type</label>
             <select class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md">
-              <option value="reforma-integral" class="bg-surface text-primary">Reforma Integral</option>
+              <option value="reforma-integral" class="bg-surface text-primary">Complete Remodel</option>
               <option value="reforma-cocina" class="bg-surface text-primary">Kitchen Remodel</option>
               <option value="reforma-bano" class="bg-surface text-primary">Bathroom Remodel</option>
               <option value="arquitectura" class="bg-surface text-primary">Design & Architecture</option>
@@ -540,7 +540,7 @@
           <div class="grid grid-cols-2 gap-4">
             <div>
               <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Approx. Surface Area (m²)</label>
-              <input type="number" min="1" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md" placeholder="Ej. 90">
+              <input type="number" min="1" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md" placeholder="E.g. 90">
             </div>
             <div>
               <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-2">Estimated Budget</label>
@@ -557,11 +557,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Project Location</label>
-            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Palma de Mallorca">
+            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="E.g. Palma de Mallorca">
           </div>
           <div>
             <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Project Description</label>
-            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Reforma completa de piso con acabados limpios y de alta calidad">
+            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="E.g. Complete apartment remodel with clean, high-quality finishes">
           </div>
         </div>
 
@@ -576,7 +576,7 @@
       <span class="material-symbols-outlined text-6xl text-secondary mb-4">task_alt</span>
       <h3 class="font-headline-lg text-headline-lg text-primary mb-2">Request Received!</h3>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto mb-8">
-        Tu solicitud ha sido registrada correctamente. Nuestro equipo de arquitectura se pondrá en contacto contigo a la brevedad para agendar tu primera visita técnica.
+        Your request has been successfully registered. Our architectural team will contact you shortly to schedule your first technical visit.
       </p>
       <button onclick="closePresupuestoModal()" class="font-label-caps text-label-caps uppercase tracking-widest text-primary border border-primary px-8 py-4 hover:bg-primary hover:text-monolith-white transition-colors duration-300">Understood</button>
     </div>
@@ -590,10 +590,10 @@
       <span class="material-symbols-outlined text-3xl">close</span>
     </button>
     <div class="mt-12 flex flex-col gap-6 font-label-caps text-label-caps uppercase tracking-widest">
-      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index.html">Home</a>
-      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index.html#reformas">Remodels</a>
-      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index.html#servicios">Services</a>
-      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index.html#contacto">Contact</a>
+      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index-en.html">Home</a>
+      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index-en.html#reformas">Remodels</a>
+      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index-en.html#servicios">Services</a>
+      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index-en.html#contacto">Contact</a>
       <a class="font-bold text-secondary text-[14px]" onclick="openPresupuestoModalFromMobile()">Request a Quote</a>
     </div>
     <div class="text-xs text-mortar-grey">
