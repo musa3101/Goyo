@@ -28,6 +28,17 @@
         .animate-slide-up {
           animation: slideUp 0.3s ease forwards;
         }
+        @keyframes dragHint {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-3px); }
+          75% { transform: translateX(3px); }
+        }
+        .animate-drag-hint {
+          animation: dragHint 2.5s ease-in-out infinite;
+        }
+        .group:hover .animate-drag-hint {
+          animation-play-state: paused;
+        }
         .scroll-mt-20 {
           scroll-margin-top: 72px;
         }
@@ -479,7 +490,7 @@
   <div id="before-after-slider" class="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden bg-black select-none group border border-outline-variant">
     
     <!-- After Image (Base Layer) -->
-    <img src="despues.jpg" alt="Resultado Final" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+    <img src="despues3.jpg" alt="Finished dressing room illuminated with LEDs with premium finishes" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
     
     <!-- Label After -->
     <div id="label-after" class="absolute top-6 right-6 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 text-white font-label-caps text-[10px] md:text-xs tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -487,8 +498,8 @@
     </div>
 
     <!-- Before Image (Clipped Layer) -->
-    <div id="slider-before-clip" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-white shadow-[0_0_20px_rgba(0,0,0,0.5)] z-20">
-      <img src="antes.jpg" alt="Fase de obra" class="absolute inset-0 w-full h-full object-cover pointer-events-none" id="before-img-el">
+    <div id="slider-before-clip" class="absolute inset-0 w-1/2 overflow-hidden border-r-[1.5px] border-white/80 shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] transition-shadow duration-500 z-20">
+      <img src="antes3.jpg" alt="Drywall dressing room structure in construction phase" class="absolute inset-0 w-full h-full object-cover pointer-events-none" id="before-img-el">
       <!-- Label Before -->
       <div id="label-before" class="absolute top-6 left-6 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 text-white font-label-caps text-[10px] md:text-xs tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         CONSTRUCTION PHASE
@@ -496,9 +507,9 @@
     </div>
 
     <!-- Slider Handle Bar -->
-    <div id="slider-bar-handle" class="absolute inset-y-0 left-1/2 w-[2px] bg-white/80 cursor-ew-resize z-30 flex items-center justify-center pointer-events-none">
-      <div class="w-12 h-12 bg-black/70 backdrop-blur-md rounded-full border border-white/20 shadow-2xl flex items-center justify-center text-white transition-transform group-hover:scale-110">
-        <span class="material-symbols-outlined text-xl">swap_horiz</span>
+    <div id="slider-bar-handle" class="absolute inset-y-0 left-1/2 w-[1.5px] bg-white/70 group-hover:bg-white shadow-[0_0_10px_rgba(255,255,255,0.4)] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.7)] transition-all duration-500 cursor-ew-resize z-30 flex items-center justify-center pointer-events-none">
+      <div class="w-12 h-12 bg-black/70 backdrop-blur-md rounded-full border border-white/20 shadow-xl flex items-center justify-center text-white transition-all duration-500 group-hover:scale-110 group-hover:border-white/50">
+        <span class="material-symbols-outlined text-xl animate-drag-hint">swap_horiz</span>
       </div>
     </div>
     
