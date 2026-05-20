@@ -309,10 +309,6 @@
 <li><a id="nav-reformas" class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="#reformas">REFORMAS</a></li>
 <li><a id="nav-servicios" class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="#servicios">SERVICIOS</a></li>
 <li><a id="nav-contacto" class="nav-link pb-1 transition-all duration-300 cursor-pointer" href="#contacto">CONTACTO</a></li>
-<li class="flex items-center gap-3 border-l border-outline-variant pl-8 ml-2">
-<span class="text-primary cursor-default opacity-100 transition-opacity">ES</span>
-<a href="index-en.html" class="text-mortar-grey hover:text-primary transition-colors cursor-pointer opacity-50 hover:opacity-100">EN</a>
-</li>
 </ul>
 <!-- Trailing Action -->
 <div class="hidden lg:block">
@@ -440,51 +436,23 @@
 <div class="mb-16 border-b border-primary pb-4">
 <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary">Transformaciones Reales</h2>
 </div>
-<!-- Interactive Slider (Replaces Stack Item 1) -->
-<div class="w-full max-w-5xl mx-auto mb-24">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
-    <div>
-      <p class="font-body-lg text-body-lg text-on-surface-variant">
-        Instalaciones obsoletas, revestimientos desgastados y una distribución poco funcional antes del proceso de reforma integral del baño.
-      </p>
-    </div>
-    <div class="hidden md:block">
-      <p class="font-body-lg text-body-lg text-on-surface-variant text-right">
-        Descubre la transformación deslizando la barra para comparar el antes y el después con acabados premium.
-      </p>
-    </div>
-  </div>
-
-  <!-- Slider Container -->
-  <div id="before-after-slider" class="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden bg-black select-none group border border-outline-variant">
-    
-    <!-- After Image (Base Layer) -->
-    <img src="despues.jpg" alt="Resultado Final" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
-    
-    <!-- Label After -->
-    <div id="label-after" class="absolute top-6 right-6 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 text-white font-label-caps text-[10px] md:text-xs tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-      RESULTADO FINAL
-    </div>
-
-    <!-- Before Image (Clipped Layer) -->
-    <div id="slider-before-clip" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-white shadow-[0_0_20px_rgba(0,0,0,0.5)] z-20">
-      <img src="antes.jpg" alt="Fase de obra" class="absolute inset-0 w-full h-full object-cover pointer-events-none" id="before-img-el">
-      <!-- Label Before -->
-      <div id="label-before" class="absolute top-6 left-6 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 text-white font-label-caps text-[10px] md:text-xs tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        FASE DE OBRA
-      </div>
-    </div>
-
-    <!-- Slider Handle Bar -->
-    <div id="slider-bar-handle" class="absolute inset-y-0 left-1/2 w-[2px] bg-white/80 cursor-ew-resize z-30 flex items-center justify-center pointer-events-none">
-      <div class="w-12 h-12 bg-black/70 backdrop-blur-md rounded-full border border-white/20 shadow-2xl flex items-center justify-center text-white transition-transform group-hover:scale-110">
-        <span class="material-symbols-outlined text-xl">swap_horiz</span>
-      </div>
-    </div>
-    
-    <!-- Interaction overlay layer -->
-    <div class="absolute inset-0 z-40 cursor-ew-resize" id="slider-interaction-overlay"></div>
-  </div>
+<!-- Stack Item 1 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-24 items-center">
+<div class="md:col-span-5 order-2 md:order-1 mt-8 md:mt-0">
+<span class="font-label-caps text-label-caps uppercase text-mortar-grey mb-4 block">Estado Anterior</span>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                            Instalaciones obsoletas, revestimientos desgastados y una distribución poco funcional antes del proceso de reforma integral del baño.
+                        </p>
+<div class="w-full aspect-[3/4] bg-surface-dim overflow-hidden">
+<img alt="Estado anterior de la reforma del baño" class="w-full h-full object-cover" src="antes.jpg">
+</div>
+</div>
+<div class="md:col-span-7 order-1 md:order-2">
+<span class="font-label-caps text-label-caps uppercase text-primary mb-4 block pl-0 md:pl-8">Resultado Final</span>
+<div class="w-full aspect-[3/4] bg-surface-container overflow-hidden ml-0 md:ml-8">
+<img alt="Baño moderno reformado" class="w-full h-full object-cover" src="despues.jpg">
+</div>
+</div>
 </div>
 <!-- View All Button -->
 <div class="flex justify-center mt-12">
@@ -797,11 +765,6 @@
   
   <!-- Trailing Budget Button & Socials -->
   <div class="flex flex-col gap-8 items-center mb-12">
-    <!-- Language Selector Mobile -->
-    <div class="flex justify-center items-center gap-6 font-label-caps tracking-widest font-bold text-[16px]">
-      <span class="text-primary dark:text-monolith-white cursor-default border-b-2 border-primary dark:border-monolith-white pb-1">ES</span>
-      <a href="index-en.html" class="text-mortar-grey hover:text-primary dark:hover:text-monolith-white transition-colors cursor-pointer pb-1">EN</a>
-    </div>
     <button onclick="toggleMobileMenu(); openPresupuestoModal();" class="w-full font-label-caps text-label-caps uppercase tracking-widest text-primary border border-primary px-6 py-4 hover:bg-primary hover:text-monolith-white transition-colors duration-300 cursor-pointer active:opacity-70 text-center">
       PRESUPUESTO
     </button>
@@ -1184,74 +1147,6 @@
       handleScroll();
       handleHeroScroll();
     });
-
-    // Image Comparison Slider Logic
-    const slider = document.getElementById('before-after-slider');
-    const clipDiv = document.getElementById('slider-before-clip');
-    const beforeImg = document.getElementById('before-img-el');
-    const handle = document.getElementById('slider-bar-handle');
-    const overlay = document.getElementById('slider-interaction-overlay');
-    const labelBefore = document.getElementById('label-before');
-    const labelAfter = document.getElementById('label-after');
-
-    if (slider && clipDiv && beforeImg && handle && overlay) {
-      const resizeBeforeImg = () => {
-        beforeImg.style.width = `${slider.offsetWidth}px`;
-      };
-      
-      // Initial sizing
-      resizeBeforeImg();
-      window.addEventListener('resize', resizeBeforeImg);
-
-      let isDragging = false;
-
-      const updateSlider = (percent) => {
-        percent = Math.max(0, Math.min(100, percent));
-        clipDiv.style.width = `${percent}%`;
-        handle.style.left = `${percent}%`;
-      };
-
-      const handleMove = (e) => {
-        if (!isDragging) return;
-        const rect = slider.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const x = clientX - rect.left;
-        const percent = (x / rect.width) * 100;
-        updateSlider(percent);
-      };
-
-      const startDragging = (e) => {
-        isDragging = true;
-        labelBefore.classList.add('opacity-100');
-        labelAfter.classList.add('opacity-100');
-        handleMove(e);
-      };
-
-      const stopDragging = () => {
-        isDragging = false;
-      };
-
-      overlay.addEventListener('mousedown', startDragging);
-      overlay.addEventListener('touchstart', startDragging, { passive: true });
-
-      window.addEventListener('mousemove', handleMove);
-      window.addEventListener('touchmove', handleMove, { passive: false });
-
-      window.addEventListener('mouseup', stopDragging);
-      window.addEventListener('touchend', stopDragging);
-      
-      // Show/hide labels on hover
-      overlay.addEventListener('mouseenter', () => {
-        labelBefore.classList.add('opacity-100');
-        labelAfter.classList.add('opacity-100');
-      });
-      overlay.addEventListener('mouseleave', () => {
-        if (!isDragging) {
-          labelBefore.classList.remove('opacity-100');
-          labelAfter.classList.remove('opacity-100');
-        }
-      });
-    }
     handleScroll();
     handleHeroScroll();
   });
