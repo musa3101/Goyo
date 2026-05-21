@@ -45,10 +45,10 @@
         /* Dynamic Navigation bar & links */
         nav {
             transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
-            background-color: #000000 !important;
+            background-color: #141414 !important;
         }
         nav.scrolled {
-            background-color: #000000 !important;
+            background-color: #141414 !important;
             border-color: rgba(28, 28, 30, 0.8) !important;
         }
         .nav-link {
@@ -166,15 +166,15 @@
             },
             "colors": {
                     "error-container": "#ffdad6",
-                    "surface-bright": "#F5F2EB",
+                    "surface-bright": "#FDFBF7",
                     "on-primary-fixed-variant": "#474747",
                     "secondary": "#795746",
                     "on-secondary-fixed": "#2d1509",
                     "surface-dim": "#dadada",
                     "monolith-white": "#FFFFFF",
                     "outline-variant": "#cfc4c5",
-                    "surface-container-lowest": "#ffffff",
-                    "background": "#F5F2EB",
+                    "surface-container-lowest": "#FDFBF7",
+                    "background": "#FDFBF7",
                     "on-tertiary": "#ffffff",
                     "on-tertiary-fixed-variant": "#474747",
                     "surface-container": "#eeeeee",
@@ -184,13 +184,13 @@
                     "surface-container-highest": "#e2e2e2",
                     "secondary-container": "#ffd0bb",
                     "surface-variant": "#e2e2e2",
-                    "primary": "#000000",
+                    "primary": "#141414",
                     "on-surface-variant": "#4c4546",
-                    "on-surface": "#1b1b1b",
+                    "on-surface": "#141414",
                     "secondary-fixed": "#ffdbcc",
-                    "on-primary-fixed": "#1b1b1b",
+                    "on-primary-fixed": "#141414",
                     "tertiary-fixed-dim": "#c6c6c6",
-                    "surface": "#F5F2EB",
+                    "surface": "#FDFBF7",
                     "on-primary": "#ffffff",
                     "inverse-primary": "#c6c6c6",
                     "on-secondary-fixed-variant": "#5f3f30",
@@ -200,18 +200,18 @@
                     "inverse-surface": "#303030",
                     "on-primary-container": "#848484",
                     "on-secondary-container": "#7a5747",
-                    "tertiary-container": "#1b1b1b",
+                    "tertiary-container": "#141414",
                     "surface-tint": "#5e5e5e",
                     "surface-container-low": "#f3f3f3",
                     "primary-fixed": "#e2e2e2",
-                    "tertiary": "#000000",
+                    "tertiary": "#141414",
                     "on-error": "#ffffff",
                     "mortar-grey": "#666666",
                     "surface-container-high": "#e8e8e8",
                     "on-tertiary-container": "#848484",
-                    "on-tertiary-fixed": "#1b1b1b",
-                    "primary-container": "#1b1b1b",
-                    "on-background": "#1b1b1b",
+                    "on-tertiary-fixed": "#141414",
+                    "primary-container": "#141414",
+                    "on-background": "#141414",
                     "inverse-on-surface": "#f1f1f1",
                     "error": "#ba1a1a",
                     "secondary-fixed-dim": "#eabda9"
@@ -577,7 +577,7 @@
 </section>
 
 <!-- Contacto Section -->
-<section id="contacto" class="py-24 bg-surface-container-low border-t border-outline-variant scroll-mt-20">
+<section id="contacto" class="py-24 bg-[#F4EFE6] border-t border-outline-variant scroll-mt-20">
   <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
       <!-- Contact Info (Left) -->
@@ -619,12 +619,12 @@
             <!-- Nombre -->
             <div class="relative">
               <label for="c_nombre" class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-primary block mb-2.5">Nombre Completo</label>
-              <input type="text" id="c_nombre" required class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md" placeholder="Ej. Alejandro García">
+              <input type="text" id="c_nombre" required class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 hover:bg-white hover:border-[#D1D5DB] hover:shadow-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md" placeholder="Ej. Alejandro García">
             </div>
             <!-- Email -->
             <div class="relative">
               <label for="c_email" class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-primary block mb-2.5">Correo Electrónico</label>
-              <input type="email" id="c_email" required class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md" placeholder="contacto@ejemplo.com">
+              <input type="email" id="c_email" required class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 hover:bg-white hover:border-[#D1D5DB] hover:shadow-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md" placeholder="contacto@ejemplo.com">
             </div>
           </div>
           
@@ -632,19 +632,19 @@
             <!-- Teléfono -->
             <div class="relative">
               <label for="c_telefono" class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-primary block mb-2.5">Teléfono de Contacto</label>
-              <input type="tel" id="c_telefono" class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md" placeholder="Ej. +34 600 000 000">
+              <input type="tel" id="c_telefono" class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 hover:bg-white hover:border-[#D1D5DB] hover:shadow-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md" placeholder="Ej. +34 600 000 000">
             </div>
             <!-- Asunto -->
             <div class="relative">
               <label for="c_asunto" class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-primary block mb-2.5">Asunto</label>
-              <input type="text" id="c_asunto" required class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md" placeholder="Ej. Reforma integral en Son Vida o Aislamiento técnico">
+              <input type="text" id="c_asunto" required class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 hover:bg-white hover:border-[#D1D5DB] hover:shadow-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md" placeholder="Ej. Reforma integral en Son Vida o Aislamiento técnico">
             </div>
           </div>
           
           <!-- Mensaje -->
           <div class="relative">
             <label for="c_mensaje" class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-primary block mb-2.5">Mensaje</label>
-            <textarea id="c_mensaje" required rows="5" class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md resize-none" placeholder="Describa brevemente las dimensiones del espacio, el tipo de intervención técnica o reforma requerida y los plazos estimados..."></textarea>
+            <textarea id="c_mensaje" required rows="5" class="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] px-4 py-3.5 w-full text-primary placeholder-mortar-grey/50 hover:bg-white hover:border-[#D1D5DB] hover:shadow-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all duration-300 font-body-md resize-none" placeholder="Describa brevemente las dimensiones del espacio, el tipo de intervención técnica o reforma requerida y los plazos estimados..."></textarea>
           </div>
           
           <!-- Submit -->
@@ -1186,10 +1186,10 @@
         
         if (distanceToBottom <= threshold) {
           const opacity = 1 - (distanceToBottom / threshold);
-          footerElement.style.backgroundColor = `rgba(18, 19, 22, ${opacity})`;
+          footerElement.style.backgroundColor = `rgba(20, 20, 20, ${opacity})`;
           footerElement.style.borderColor = `rgba(35, 36, 42, ${opacity})`;
         } else {
-          footerElement.style.backgroundColor = 'rgba(18, 19, 22, 0)';
+          footerElement.style.backgroundColor = 'rgba(20, 20, 20, 0)';
           footerElement.style.borderColor = 'rgba(35, 36, 42, 0)';
         }
       }
