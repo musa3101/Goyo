@@ -8,11 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 <style>
   nav {
-    transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
-    background-color: rgba(22, 20, 19, 0.92) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   }
   .ecuador-divider {
     height: 3px; width: 100%;
@@ -36,7 +34,7 @@
 <script id="tailwind-config">
   tailwind.config = {
     theme: { extend: {
-      colors: { "primary": "#141414", "secondary": "#795746", "monolith-white": "#FFFFFF", "on-surface-variant": "#4c4546", "mortar-grey": "#666666", "surface-container-lowest": "#FDFBF7", "background": "#FDFBF7", "outline-variant": "#cfc4c5" },
+      colors: { "primary": "#141414", "secondary": "#795746", "monolith-white": "#FFFFFF", "on-surface-variant": "#4c4546", "mortar-grey": "#666666", "surface-container-lowest": "#FFFFFF", "background": "#F5F6F7", "outline-variant": "#cfc4c5" },
       spacing: { "margin-mobile": "20px", "margin-desktop": "64px", "max-width": "1440px" },
       fontFamily: { "body-md": ["Open Sans"], "label-caps": ["Montserrat"] },
       fontSize: { "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600" }] }
@@ -44,7 +42,7 @@
   }
 </script>
 </head>
-<body class="bg-[#FDFBF7] text-[#141414] antialiased pt-[72px] overflow-x-hidden">
+<body class="bg-[#F5F6F7] text-[#141414] antialiased pt-[72px] overflow-x-hidden">
 
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full border-b border-[#1C1C1E] z-50">
@@ -81,7 +79,7 @@
       <li><strong>Actividad:</strong> Reformas Integrales, Sistemas de Pladur, Aislamientos Técnicos y Acabados Premium</li>
       <li><strong>Domicilio:</strong> Palma de Mallorca, Islas Baleares, España</li>
       <li><strong>Correo electrónico:</strong> <a href="mailto:proyectos@ecuaplac.com">proyectos@ecuaplac.com</a></li>
-      <li><strong>Teléfono:</strong> <a href="tel:+34600000000">+34 600 000 000</a></li>
+      <li><strong>Teléfono:</strong> <a href="tel:+34678159878">+34 678 15 98 78</a></li>
     </ul>
 
     <h2>2. Objeto y Ámbito de Aplicación</h2>
@@ -126,10 +124,71 @@
 </main>
 
 <div class="ecuador-divider"></div>
-<footer class="bg-[#141414] text-[#A3A3A3] py-8">
-  <div class="max-w-[860px] mx-auto px-[20px] md:px-[64px] flex flex-col md:flex-row justify-between items-center gap-4">
-    <span class="text-[11px] tracking-wide text-[#505050]">© 2026 ECUAPLAC. TODOS LOS DERECHOS RESERVADOS.</span>
-    <span class="text-[9px] md:text-[10px] text-[#505050] tracking-[0.15em] uppercase font-light">Made by <a href="https://mynextbymusa.com" target="_blank" rel="noopener noreferrer" class="text-[#888] hover:text-white transition-all duration-300 font-medium hover:tracking-[0.18em]">MYNEXT</a></span>
+<footer class="w-full bg-[#141414] text-[#A3A3A3] pt-20 pb-10 border-t border-[#1C1C1E] transition-colors duration-300 mt-24">
+  <div class="max-w-[1440px] mx-auto px-[20px] md:px-[64px]">
+    <!-- 3 Column Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 pb-16 border-b border-[#1C1C1E]">
+      
+      <!-- Left Column: Navigation -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left justify-center">
+        <h4 class="font-['Montserrat'] text-[11px] uppercase text-[#FFFFFF] tracking-[0.2em] mb-8 font-bold relative inline-block">
+          Navegación
+          <span class="absolute -bottom-2 left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 w-8 h-[2px] bg-[#795746]"></span>
+        </h4>
+        <ul class="flex flex-col gap-3 font-['Open_Sans'] w-full">
+          <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-start h-11" href="index.html#hero-scroll-container">Inicio</a></li>
+          <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-start h-11" href="index.html#reformas">Reformas</a></li>
+          <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-start h-11" href="index.html#servicios">Servicios</a></li>
+          <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-start h-11" href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Center Column: Logo & Description -->
+      <div class="flex flex-col items-center justify-center text-center">
+        <div class="bg-white p-3 inline-flex items-center justify-center rounded-full border-[3px] border-[#FFB81C] shadow-lg w-32 h-32 mb-8 overflow-hidden transition-transform duration-500 hover:scale-105">
+          <img src="./assets/img/logos/Logofotter.jpg" alt="ECUAPLAC Logo" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <p class="text-[15px] text-[#888] leading-relaxed max-w-sm">
+          Nacidos en Mallorca, forjados en obra. G &amp; J transforman cada espacio con precisión artesanal y acabados de lujo.
+        </p>
+      </div>
+
+      <!-- Right Column: Legal & Social -->
+      <div class="flex flex-col items-center md:items-end text-center md:text-right justify-center">
+        <div class="mb-10 w-full flex flex-col items-center md:items-end">
+          <h4 class="font-['Montserrat'] text-[11px] uppercase text-[#FFFFFF] tracking-[0.2em] mb-8 font-bold relative inline-block">
+            Legal
+            <span class="absolute -bottom-2 left-1/2 md:left-auto md:right-0 -translate-x-1/2 md:translate-x-0 w-8 h-[2px] bg-[#795746]"></span>
+          </h4>
+          <ul class="flex flex-col gap-3 font-['Open_Sans'] w-full">
+            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Aviso Legal</a></li>
+            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Política de Cookies</a></li>
+            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Términos y Condiciones</a></li>
+          </ul>
+        </div>
+        
+        <!-- Instagram -->
+        <a class="group flex items-center justify-center gap-4 text-[13px] font-['Montserrat'] tracking-widest text-[#888] hover:text-[#FFFFFF] transition-all duration-300 h-11 px-2" href="https://www.instagram.com/ecuaplac.jyg?igsh=MTJ6d2I3cDFnempyZg==" target="_blank" rel="noopener noreferrer">
+          INSTAGRAM
+          <span class="w-10 h-10 flex items-center justify-center rounded-full border border-[#444] group-hover:border-[#FFFFFF] group-hover:bg-[#FFFFFF] group-hover:text-[#141414] transition-all duration-300">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+
+    <!-- Bottom Bar: Full Width Credits -->
+    <div class="pt-10 flex flex-col items-center justify-center w-full">
+      <a href="https://mynextbymusa.com" target="_blank" rel="noopener noreferrer" class="font-['Montserrat'] text-[14px] md:text-[16px] text-[#FFFFFF] tracking-[0.3em] uppercase font-extrabold hover:text-[#795746] hover:tracking-[0.4em] transition-all duration-500 py-4 px-8 inline-flex items-center justify-center h-14">
+        MADE BY MYNEXT
+      </a>
+      <span class="text-[12px] text-[#555] mt-6 font-['Open_Sans'] tracking-wider uppercase">
+        © 2026 ECUAPLAC. TODOS LOS DERECHOS RESERVADOS.
+      </span>
+    </div>
   </div>
 </footer>
 

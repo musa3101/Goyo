@@ -33,18 +33,15 @@
         }
         /* Dynamic Navigation bar & links */
         nav {
-            transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
-            background-color: rgba(22, 20, 19, 0.75) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+            transition: opacity 0.5s ease, background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            background-color: #000000 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+            animation: fadeIn 0.8s ease forwards;
         }
         nav.scrolled {
-            background-color: rgba(18, 16, 15, 0.88) !important;
-            border-color: rgba(121, 87, 70, 0.25) !important; /* Brand bronze color */
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            background-color: #000000 !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
         .nav-link {
             transition: all 0.3s ease;
@@ -101,18 +98,18 @@
           extend: {
             "colors": {
                     "error-container": "#ffdad6",
-                    "surface-bright": "#FDFBF7",
+                    "surface-bright": "#FFFFFF",
                     "on-primary-fixed-variant": "#474747",
                     "secondary": "#795746",
                     "on-secondary-fixed": "#2d1509",
                     "surface-dim": "#dadada",
                     "monolith-white": "#FFFFFF",
                     "outline-variant": "#cfc4c5",
-                    "surface-container-lowest": "#FDFBF7",
-                    "background": "#FDFBF7",
+                    "surface-container-lowest": "#FFFFFF",
+                    "background": "#F5F6F7",
                     "on-tertiary": "#ffffff",
                     "on-tertiary-fixed-variant": "#474747",
-                    "surface-container": "#eeeeee",
+                    "surface-container": "#EAECEF",
                     "tertiary-fixed": "#e2e2e2",
                     "outline": "#7e7576",
                     "primary-fixed-dim": "#c6c6c6",
@@ -125,7 +122,7 @@
                     "secondary-fixed": "#ffdbcc",
                     "on-primary-fixed": "#141414",
                     "tertiary-fixed-dim": "#c6c6c6",
-                    "surface": "#FDFBF7",
+                    "surface": "#F5F6F7",
                     "on-primary": "#ffffff",
                     "inverse-primary": "#c6c6c6",
                     "on-secondary-fixed-variant": "#5f3f30",
@@ -472,60 +469,69 @@
 
 <!-- Footer -->
 <div class="ecuador-divider"></div>
-<footer class="w-full text-[#A3A3A3] border-t border-transparent py-10 transition-colors duration-150">
-  <div class="max-w-5xl mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-10 pb-10 border-b border-[#1e1e1e]">
-      <!-- Brand -->
-      <div class="flex flex-col items-start gap-4">
-        <div class="bg-white p-3 inline-flex items-center justify-center rounded-full border-[3px] border-[#FFB81C] shadow-md w-28 h-28 overflow-hidden">
+<footer class="w-full bg-[#141414] text-[#A3A3A3] pt-20 pb-10 border-t border-[#1C1C1E] transition-colors duration-300">
+  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <!-- 3 Column Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 pb-16 border-b border-[#1C1C1E]">
+      
+      <!-- Left Column: Navigation -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left justify-center">
+        <h4 class="font-label-caps text-[11px] uppercase text-monolith-white tracking-[0.2em] mb-8 font-bold relative inline-block">
+          Navigation
+          <span class="absolute -bottom-2 left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 w-8 h-[2px] bg-secondary"></span>
+        </h4>
+        <ul class="flex flex-col gap-3 font-body-md w-full">
+          <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-start h-11" href="index-en.html#hero-scroll-container">Home</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-start h-11" href="index-en.html#reformas">Renovations</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-start h-11" href="index-en.html#servicios">Services</a></li>
+          <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-start h-11" href="index-en.html#contacto">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Center Column: Logo & Description -->
+      <div class="flex flex-col items-center justify-center text-center">
+        <div class="bg-white p-3 inline-flex items-center justify-center rounded-full border-[3px] border-[#FFB81C] shadow-lg w-32 h-32 mb-8 overflow-hidden transition-transform duration-500 hover:scale-105">
           <img src="./assets/img/logos/Logofotter.jpg" alt="ECUAPLAC Logo" class="w-full h-full object-contain" loading="lazy">
         </div>
-        <p class="font-body-md text-body-md text-[#606060] leading-relaxed max-w-[220px]">
-          Born in Mallorca, built on craftsmanship. G &amp; J transform every space with artisan precision and luxury finishes.
+        <p class="text-[15px] text-[#888] leading-relaxed max-w-sm">
+          Born in Mallorca, forged on site. G &amp; J transform every space with artisanal precision and luxury finishes.
         </p>
       </div>
-      <!-- Navigation -->
-      <div>
-        <h4 class="font-label-caps text-label-caps uppercase text-monolith-white tracking-widest mb-5 border-l-2 border-secondary pl-3">Navigation</h4>
-        <ul class="space-y-3 font-body-md">
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index-en.html">Home</a></li>
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index-en.html#reformas">Remodels</a></li>
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index-en.html#servicios">Services</a></li>
-          <li><a class="hover:text-monolith-white transition-colors duration-300" href="index-en.html#contacto">Contact</a></li>
-        </ul>
-      </div>
-      <!-- Contact -->
-      <div>
-        <h4 class="font-label-caps text-label-caps uppercase text-monolith-white tracking-widest mb-5 border-l-2 border-secondary pl-3">Contact</h4>
-        <ul class="space-y-3 font-body-md">
-          <li>Palma de Mallorca, Balearic Islands</li>
-          <li><a href="tel:+34600000000" class="hover:text-monolith-white transition-colors duration-300">+34 600 000 000</a></li>
-          <li><a href="mailto:proyectos@ecuaplac.com" class="hover:text-monolith-white transition-colors duration-300">proyectos@ecuaplac.com</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    <!-- Bottom bar -->
-    <div class="pt-5 flex flex-col md:flex-row justify-between items-center gap-4">
-      <span class="font-caption text-caption text-[#737373]">
-        © 2026 ECUAPLAC. ALL RIGHTS RESERVED.
-      </span>
-      <ul class="flex items-center gap-6 font-label-caps text-caption text-[#737373] tracking-widest">
-        <li>
-          <a class="hover:text-monolith-white transition-colors duration-300 flex items-center gap-2" href="https://www.instagram.com/ecuaplac.jyg?igsh=MTJ6d2I3cDFnempyZg==" target="_blank" rel="noopener noreferrer">
+
+      <!-- Right Column: Legal & Social -->
+      <div class="flex flex-col items-center md:items-end text-center md:text-right justify-center">
+        <div class="mb-10 w-full flex flex-col items-center md:items-end">
+          <h4 class="font-label-caps text-[11px] uppercase text-monolith-white tracking-[0.2em] mb-8 font-bold relative inline-block">
+            Legal
+            <span class="absolute -bottom-2 left-1/2 md:left-auto md:right-0 -translate-x-1/2 md:translate-x-0 w-8 h-[2px] bg-secondary"></span>
+          </h4>
+          <ul class="flex flex-col gap-3 font-body-md w-full">
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Legal Notice</a></li>
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Cookie Policy</a></li>
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Terms and Conditions</a></li>
+          </ul>
+        </div>
+        
+        <!-- Instagram -->
+        <a class="group flex items-center justify-center gap-4 text-[13px] font-label-caps tracking-widest text-[#888] hover:text-monolith-white transition-all duration-300 h-11 px-2" href="https://www.instagram.com/ecuaplac.jyg?igsh=MTJ6d2I3cDFnempyZg==" target="_blank" rel="noopener noreferrer">
+          INSTAGRAM
+          <span class="w-10 h-10 flex items-center justify-center rounded-full border border-[#444] group-hover:border-monolith-white group-hover:bg-monolith-white group-hover:text-primary transition-all duration-300">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
             </svg>
-            INSTAGRAM
-          </a>
-        </li>
-        <li><a class="hover:text-monolith-white transition-colors duration-300" href="aviso-legal.html">LEGAL NOTICE</a></li>
-      </ul>
+          </span>
+        </a>
+      </div>
+      
     </div>
-    <!-- Credits -->
-    <div class="mt-6 flex justify-center items-center">
-      <span class="text-[9px] md:text-[10px] text-mortar-grey/50 tracking-[0.15em] uppercase font-light">
-        Made by <a href="https://mynextbymusa.com" target="_blank" rel="noopener noreferrer" class="text-mortar-grey/70 hover:text-primary transition-all duration-300 font-medium hover:tracking-[0.18em]">MYNEXT</a>
+
+    <!-- Bottom Bar: Full Width Credits -->
+    <div class="pt-10 flex flex-col items-center justify-center w-full">
+      <a href="https://mynextbymusa.com" target="_blank" rel="noopener noreferrer" class="font-label-caps text-[14px] md:text-[16px] text-monolith-white tracking-[0.3em] uppercase font-extrabold hover:text-secondary hover:tracking-[0.4em] transition-all duration-500 py-4 px-8 inline-flex items-center justify-center h-14">
+        MADE BY MYNEXT
+      </a>
+      <span class="text-[12px] text-[#555] mt-6 font-body-md tracking-wider uppercase">
+        © 2026 ECUAPLAC. ALL RIGHTS RESERVED.
       </span>
     </div>
   </div>
