@@ -1095,53 +1095,114 @@
 <!-- Servicios Section -->
 <div class="ecuador-divider"></div>
 <section id="servicios" class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto scroll-mt-20">
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-    <!-- Section Title & Intro (Left) -->
-    <div class="md:col-span-4 flex flex-col justify-start">
-      <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey mb-4">Our Expertise</span>
-      <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary leading-tight">
-        Construction<br>Solutions.
+  
+  <!-- Section Title & Intro (Top) -->
+  <div class="mb-16 border-b border-primary pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+    <div class="max-w-xl">
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey mb-3 block">Our Expertise</span>
+      <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary leading-tight font-bold">
+        Construction Solutions
       </h2>
-      <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 pr-4">
-        We approach each project with millimeter precision and a devotion to technical quality, ensuring flawless finishes.
+    </div>
+    <div class="max-w-xl">
+      <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        We approach each project with millimeter precision and a devotion to technical quality, ensuring premium finishes by G&J.
       </p>
     </div>
+  </div>
+  
+  <!-- Services Grid (2x2 on Desktop) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     
-    <!-- Services List (Right) -->
-    <div class="md:col-span-8 divide-y divide-outline-variant mt-12 md:mt-0">
-      <!-- Service Item 1 -->
-      <div class="py-8 first:pt-0 last:pb-0 group cursor-pointer">
-        <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-2">01 / DESIGN & PLANNING</span>
-        <h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary transition-colors group-hover:text-secondary">"Turnkey" Complete Remodeling</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">
-          Absolute project management: from initial demolition and space design to the final execution of finishes, delivering the home completely ready to live in.
-        </p>
+    <!-- Service Item 1 -->
+    <div class="bg-white dark:bg-[#161413] rounded-2xl border border-primary/5 hover:border-[#795746]/20 shadow-md hover:shadow-2xl transition-all duration-300 p-6 md:p-8 group cursor-pointer flex flex-col">
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-4 text-[11px] font-bold">01 / DESIGN & PLANNING</span>
+      
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 rounded-full bg-[#795746]/10 dark:bg-[#795746]/20 flex items-center justify-center text-[#795746] dark:text-[#EABDA9] flex-shrink-0 group-hover:bg-[#795746] group-hover:text-white transition-all duration-300">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <circle cx="12" cy="13" r="2"/>
+            <path d="M12 15v3l1 1h2"/>
+          </svg>
+        </div>
+        <h3 class="font-headline-lg text-headline-lg-mobile md:text-[20px] text-primary transition-colors duration-300 group-hover:text-[#795746] font-bold leading-tight">
+          "Turnkey" Complete Remodeling
+        </h3>
       </div>
-      <!-- Service Item 2 -->
-      <div class="py-8 first:pt-0 last:pb-0 group cursor-pointer">
-        <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-2">02 / TECHNICAL EXPERTISE</span>
-        <h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary transition-colors group-hover:text-secondary">Insulation and Drywall Systems</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">
-          Experts with over 20 years of experience in acoustic, thermal, and fireproof systems for homes, industrial buildings, and music rooms with high sound requirements.
-        </p>
-      </div>
-      <!-- Service Item 3 -->
-      <div class="py-8 first:pt-0 last:pb-0 group cursor-pointer">
-        <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-2">03 / HIGH-END DECOR & CLADDING</span>
-        <h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary transition-colors group-hover:text-secondary">Microcement, Plaster, and Painting</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">
-          Application of modern continuous coatings, high-precision plaster finishes, and professional painting to achieve polished, minimalist, and durable surfaces.
-        </p>
-      </div>
-      <!-- Service Item 4 -->
-      <div class="py-8 first:pt-0 last:pb-0 group cursor-pointer">
-        <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-2">04 / INSTALLATIONS & COMFORT</span>
-        <h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary transition-colors group-hover:text-secondary">HVAC, Tiling, and Paving</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">
-          Thermal optimization and space conditioning, complemented by meticulous high-quality paving and ceramic tiling works.
-        </p>
-      </div>
+      
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed flex-grow">
+        Absolute project management: from initial demolition and space design to the final execution of finishes, delivering the home completely ready to live in.
+      </p>
     </div>
+
+    <!-- Service Item 2 -->
+    <div class="bg-white dark:bg-[#161413] rounded-2xl border border-primary/5 hover:border-[#795746]/20 shadow-md hover:shadow-2xl transition-all duration-300 p-6 md:p-8 group cursor-pointer flex flex-col">
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-4 text-[11px] font-bold">02 / TECHNICAL EXPERTISE</span>
+      
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 rounded-full bg-[#795746]/10 dark:bg-[#795746]/20 flex items-center justify-center text-[#795746] dark:text-[#EABDA9] flex-shrink-0 group-hover:bg-[#795746] group-hover:text-white transition-all duration-300">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10h18M3 14h18M3 18h18"/>
+            <path d="M7 10v4M17 10v4M12 14v4M7 18v3M17 18v3"/>
+            <path d="M12 6v4M7 6h10"/>
+          </svg>
+        </div>
+        <h3 class="font-headline-lg text-headline-lg-mobile md:text-[20px] text-primary transition-colors duration-300 group-hover:text-[#795746] font-bold leading-tight">
+          Insulation and Drywall Systems
+        </h3>
+      </div>
+      
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed flex-grow">
+        Experts with over 20 years of experience in acoustic, thermal, and fireproof systems for homes, industrial buildings, and commercial spaces with high sound requirements.
+      </p>
+    </div>
+
+    <!-- Service Item 3 -->
+    <div class="bg-white dark:bg-[#161413] rounded-2xl border border-primary/5 hover:border-[#795746]/20 shadow-md hover:shadow-2xl transition-all duration-300 p-6 md:p-8 group cursor-pointer flex flex-col">
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-4 text-[11px] font-bold">03 / HIGH-END DECOR & CLADDING</span>
+      
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 rounded-full bg-[#795746]/10 dark:bg-[#795746]/20 flex items-center justify-center text-[#795746] dark:text-[#EABDA9] flex-shrink-0 group-hover:bg-[#795746] group-hover:text-white transition-all duration-300">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3h12v4H6z"/>
+            <path d="M12 7v7"/>
+            <path d="M9 14h6v6a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/>
+            <path d="M19 12h2M18 15h3"/>
+          </svg>
+        </div>
+        <h3 class="font-headline-lg text-headline-lg-mobile md:text-[20px] text-primary transition-colors duration-300 group-hover:text-[#795746] font-bold leading-tight">
+          Microcement, Plaster, and Painting
+        </h3>
+      </div>
+      
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed flex-grow">
+        Application of modern continuous coatings, high-precision plaster finishes, and professional painting to achieve polished, minimalist, and durable surfaces.
+      </p>
+    </div>
+
+    <!-- Service Item 4 -->
+    <div class="bg-white dark:bg-[#161413] rounded-2xl border border-primary/5 hover:border-[#795746]/20 shadow-md hover:shadow-2xl transition-all duration-300 p-6 md:p-8 group cursor-pointer flex flex-col">
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-4 text-[11px] font-bold">04 / INSTALLATIONS & COMFORT</span>
+      
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 rounded-full bg-[#795746]/10 dark:bg-[#795746]/20 flex items-center justify-center text-[#795746] dark:text-[#EABDA9] flex-shrink-0 group-hover:bg-[#795746] group-hover:text-white transition-all duration-300">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 12h18M12 3v18"/>
+            <path d="M6 6c1-1 2 1 3 0M15 15c1-1 2 1 3 0"/>
+          </svg>
+        </div>
+        <h3 class="font-headline-lg text-headline-lg-mobile md:text-[20px] text-primary transition-colors duration-300 group-hover:text-[#795746] font-bold leading-tight">
+          HVAC, Tiling, and Paving
+        </h3>
+      </div>
+      
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed flex-grow">
+        Thermal optimization and space conditioning, complemented by meticulous high-quality paving and ceramic tiling works.
+      </p>
+    </div>
+
   </div>
 </section>
 
@@ -1539,7 +1600,35 @@
 
   // Active section highlighting & smooth scrolling
   document.addEventListener('DOMContentLoaded', () => {
-    // Add smooth scrolling to all local anchors
+    // Custom snappy easing scroll function
+    function smoothScrollTo(targetPosition, duration = 500) {
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        } else {
+          window.scrollTo(0, targetPosition);
+        }
+      }
+
+      function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t * t + b;
+        t -= 2;
+        return c / 2 * (t * t * t + 2) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // Add smooth scrolling to all local anchors with fixed navbar offset (72px)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1547,8 +1636,16 @@
         if (targetId === '#') return;
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth'
+          const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 72;
+          smoothScrollTo(offsetTop, 600);
+          
+          // Instant feedback class update
+          document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === targetId) {
+              link.classList.add('active-nav');
+            } else {
+              link.classList.remove('active-nav');
+            }
           });
         }
       });
@@ -1568,40 +1665,46 @@
           const numStages = document.querySelectorAll('#vertical-pagination .pagination-dot').length;
           const step = (numStages > 1) ? (0.80 / (numStages - 1)) : 0;
           const targetScroll = heroTop + (slideIndex * step * totalScrollable);
-          window.scrollTo({
-            top: targetScroll,
-            behavior: 'smooth'
-          });
+          smoothScrollTo(targetScroll, 600);
         }
       });
     });
 
-    // IntersectionObserver to watch sections and update nav links active state
-    const sections = document.querySelectorAll('section[id]');
+    // High-performance scroll spy for navigation active links
+    const sections = ['hero-scroll-container', 'reformas', 'servicios', 'contacto'];
     const navLinks = document.querySelectorAll('.nav-link');
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px', // Focus mainly on middle screen trigger
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const currentId = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${currentId}`) {
-              link.classList.add('active-nav');
-            } else {
-              link.classList.remove('active-nav');
-            }
-          });
+    function updateActiveNavLink() {
+      const scrollPos = window.pageYOffset + 120; // 120px offset from top for trigger
+      let currentSectionId = '';
+      
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop - 75; // account for navbar height
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            currentSectionId = id;
+          }
         }
       });
-    }, observerOptions);
 
-    sections.forEach(section => observer.observe(section));
+      // Special case: bottom of the page highlights Contact
+      if ((window.innerHeight + window.pageYOffset) >= document.documentElement.scrollHeight - 50) {
+        currentSectionId = 'contacto';
+      }
+
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.add('active-nav');
+        } else {
+          link.classList.remove('active-nav');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+    updateActiveNavLink(); // initial call
 
     // Scroll listener for dynamic navbar and footer styling
     const navElement = document.querySelector('nav');
