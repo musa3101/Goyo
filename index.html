@@ -360,14 +360,15 @@
 /* Glassmorphism Card Style */
 .card {
   box-sizing: border-box;
-  background: rgba(217, 217, 217, 0.58);
-  border: 1px solid white;
-  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
-  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.5s;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
   display: flex;
   flex-direction: column;
   user-select: none;
@@ -376,15 +377,35 @@
   overflow: hidden;
 }
 .card:hover {
-  border: 1px solid black;
-  transform: scale(1.02);
+  transform: translateY(-8px);
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 .card:active {
-  transform: scale(0.98);
+  transform: translateY(-4px) scale(0.98);
 }
 .carousel-card.card {
   height: 480px;
   padding: 0 !important;
+}
+
+/* Location badge styling */
+.location-badge {
+  background: rgba(121, 87, 70, 0.08);
+  color: #795746;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.card:hover .location-badge {
+  background: #795746;
+  color: #FFFFFF;
 }
 
 /* Hand Loading Animation */
@@ -665,119 +686,122 @@
 <!-- Portfolio Card Carousel -->
 <div  class="pt-12 pb-24 scroll-mt-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 
-  <!-- Outer wrapper: clips overflowing cards -->
-  <div class="relative overflow-hidden" id="portfolio-carousel">
+  <!-- Outer wrapper (relative, no overflow-hidden so buttons don't get cut off) -->
+  <div class="relative px-2 md:px-4" id="portfolio-carousel-wrapper">
 
-    <!-- Track: all 9 cards in a flex row -->
-    <div id="carousel-track" class="flex gap-6 transition-transform duration-500 ease-in-out">
+    <!-- Inner wrapper (overflow-hidden to clip track) -->
+    <div class="overflow-hidden" id="portfolio-carousel">
+      <!-- Track: all 9 cards in a flex row -->
+      <div id="carousel-track" class="flex gap-6 transition-transform duration-500 ease-in-out py-4">
 
-      <!-- Card 1 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2131.jpg" alt="Baño de diseño con bañera exenta" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 1 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2131.jpg" alt="Baño de diseño con bañera exenta" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Andratx</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Baño de Diseño con Bañera Exenta</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Andratx</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Baño de Diseño con Bañera Exenta</h3>
-        </div>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2135.jpg" alt="Escalera helicoidal de yeso pulido" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 2 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2135.jpg" alt="Escalera helicoidal de yeso pulido" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Calvià</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Escalera Helicoidal de Yeso Pulido</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Calvià</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Escalera Helicoidal de Yeso Pulido</h3>
-        </div>
-      </div>
 
-      <!-- Card 3 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2134.jpg" alt="Ducha de obra con hornacinas iluminadas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 3 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2134.jpg" alt="Ducha de obra con hornacinas iluminadas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Sóller</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Ducha de Obra con Hornacinas Iluminadas</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Sóller</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Ducha de Obra con Hornacinas Iluminadas</h3>
-        </div>
-      </div>
 
-      <!-- Card 4 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2119.jpg" alt="Cocina moderna integrada y minimalista" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 4 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2119.jpg" alt="Cocina moderna integrada y minimalista" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Palma de Mallorca</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Cocina Moderna Integrada y Minimalista</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Palma de Mallorca</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Cocina Moderna Integrada y Minimalista</h3>
-        </div>
-      </div>
 
-      <!-- Card 5 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2129.jpg" alt="Terraza exterior y solárium" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 5 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2129.jpg" alt="Terraza exterior y solárium" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Santanyí</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Terraza Exterior y Solárium</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Santanyí</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Terraza Exterior y Solárium</h3>
-        </div>
-      </div>
 
-      <!-- Card 6 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2132.jpg" alt="Aseo minimalista de cortesía" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 6 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2132.jpg" alt="Aseo minimalista de cortesía" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Marratxí</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Aseo Minimalista de Cortesía</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Marratxí</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Aseo Minimalista de Cortesía</h3>
-        </div>
-      </div>
 
-      <!-- Card 7 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2133.jpg" alt="Distribuidor con iluminación indirecta" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 7 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2133.jpg" alt="Distribuidor con iluminación indirecta" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Palma de Mallorca</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Distribuidor con Iluminación Indirecta</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Palma de Mallorca</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Distribuidor con Iluminación Indirecta</h3>
-        </div>
-      </div>
 
-      <!-- Card 8 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2136.jpg" alt="Nicho iluminado para coleccionismo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 8 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2136.jpg" alt="Nicho iluminado para coleccionismo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Palma de Mallorca</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Nicho Iluminado para Coleccionismo</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Palma de Mallorca</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Nicho Iluminado para Coleccionismo</h3>
-        </div>
-      </div>
 
-      <!-- Card 9 -->
-      <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
-        <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-          <img src="./assets/img/portfolio/IMG_2138.jpg" alt="Detalle de escalera helicoidal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <!-- Card 9 -->
+        <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2138.jpg" alt="Detalle de escalera helicoidal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Calvià</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Detalle de Escalera Helicoidal</h3>
+          </div>
         </div>
-        <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-          <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">Calvià</span>
-          <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Detalle de Escalera Helicoidal</h3>
-        </div>
-      </div>
 
-    </div><!-- end track -->
+      </div><!-- end track -->
+    </div><!-- end inner wrapper -->
 
-    <!-- Prev / Next arrows -->
-    <button id="carousel-prev" aria-label="Anterior" class="absolute -left-4 md:-left-6 top-[40%] -translate-y-1/2 z-40 w-16 h-16 flex items-center justify-center rounded-full bg-white dark:bg-[#161413] border border-black/10 dark:border-white/10 shadow-md text-primary hover:bg-primary hover:text-white active:scale-95 transition-all duration-200">
-      <span class="material-symbols-outlined text-xl">chevron_left</span>
+    <!-- Prev / Next arrows (positioned relative to outer wrapper, outside the inner clip area) -->
+    <button id="carousel-prev" aria-label="Anterior" class="absolute -left-4 lg:-left-12 top-1/2 -translate-y-1/2 z-40 w-12 h-12 flex items-center justify-center rounded-full bg-white/85 dark:bg-black/85 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg text-primary dark:text-white hover:bg-[#795746] hover:text-white hover:border-[#795746] active:scale-95 transition-all duration-300">
+      <span class="material-symbols-outlined text-2xl">chevron_left</span>
     </button>
-    <button id="carousel-next" aria-label="Siguiente" class="absolute -right-4 md:-right-6 top-[40%] -translate-y-1/2 z-40 w-16 h-16 flex items-center justify-center rounded-full bg-white dark:bg-[#161413] border border-black/10 dark:border-white/10 shadow-md text-primary hover:bg-primary hover:text-white active:scale-95 transition-all duration-200">
-      <span class="material-symbols-outlined text-xl">chevron_right</span>
+    <button id="carousel-next" aria-label="Siguiente" class="absolute -right-4 lg:-right-12 top-1/2 -translate-y-1/2 z-40 w-12 h-12 flex items-center justify-center rounded-full bg-white/85 dark:bg-black/85 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg text-primary dark:text-white hover:bg-[#795746] hover:text-white hover:border-[#795746] active:scale-95 transition-all duration-300">
+      <span class="material-symbols-outlined text-2xl">chevron_right</span>
     </button>
 
   </div><!-- end relative wrapper -->
@@ -809,7 +833,7 @@
                 <img src="${item.image_url}" alt="${item.title_es}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
               </div>
               <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
-                <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">${item.location_es}</span>
+                <span class="location-badge">${item.location_es}</span>
                 <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">${item.title_es}</h3>
               </div>
             </div>
