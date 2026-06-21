@@ -189,6 +189,21 @@
           opacity: 0.8;
           border: none;
         }
+        .logo-header {
+          animation: reveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+          opacity: 0;
+        }
+
+        @keyframes reveal {
+          0% { 
+            clip-path: inset(0 100% 0 0); 
+            opacity: 0; 
+          }
+          100% { 
+            clip-path: inset(0 0 0 0); 
+            opacity: 1; 
+          }
+        }
     </style>
 <script id="tailwind-config">
       tailwind.config = {
@@ -593,7 +608,7 @@
 <div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <!-- Brand -->
 <a class="flex items-center" href="index.html">
-  <img src="./assets/img/logos/LogoHedder.png" alt="ECUAPLAC Logo" class="h-8 md:h-10 w-auto object-contain select-none" loading="lazy">
+  <img src="./assets/img/logos/LogoHedder.png" alt="ECUAPLAC Logo" class="logo-header h-8 md:h-10 w-auto object-contain select-none" loading="lazy">
 </a>
 <!-- Desktop Nav -->
 <ul class="hidden lg:flex items-center gap-8 uppercase font-semibold text-[13px] tracking-[0.18em]">
