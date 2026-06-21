@@ -844,54 +844,101 @@
       }
     }
 
-    const cards   = Array.from(track.querySelectorAll('.carousel-card'));
+    // Now initialize the infinite loop carousel
+    const originalCards = Array.from(track.querySelectorAll('.carousel-card'));
+    const total = originalCards.length;
+    if (total === 0) return;
+    
     const dotsEl  = document.getElementById('carousel-dots');
     const prevBtn = document.getElementById('carousel-prev');
     const nextBtn = document.getElementById('carousel-next');
-    const total   = cards.length;
-    let current   = 0, timer, perView = 3;
+    const numClones = 3;
 
-    function getPerView() {
-      const w = window.innerWidth;
-      if (w < 640) return 1;
-      if (w < 1024) return 2;
-      return 3;
+    // Clone first 3 cards and append
+    for (let i = 0; i < numClones; i++) {
+      const clone = originalCards[i].cloneNode(true);
+      clone.classList.add('clone-card');
+      track.appendChild(clone);
+    }
+    // Clone last 3 cards and prepend
+    for (let i = total - numClones; i < total; i++) {
+      const clone = originalCards[i].cloneNode(true);
+      clone.classList.add('clone-card');
+      track.insertBefore(clone, track.firstChild);
     }
 
-    function cardWidth() {
-      return cards[0].getBoundingClientRect().width + 24; // width + gap-6 (24px)
+    let current = 0;
+    let isTransitioning = false;
+
+    function getCardWidth() {
+      const firstCard = track.querySelector('.carousel-card');
+      return firstCard ? firstCard.getBoundingClientRect().width + 24 : 0;
     }
 
-    function maxIndex() { return Math.max(0, total - perView); }
+    function setPositionWithoutAnimation(position) {
+      track.style.transition = 'none';
+      track.style.transform = `translateX(${-position}px)`;
+      // force repaint
+      track.offsetHeight;
+    }
 
-    // Build dots based on number of pages
-    function buildDots() {
-      dotsEl.innerHTML = '';
-      const pages = maxIndex() + 1;
-      for (let i = 0; i < pages; i++) {
-        const d = document.createElement('button');
-        d.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === 0 ? 'bg-primary scale-125' : 'bg-primary/25');
-        d.setAttribute('aria-label', 'Página ' + (i + 1));
-        d.addEventListener('click', () => goTo(i));
-        dotsEl.appendChild(d);
+    function goTo(index, animate = true) {
+      if (isTransitioning && animate) return;
+      if (animate) {
+        isTransitioning = true;
+        track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      } else {
+        track.style.transition = 'none';
       }
+      
+      const targetPos = (numClones + index) * getCardWidth();
+      track.style.transform = `translateX(${-targetPos}px)`;
+      current = index;
+      updateDots();
     }
 
     function updateDots() {
       dotsEl.querySelectorAll('button').forEach((d, i) => {
-        d.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === current ? 'bg-primary scale-125' : 'bg-primary/25');
+        let dotIndex = current;
+        if (dotIndex >= total) dotIndex = 0;
+        if (dotIndex < 0) dotIndex = total - 1;
+        d.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === dotIndex ? 'bg-primary scale-125' : 'bg-primary/25');
       });
     }
 
-    function goTo(n) {
-      perView = getPerView();
-      current = Math.max(0, Math.min(n, maxIndex()));
-      track.style.transform = 'translateX(-' + (current * cardWidth()) + 'px)';
-      updateDots();
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('button');
+        d.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === 0 ? 'bg-primary scale-125' : 'bg-primary/25');
+        d.setAttribute('aria-label', 'Página ' + (i + 1));
+        d.addEventListener('click', () => {
+          goTo(i);
+          resetTimer();
+        });
+        dotsEl.appendChild(d);
+      }
     }
 
-    function next() { goTo(current + 1 > maxIndex() ? 0 : current + 1); }
-    function prev() { goTo(current - 1 < 0 ? maxIndex() : current - 1); }
+    track.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      if (current >= total) {
+        setPositionWithoutAnimation(numClones * getCardWidth());
+        current = 0;
+        updateDots();
+      } else if (current < 0) {
+        setPositionWithoutAnimation((numClones + total - 1) * getCardWidth());
+        current = total - 1;
+        updateDots();
+      }
+    });
+
+    function next() {
+      goTo(current + 1);
+    }
+    function prev() {
+      goTo(current - 1);
+    }
 
     nextBtn.addEventListener('click', () => { next(); resetTimer(); });
     prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
@@ -905,6 +952,7 @@
     }, { passive: true });
 
     // Auto-advance
+    let timer;
     function startTimer() { timer = setInterval(next, 4000); }
     function resetTimer() { clearInterval(timer); startTimer(); }
 
@@ -915,14 +963,15 @@
 
     // Recalculate on resize
     window.addEventListener('resize', () => {
-      perView = getPerView();
-      buildDots();
-      goTo(0);
+      setPositionWithoutAnimation((numClones + current) * getCardWidth());
     });
 
-    perView = getPerView();
-    buildDots();
-    startTimer();
+    // Initial position setup
+    setTimeout(() => {
+      setPositionWithoutAnimation(numClones * getCardWidth());
+      buildDots();
+      startTimer();
+    }, 50);
   })();
   </script>
 
