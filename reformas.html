@@ -3,6 +3,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Ecuaplac | Galería de Reformas y Proyectos en Mallorca</title>
 <meta name="description" content="Galería de proyectos de Ecuaplac: reformas integrales de baño, vestidores, escaleras y acabados premium antes y después. Especialistas en Mallorca.">
+<meta name="keywords" content="proyectos de reformas Mallorca, antes y después reformas Palma, acabados premium, baños lujo Mallorca, vestidores a medida, Ecuaplac">
+<meta property="og:title" content="Ecuaplac | Galería de Reformas y Proyectos en Mallorca">
+<meta property="og:description" content="Galería de proyectos de Ecuaplac: reformas integrales de baño, vestidores, escaleras y acabados premium antes y después.">
+<meta property="og:image" content="https://ecuaplac.com/assets/img/logos/LogoHedder.png">
+<meta property="og:url" content="https://ecuaplac.com/reformas.html">
+<meta name="twitter:card" content="summary_large_image">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -1236,23 +1242,13 @@ function showPageLoader(duration = 1500) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const isReload = (performance.navigation && performance.navigation.type === 1) || 
-    (performance.getEntriesByType && performance.getEntriesByType('navigation').length > 0 && performance.getEntriesByType('navigation')[0].type === 'reload');
-  
-  if (isReload) {
-    showPageLoader(1500);
-  } else {
-    const logo = document.querySelector('.logo-header');
-    setTimeout(() => {
-      if (logo) logo.classList.add('reveal-active');
-    }, 300);
-  }
+  showPageLoader(2500);
 });
 
 window.addEventListener('pageshow', (event) => {
   // Show loader on page show (history navigation or BFCache)
   if (event.persisted) {
-    showPageLoader(1500);
+    showPageLoader(2500);
   }
 });
 

@@ -3,6 +3,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Ecuaplac | Reformas de Lujo y Arquitectura en Mallorca</title>
 <meta name="description" content="Ecuaplac: Especialistas en reformas integrales de alta gama y proyectos de arquitectura en Mallorca. Calidad premium, atención al detalle y acabados de lujo by J&G.">
+<meta name="keywords" content="reformas Mallorca, reformas integrales Palma de Mallorca, empresa de reformas de lujo, diseño de interiores Palma, arquitectura Mallorca, J&G, Ecuaplac">
+<meta property="og:title" content="Ecuaplac | Reformas de Lujo y Arquitectura en Mallorca">
+<meta property="og:description" content="Ecuaplac: Especialistas en reformas integrales de alta gama y proyectos de arquitectura en Mallorca.">
+<meta property="og:image" content="https://ecuaplac.com/assets/img/logos/LogoHedder.png">
+<meta property="og:url" content="https://ecuaplac.com">
+<meta name="twitter:card" content="summary_large_image">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -767,8 +773,8 @@
 </nav>
 <main>
 <!-- Pinned Hero Section with Scroll-Triggered Collage Animation -->
-<section id="hero-scroll-container" class="relative w-full h-[450dvh] bg-black">
-  <div id="hero-sticky-element" class="sticky top-[72px] w-full h-[calc(100dvh-72px)] overflow-hidden">
+<section id="hero-scroll-container" class="relative w-full h-[450vh] bg-black">
+  <div id="hero-sticky-element" class="sticky top-[72px] w-full h-[calc(100vh-72px)] overflow-hidden">
     <!-- Image Layers -->
     <!-- Image 1: Villa Minimalista (Actual) -->
     <div id="hero-layer-1" class="absolute inset-0 z-0 opacity-100">
@@ -2328,23 +2334,13 @@ function showPageLoader(duration = 1500) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const isReload = (performance.navigation && performance.navigation.type === 1) || 
-    (performance.getEntriesByType && performance.getEntriesByType('navigation').length > 0 && performance.getEntriesByType('navigation')[0].type === 'reload');
-  
-  if (isReload) {
-    showPageLoader(1500);
-  } else {
-    const logo = document.querySelector('.logo-header');
-    setTimeout(() => {
-      if (logo) logo.classList.add('reveal-active');
-    }, 300);
-  }
+  showPageLoader(2500);
 });
 
 window.addEventListener('pageshow', (event) => {
   // Show loader on page show (history navigation or BFCache)
   if (event.persisted) {
-    showPageLoader(1500);
+    showPageLoader(2500);
   }
 });
 

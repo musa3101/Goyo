@@ -3,6 +3,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Ecuaplac | Project Gallery & Remodels</title>
 <meta name="description" content="Explore our project portfolio. High-end complete remodels, interior design, and premium architecture in Mallorca by Ecuaplac.">
+<meta name="keywords" content="remodel projects Mallorca, before and after remodels Palma, premium finishes, luxury bathrooms Mallorca, custom walk-in closets, Ecuaplac">
+<meta property="og:title" content="Ecuaplac | Project Gallery & Remodels">
+<meta property="og:description" content="Explore our project portfolio. High-end complete remodels, interior design, and premium architecture in Mallorca by Ecuaplac.">
+<meta property="og:image" content="https://ecuaplac.com/assets/img/logos/LogoHedder.png">
+<meta property="og:url" content="https://ecuaplac.com/reformas-en.html">
+<meta name="twitter:card" content="summary_large_image">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -1240,23 +1246,13 @@ function showPageLoader(duration = 1500) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const isReload = (performance.navigation && performance.navigation.type === 1) || 
-    (performance.getEntriesByType && performance.getEntriesByType('navigation').length > 0 && performance.getEntriesByType('navigation')[0].type === 'reload');
-  
-  if (isReload) {
-    showPageLoader(1500);
-  } else {
-    const logo = document.querySelector('.logo-header');
-    setTimeout(() => {
-      if (logo) logo.classList.add('reveal-active');
-    }, 300);
-  }
+  showPageLoader(2500);
 });
 
 window.addEventListener('pageshow', (event) => {
   // Show loader on page show (history navigation or BFCache)
   if (event.persisted) {
-    showPageLoader(1500);
+    showPageLoader(2500);
   }
 });
 
