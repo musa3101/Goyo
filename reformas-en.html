@@ -911,22 +911,22 @@
 
 <!-- Mobile Side Navigation Drawer (Functional) -->
 <div id="mobileMenu" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex justify-end">
-  <div class="bg-surface dark:bg-on-background w-[280px] h-full p-8 flex flex-col justify-between border-l border-primary animate-slide-up relative">
-    <button class="absolute top-6 right-6 text-primary" onclick="toggleMobileMenu()">
+  <div class="bg-[#161413] w-[280px] h-full p-8 flex flex-col justify-between border-l border-white/10 animate-slide-up relative">
+    <button class="absolute top-6 right-6 text-white" onclick="toggleMobileMenu()">
       <span class="material-symbols-outlined text-3xl">close</span>
     </button>
     <div class="mt-12 flex flex-col gap-6 font-label-caps text-label-caps uppercase tracking-widest">
-      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index-en.html">Home</a>
-      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index-en.html#reformas">Remodels</a>
-      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index-en.html#servicios">Services</a>
-      <a class="pb-2 border-b border-outline-variant text-primary" onclick="toggleMobileMenu()" href="index-en.html#contacto">Contact</a>
+      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary" onclick="toggleMobileMenu()" href="index-en.html">Home</a>
+      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary" onclick="toggleMobileMenu()" href="index-en.html#reformas">Remodels</a>
+      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary" onclick="toggleMobileMenu()" href="index-en.html#servicios">Services</a>
+      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary" onclick="toggleMobileMenu()" href="index-en.html#contacto">Contact</a>
       <a class="font-bold text-secondary text-[14px]" onclick="openPresupuestoModalFromMobile()">Request a Quote</a>
     </div>
-    <div class="text-xs text-mortar-grey">
+    <div class="text-xs text-white/50">
       <!-- Language Selector Mobile -->
     <div class="flex justify-center items-center gap-6 mb-10 font-label-caps tracking-widest font-bold text-[14px]">
-      <a href="reformas.html" class="text-mortar-grey hover:text-primary transition-colors cursor-pointer pb-1">ES</a>
-      <span class="text-primary cursor-default border-b border-primary pb-1">EN</span>
+      <a href="reformas.html" class="text-white/60 hover:text-white transition-colors cursor-pointer pb-1">ES</a>
+      <span class="text-white cursor-default border-b border-white pb-1">EN</span>
     </div>
     <div class="flex items-center mb-3">
         <img src="./assets/img/logos/LogoHedder.png" alt="ECUAPLAC Logo" class="h-10 w-auto object-contain select-none" loading="lazy">
@@ -983,7 +983,6 @@
   // Scroll listener for dynamic navbar and footer styling
   document.addEventListener('DOMContentLoaded', () => {
     const navElement = document.querySelector('nav');
-    const footerElement = document.querySelector('footer');
 
     function handleScroll() {
       // Header scroll logic
@@ -993,21 +992,7 @@
         navElement.classList.remove('scrolled');
       }
 
-      // Footer scroll logic: fade in background & border as user approaches the bottom
-      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollableHeight > 0) {
-        const threshold = 300; // start transition within 300px of bottom
-        const distanceToBottom = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
-        
-        if (distanceToBottom <= threshold) {
-          const opacity = 1 - (distanceToBottom / threshold);
-          footerElement.style.backgroundColor = `rgba(20, 20, 20, ${opacity})`;
-          footerElement.style.borderColor = `rgba(35, 36, 42, ${opacity})`;
-        } else {
-          footerElement.style.backgroundColor = 'rgba(20, 20, 20, 0)';
-          footerElement.style.borderColor = 'rgba(35, 36, 42, 0)';
-        }
-      }
+
     }
 
     window.addEventListener('scroll', handleScroll);
