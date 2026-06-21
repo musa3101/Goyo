@@ -506,7 +506,13 @@
 .played .ecuaplac-text-logo .letter:nth-child(5) { animation-delay: 0.5s, 1.4s; }
 .played .ecuaplac-text-logo .letter:nth-child(6) { animation-delay: 0.6s, 1.5s; }
 .played .ecuaplac-text-logo .letter:nth-child(7) { animation-delay: 0.7s, 1.6s; }
-.played .ecuaplac-text-logo .letter:nth-child(8) { animation-delay: 0.8s, 1.7s; }
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
 </style>
 
 </head>
@@ -775,12 +781,17 @@
       <!-- Center Column: Logo & Description -->
       <div class="flex flex-col items-center justify-center text-center">
         <a href="index.html" class="block cursor-pointer inline-flex">
-          <div class="bg-white p-3 items-center justify-center rounded-full border-[3px] border-[#FFB81C] shadow-lg w-32 h-32 mb-8 overflow-hidden transition-transform duration-500 hover:scale-105">
-            <img src="./assets/img/logos/Logofotter.jpg" alt="ECUAPLAC Logo" class="w-full h-full object-cover scale-[1.35] md:scale-[1.4]" loading="lazy">
+          <div class="relative w-36 h-36 mb-8 group">
+            <!-- Rotating neon border -->
+            <div class="absolute inset-0 rounded-full border-[3px] border-dashed border-[#FFB81C] animate-spin-slow shadow-[0_0_15px_rgba(255,184,28,0.6)]"></div>
+            <!-- Logo container -->
+            <div class="absolute inset-[3px] bg-white p-3 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-500 group-hover:scale-105">
+              <img src="./assets/img/logos/Logofotter.jpg" alt="ECUAPLAC Logo" class="w-full h-full object-cover scale-[1.35] md:scale-[1.4]" loading="lazy">
+            </div>
           </div>
         </a>
-        <p class="text-[15px] text-[#888] leading-relaxed max-w-sm">
-          Cuando J &amp; G empezamos un proyecto, lo hacemos con una regla simple: tratar tu casa en Mallorca como si fuera la nuestra. No se trata solo de cumplir con el plano, sino de que el resultado final sea algo de lo que tú te sientas orgulloso y nosotros también.
+        <p class="text-[15px] text-[#E5E7EB] leading-relaxed max-w-sm text-balance">
+          Cuando J &amp; G empezamos un proyecto, lo hacemos con una regla simple:<br>tratar tu casa en Mallorca como si fuera la nuestra.<br>No se trata solo de cumplir con el plano, sino de que el resultado final<br>sea algo de lo que tú te sientas orgulloso y nosotros también.
         </p>
       </div>
 
