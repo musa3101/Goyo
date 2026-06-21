@@ -743,7 +743,7 @@
 }
 /* Portfolio Carousel custom gaps and sizes overrides */
 #carousel-track {
-  gap: 2rem !important; /* gap-8 equivalent */
+  gap: 24px !important;
 }
 .carousel-card.card {
   width: 100% !important;
@@ -792,12 +792,12 @@
 }
 @media (min-width: 640px) {
   .carousel-card.card {
-    width: calc(50% - 16px) !important;
+    width: calc(50% - 12px) !important;
   }
 }
 @media (min-width: 1024px) {
   .carousel-card.card {
-    width: calc(33.333% - 22px) !important;
+    width: calc(33.333% - 16px) !important;
   }
 }
 </style>
@@ -1145,7 +1145,9 @@
 
     function getCardWidth() {
       const firstCard = track.querySelector('.carousel-card');
-      return firstCard ? firstCard.getBoundingClientRect().width + 24 : 0;
+      if (!firstCard) return 0;
+      const gap = parseFloat(window.getComputedStyle(track).gap) || 24;
+      return firstCard.getBoundingClientRect().width + gap;
     }
 
     function setPositionWithoutAnimation(position) {
@@ -1216,12 +1218,41 @@
     nextBtn.addEventListener('click', () => { next(); resetTimer(); });
     prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
 
-    // Touch swipe
+    // Touch swipe with live dragging
     let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    let isDragging = false;
+
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      isTransitioning = false; // allow interrupting transition
+      track.style.transition = 'none';
+      clearInterval(timer);
+    }, { passive: true });
+
+    track.addEventListener('touchmove', e => {
+      if (!isDragging) return;
+      const currentX = e.touches[0].clientX;
+      const dx = currentX - startX;
+      const basePos = (numClones + current) * getCardWidth();
+      track.style.transform = `translateX(${ -basePos + dx }px)`;
+    }, { passive: true });
+
     track.addEventListener('touchend', e => {
+      if (!isDragging) return;
+      isDragging = false;
       const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); resetTimer(); }
+      
+      if (Math.abs(dx) > 50) {
+        if (dx < 0) {
+          next();
+        } else {
+          prev();
+        }
+      } else {
+        goTo(current);
+      }
+      resetTimer();
     }, { passive: true });
 
     // Auto-advance
