@@ -960,16 +960,16 @@
 
 <!-- Mobile Side Navigation Drawer (Functional) -->
 <div id="mobileMenu" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex justify-end">
-  <div class="bg-[#161413] w-[280px] h-full p-8 flex flex-col justify-between border-l border-white/10 animate-slide-up relative">
+  <div class="bg-black w-[280px] h-full p-8 flex flex-col justify-between border-l border-white/10 animate-slide-up relative">
     <button class="absolute top-6 right-6 text-white" onclick="toggleMobileMenu()">
       <span class="material-symbols-outlined text-3xl">close</span>
     </button>
-    <div class="mt-12 flex flex-col gap-6 font-label-caps text-label-caps uppercase tracking-widest">
-      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary" onclick="toggleMobileMenu()" href="index-en.html">Home</a>
-      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary" onclick="toggleMobileMenu()" href="index-en.html#reformas">Remodels</a>
-      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary" onclick="toggleMobileMenu()" href="index-en.html#servicios">Services</a>
-      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary" onclick="toggleMobileMenu()" href="index-en.html#contacto">Contact</a>
-      <a class="font-bold text-secondary text-[14px]" onclick="openPresupuestoModalFromMobile()">Request a Quote</a>
+    <div class="mt-12 flex flex-col gap-6 font-headline-xl text-2xl uppercase tracking-wider">
+      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary block py-2 transition-colors" onclick="toggleMobileMenu()" href="index-en.html">HOME</a>
+      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary block py-2 transition-colors" onclick="toggleMobileMenu()" href="index-en.html#reformas">REMODELS</a>
+      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary block py-2 transition-colors" onclick="toggleMobileMenu()" href="index-en.html#servicios">SERVICES</a>
+      <a class="pb-2 border-b border-white/10 text-white hover:text-secondary block py-2 transition-colors" onclick="toggleMobileMenu()" href="index-en.html#contacto">CONTACT</a>
+      <a class="font-bold text-secondary text-[14px] font-label-caps tracking-widest" onclick="openPresupuestoModalFromMobile()">Request a Quote</a>
     </div>
     <div class="text-xs text-white/50">
       <!-- Language Selector Mobile -->
