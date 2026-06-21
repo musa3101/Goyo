@@ -517,6 +517,50 @@
 
 </head>
 <body class="bg-background text-on-background font-body-md antialiased pt-[72px] overflow-x-hidden">
+
+<!-- Page Loader -->
+<div id="hand-loader" class="hand-loader-overlay active">
+  <svg xmlns="http://www.w3.org/2000/svg" height="200px" width="200px" viewBox="0 0 200 200" class="pencil" style="color: #fff;">
+    <defs>
+      <clipPath id="pencil-eraser">
+        <rect height="30" width="30" ry="5" rx="5"></rect>
+      </clipPath>
+    </defs>
+    <circle transform="rotate(-113,100,100)" stroke-linecap="round" stroke-dashoffset="439.82" stroke-dasharray="439.82 439.82" stroke-width="2" stroke="currentColor" fill="none" r="70" class="pencil__stroke"></circle>
+    <g transform="translate(100,100)" class="pencil__rotate">
+      <g fill="none">
+        <circle transform="rotate(-90)" stroke-dashoffset="402" stroke-dasharray="402.12 402.12" stroke-width="30" stroke="hsl(223,90%,50%)" r="64" class="pencil__body1"></circle>
+        <circle transform="rotate(-90)" stroke-dashoffset="465" stroke-dasharray="464.96 464.96" stroke-width="10" stroke="hsl(223,90%,60%)" r="74" class="pencil__body2"></circle>
+        <circle transform="rotate(-90)" stroke-dashoffset="339" stroke-dasharray="339.29 339.29" stroke-width="10" stroke="hsl(223,90%,40%)" r="54" class="pencil__body3"></circle>
+      </g>
+      <g transform="rotate(-90) translate(49,0)" class="pencil__eraser">
+        <g class="pencil__eraser-skew">
+          <rect height="30" width="30" ry="5" rx="5" fill="hsl(223,90%,70%)"></rect>
+          <rect clip-path="url(#pencil-eraser)" height="30" width="5" fill="hsl(223,90%,60%)"></rect>
+          <rect height="20" width="30" fill="hsl(223,10%,90%)"></rect>
+          <rect height="20" width="15" fill="hsl(223,10%,70%)"></rect>
+          <rect height="20" width="5" fill="hsl(223,10%,80%)"></rect>
+          <rect height="2" width="30" y="6" fill="hsla(223,10%,10%,0.2)"></rect>
+          <rect height="2" width="30" y="13" fill="hsla(223,10%,10%,0.2)"></rect>
+        </g>
+      </g>
+      <g transform="rotate(-90) translate(49,-30)" class="pencil__point">
+        <polygon points="15 0,30 30,0 30" fill="hsl(33,90%,70%)"></polygon>
+        <polygon points="15 0,6 30,0 30" fill="hsl(33,90%,50%)"></polygon>
+        <polygon points="15 0,20 10,10 10" fill="hsl(223,10%,10%)"></polygon>
+      </g>
+    </g>
+  </svg>
+</div>
+<script>
+  if (sessionStorage.getItem('skipLoader') === 'true') {
+    const loader = document.getElementById('hand-loader');
+    if (loader) {
+      loader.classList.remove('active');
+      loader.style.display = 'none';
+    }
+  }
+</script>
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full border-b border-[#1C1C1E] z-50">
 <div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
@@ -778,16 +822,10 @@
         </ul>
       </div>
 
-      <!-- Center Column: Logo & Description -->
       <div class="flex flex-col items-center justify-center text-center">
         <a href="index.html" class="block cursor-pointer inline-flex">
-          <div class="relative w-36 h-36 mb-8 group">
-            <!-- Rotating neon border -->
-            <div class="absolute inset-0 rounded-full border-[3px] border-dashed border-[#FFB81C] animate-spin-slow shadow-[0_0_15px_rgba(255,184,28,0.6)]"></div>
-            <!-- Logo container -->
-            <div class="absolute inset-[3px] bg-white p-3 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-500 group-hover:scale-105">
-              <img src="./assets/img/logos/Logofotter.jpg" alt="ECUAPLAC Logo" class="w-full h-full object-cover scale-[1.35] md:scale-[1.4]" loading="lazy">
-            </div>
+          <div class="w-36 h-36 mb-8 group rounded-full border-[3px] border-[#FFB81C] bg-white flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105 shadow-md">
+            <img src="./assets/img/logos/Logofotter.jpg" alt="ECUAPLAC Logo" class="w-full h-full object-cover scale-100" loading="lazy">
           </div>
         </a>
         <p class="text-[15px] text-[#E5E7EB] leading-relaxed max-w-sm text-balance">
@@ -1175,76 +1213,45 @@ async function handleFormSubmit(formId) {
 function showPageLoader(duration = 1500) {
   if (sessionStorage.getItem('skipLoader') === 'true') {
     sessionStorage.removeItem('skipLoader');
+    const loader = document.getElementById('hand-loader');
+    if (loader) {
+      loader.classList.remove('active');
+      loader.style.display = 'none';
+    }
     const logo = document.querySelector('.logo-header');
     if (logo) logo.classList.add('reveal-active');
     return;
   }
 
-  let overlay = document.getElementById('hand-loader');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.id = 'hand-loader';
-    overlay.className = 'hand-loader-overlay';
-    overlay.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" height="200px" width="200px" viewBox="0 0 200 200" class="pencil" style="color: #fff;">
-        <defs>
-          <clipPath id="pencil-eraser">
-            <rect height="30" width="30" ry="5" rx="5"></rect>
-          </clipPath>
-        </defs>
-        <circle transform="rotate(-113,100,100)" stroke-linecap="round" stroke-dashoffset="439.82" stroke-dasharray="439.82 439.82" stroke-width="2" stroke="currentColor" fill="none" r="70" class="pencil__stroke"></circle>
-        <g transform="translate(100,100)" class="pencil__rotate">
-          <g fill="none">
-            <circle transform="rotate(-90)" stroke-dashoffset="402" stroke-dasharray="402.12 402.12" stroke-width="30" stroke="hsl(223,90%,50%)" r="64" class="pencil__body1"></circle>
-            <circle transform="rotate(-90)" stroke-dashoffset="465" stroke-dasharray="464.96 464.96" stroke-width="10" stroke="hsl(223,90%,60%)" r="74" class="pencil__body2"></circle>
-            <circle transform="rotate(-90)" stroke-dashoffset="339" stroke-dasharray="339.29 339.29" stroke-width="10" stroke="hsl(223,90%,40%)" r="54" class="pencil__body3"></circle>
-          </g>
-          <g transform="rotate(-90) translate(49,0)" class="pencil__eraser">
-            <g class="pencil__eraser-skew">
-              <rect height="30" width="30" ry="5" rx="5" fill="hsl(223,90%,70%)"></rect>
-              <rect clip-path="url(#pencil-eraser)" height="30" width="5" fill="hsl(223,90%,60%)"></rect>
-              <rect height="20" width="30" fill="hsl(223,10%,90%)"></rect>
-              <rect height="20" width="15" fill="hsl(223,10%,70%)"></rect>
-              <rect height="20" width="5" fill="hsl(223,10%,80%)"></rect>
-              <rect height="2" width="30" y="6" fill="hsla(223,10%,10%,0.2)"></rect>
-              <rect height="2" width="30" y="13" fill="hsla(223,10%,10%,0.2)"></rect>
-            </g>
-          </g>
-          <g transform="rotate(-90) translate(49,-30)" class="pencil__point">
-            <polygon points="15 0,30 30,0 30" fill="hsl(33,90%,70%)"></polygon>
-            <polygon points="15 0,6 30,0 30" fill="hsl(33,90%,50%)"></polygon>
-            <polygon points="15 0,20 10,10 10" fill="hsl(223,10%,10%)"></polygon>
-          </g>
-        </g>
-      </svg>
-    `;
-    document.body.appendChild(overlay);
+  const overlay = document.getElementById('hand-loader');
+  if (overlay) {
+    overlay.style.display = 'flex';
+    setTimeout(() => {
+      overlay.classList.add('active');
+    }, 10);
   }
-  
-  // Trigger animation
-  setTimeout(() => {
-    overlay.classList.add('active');
-  }, 10);
   
   // Remove loader after specified duration
   setTimeout(() => {
-    overlay.classList.remove('active');
-    setTimeout(() => {
-      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-    }, 500);
+    if (overlay) {
+      overlay.classList.remove('active');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 500);
+    }
     const logo = document.querySelector('.logo-header');
     if (logo) logo.classList.add('reveal-active');
   }, duration);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  showPageLoader(2500);
+  showPageLoader(3500);
 });
 
 window.addEventListener('pageshow', (event) => {
   // Show loader on page show (history navigation or BFCache)
   if (event.persisted) {
-    showPageLoader(2500);
+    showPageLoader(3500);
   }
 });
 
