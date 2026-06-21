@@ -880,8 +880,8 @@
 </nav>
 <main>
 <!-- Pinned Hero Section with Scroll-Triggered Collage Animation -->
-<section id="hero-scroll-container" class="relative w-full h-[calc(100vh-72px)] md:h-[450vh] bg-black">
-  <div id="hero-sticky-element" class="relative md:sticky top-0 md:top-[72px] w-full h-full md:h-[calc(100vh-72px)] overflow-hidden">
+<section id="hero-scroll-container" class="relative w-full h-[300vh] md:h-[450vh] bg-black">
+  <div id="hero-sticky-element" class="sticky top-[72px] w-full h-[calc(100vh-72px)] overflow-hidden">
     <!-- Image Layers -->
     <!-- Image 1: Villa Minimalista (Actual) -->
     <div id="hero-layer-1" class="absolute inset-0 z-0 opacity-100">
@@ -912,7 +912,7 @@
     <div class="absolute inset-x-0 bottom-0 z-20 h-full max-w-5xl mx-auto pointer-events-none">
       
       <!-- Stage 1 Content -->
-      <div id="hero-text-1" class="absolute bottom-8 md:bottom-16 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-0 opacity-100 pointer-events-auto">
+      <div id="hero-text-1" class="absolute bottom-8 md:bottom-16 left-5 right-5 md:left-12 md:right-12 transform translate-y-0 opacity-100 pointer-events-auto">
         <h1 class="font-headline-xl text-[28px] sm:text-[32px] md:text-[44px] lg:text-[56px] font-semibold md:font-light leading-tight text-monolith-white max-w-3xl">
           Arquitectura de<br>espacios limpios.
         </h1>
@@ -922,10 +922,10 @@
       </div>
 
       <!-- Stage 2 Content (Clean view) -->
-      <div id="hero-text-2" class="absolute bottom-8 md:bottom-16 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none"></div>
+      <div id="hero-text-2" class="absolute bottom-8 md:bottom-16 left-5 right-5 md:left-12 md:right-12 transform translate-y-4 opacity-0 pointer-events-none"></div>
 
       <!-- Stage 3 Content -->
-      <div id="hero-text-3" class="absolute bottom-8 md:bottom-16 left-5 right-5 md:left-12 md:right-12 transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none">
+      <div id="hero-text-3" class="absolute bottom-8 md:bottom-16 left-5 right-5 md:left-12 md:right-12 transform translate-y-4 opacity-0 pointer-events-none">
         <h1 class="font-headline-xl text-[28px] sm:text-[32px] md:text-[44px] lg:text-[56px] font-semibold md:font-light leading-tight text-monolith-white max-w-3xl">
           El resultado que<br>siempre imaginaste.
         </h1>
@@ -1978,7 +1978,6 @@
 
     function handleHeroScroll() {
       if (!heroContainer) return;
-      if (window.innerWidth < 768) return;
       
       const rect = heroContainer.getBoundingClientRect();
       const containerHeight = rect.height;
@@ -2130,80 +2129,19 @@
       sepObserver.observe(sepText);
     }
 
-    let autoplayInterval = null;
-    let autoplayIndex = 0;
-
-    function startAutoplay() {
-      if (autoplayInterval) return;
-      autoplayInterval = setInterval(() => {
-        autoplayIndex = (autoplayIndex + 1) % 3;
-        updateMobileHero(autoplayIndex);
-      }, 4000);
-    }
-
-    function stopAutoplay() {
-      if (autoplayInterval) {
-        clearInterval(autoplayInterval);
-        autoplayInterval = null;
-      }
-    }
-
-    function updateMobileHero(index) {
-      layers.forEach((layer, idx) => {
-        if (!layer) return;
-        layer.style.transition = 'opacity 1s ease-in-out';
-        if (idx === index) {
-          layer.style.opacity = '1';
-          layer.style.zIndex = '1';
-        } else {
-          layer.style.opacity = '0';
-          layer.style.zIndex = '0';
-        }
-      });
-
-      texts.forEach((text, idx) => {
-        if (!text) return;
-        if (idx === index) {
-          text.style.opacity = '1';
-          text.style.transform = 'translateY(0)';
-          text.style.pointerEvents = 'auto';
-        } else {
-          text.style.opacity = '0';
-          text.style.transform = 'translateY(16px)';
-          text.style.pointerEvents = 'none';
-        }
-      });
-    }
-
-    function handleResize() {
-      if (window.innerWidth < 768) {
-        startAutoplay();
-        updateMobileHero(autoplayIndex);
-      } else {
-        stopAutoplay();
-        layers.forEach((layer) => {
-          if (layer) {
-            layer.style.opacity = '';
-            layer.style.transform = '';
-            layer.style.zIndex = '';
-            layer.style.transition = '';
-          }
-        });
-        texts.forEach((text) => {
-          if (text) {
-            text.style.opacity = '';
-            text.style.transform = '';
-            text.style.pointerEvents = '';
-          }
-        });
-        handleHeroScroll();
-      }
-    }
-
-    window.addEventListener('scroll', () => {
+    let ticking = false;
+    function onScroll() {
       handleScroll();
-      handleHeroScroll();
-    });
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleHeroScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     // Image Comparison Slider Logic
     const slider = document.getElementById('before-after-slider');
@@ -2273,8 +2211,7 @@
       });
     }
     handleScroll();
-    handleResize();
-    window.addEventListener('resize', handleResize);
+    handleHeroScroll();
   });
 </script>
 
