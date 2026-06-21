@@ -775,23 +775,56 @@
 
   <div id="carousel-dots" class="flex justify-center gap-2 mt-8"></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-  (function() {
-    const track=document.getElementById('carousel-track'),cards=Array.from(track.querySelectorAll('.carousel-card')),dotsEl=document.getElementById('carousel-dots'),prevBtn=document.getElementById('carousel-prev'),nextBtn=document.getElementById('carousel-next'),total=cards.length;
+  (async function() {
+    const track = document.getElementById('carousel-track');
+    
+    // Supabase Dynamic Fetch
+    if (window.supabase) {
+      try {
+        const supabaseUrl = 'https://feikeytbrxtsooaxsvjt.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZlaWtleXRicnh0c29vYXhzdmp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMjUyMzUsImV4cCI6MjA5NjcwMTIzNX0.8JCgne4hkGDU3P3Zh1eYXSUV2G12vbaS_eIi5ifliXI';
+        const client = window.supabase.createClient(supabaseUrl, supabaseKey);
+        const { data, error } = await client
+          .from('ecuaplac_carousel')
+          .select('*')
+          .eq('active', true)
+          .order('sort_order', { ascending: true });
+        
+        if (!error && data && data.length > 0) {
+          track.innerHTML = data.map(item => `
+            <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
+              <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+                <img src="${item.image_url}" alt="${item.title_en}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              </div>
+              <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+                <span class="font-bold text-[10px] uppercase text-[#666] tracking-[0.2em] mb-1.5">${item.location_en}</span>
+                <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">${item.title_en}</h3>
+              </div>
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        console.warn('Supabase fetch failed, using fallback static content:', err);
+      }
+    }
+
+    const trackEl=document.getElementById('carousel-track'),cards=Array.from(trackEl.querySelectorAll('.carousel-card')),dotsEl=document.getElementById('carousel-dots'),prevBtn=document.getElementById('carousel-prev'),nextBtn=document.getElementById('carousel-next'),total=cards.length;
     let current=0,timer,perView=3;
     function getPerView(){const w=window.innerWidth;if(w<640)return 1;if(w<1024)return 2;return 3;}
     function cardWidth(){return cards[0].getBoundingClientRect().width+24;}
     function maxIndex(){return Math.max(0,total-perView);}
     function buildDots(){dotsEl.innerHTML='';const pages=maxIndex()+1;for(let i=0;i<pages;i++){const d=document.createElement('button');d.className='w-2 h-2 rounded-full transition-all duration-300 '+(i===0?'bg-primary scale-125':'bg-primary/25');d.setAttribute('aria-label','Page '+(i+1));d.addEventListener('click',()=>goTo(i));dotsEl.appendChild(d);}}
     function updateDots(){dotsEl.querySelectorAll('button').forEach((d,i)=>{d.className='w-2 h-2 rounded-full transition-all duration-300 '+(i===current?'bg-primary scale-125':'bg-primary/25');});}
-    function goTo(n){perView=getPerView();current=Math.max(0,Math.min(n,maxIndex()));track.style.transform='translateX(-'+(current*cardWidth())+'px)';updateDots();}
+    function goTo(n){perView=getPerView();current=Math.max(0,Math.min(n,maxIndex()));trackEl.style.transform='translateX(-'+(current*cardWidth())+'px)';updateDots();}
     function next(){goTo(current+1>maxIndex()?0:current+1);}
     function prev(){goTo(current-1<0?maxIndex():current-1);}
     nextBtn.addEventListener('click',()=>{next();resetTimer();});
     prevBtn.addEventListener('click',()=>{prev();resetTimer();});
     let startX=0;
-    track.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>40){dx<0?next():prev();resetTimer();}},{passive:true});
+    trackEl.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;},{passive:true});
+    trackEl.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>40){dx<0?next():prev();resetTimer();}},{passive:true});
     function startTimer(){timer=setInterval(next,4000);}
     function resetTimer(){clearInterval(timer);startTimer();}
     const wrapper=document.getElementById('portfolio-carousel');
