@@ -193,9 +193,10 @@
           border: none;
         }
         .logo-header {
-          animation: reveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-          animation-delay: 0.4s;
           opacity: 0;
+        }
+        .logo-header.reveal-active {
+          animation: reveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
 
         @keyframes reveal {
@@ -1987,6 +1988,8 @@ async function handleFormSubmit(formId) {
     const isReload = (performance.navigation && performance.navigation.type === 1) || 
       (performance.getEntriesByType && performance.getEntriesByType('navigation').length > 0 && performance.getEntriesByType('navigation')[0].type === 'reload');
     
+    const logo = document.querySelector('.logo-header');
+
     if (isReload) {
       let overlay = document.getElementById('hand-loader');
       if (!overlay) {
@@ -2017,7 +2020,14 @@ async function handleFormSubmit(formId) {
         setTimeout(() => {
           if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
         }, 500);
+        // Start logo reveal animation when loader disappears
+        if (logo) logo.classList.add('reveal-active');
       }, 1800);
+    } else {
+      // Trigger logo reveal animation immediately with a small delay
+      setTimeout(() => {
+        if (logo) logo.classList.add('reveal-active');
+      }, 300);
     }
   });
 </script>
