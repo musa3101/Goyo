@@ -741,16 +741,51 @@
 #carousel-track {
   gap: 2rem !important; /* gap-8 equivalent */
 }
-.carousel-card {
+.carousel-card.card {
   width: 100% !important;
+  height: 480px;
+  background: #161413 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 16px !important;
+}
+.carousel-card.card:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8) !important;
+}
+.carousel-card.card .w-full.h-\[75\%\] {
+  height: 80% !important;
+}
+.carousel-card.card .h-\[25\%\] {
+  height: 20% !important;
+  background: #12100f !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.carousel-card.card h3 {
+  color: #FFFFFF !important;
+  font-size: 13px !important;
+  letter-spacing: 0.03em;
+  padding: 0 8px;
+}
+.carousel-card.card:hover h3 {
+  color: #FFB81C !important;
+}
+.carousel-card.card .location-badge {
+  background: rgba(255, 184, 28, 0.1) !important;
+  color: #FFB81C !important;
+  margin-bottom: 6px !important;
+}
+.carousel-card.card:hover .location-badge {
+  background: #FFB81C !important;
+  color: #12100f !important;
 }
 @media (min-width: 640px) {
-  .carousel-card {
+  .carousel-card.card {
     width: calc(50% - 16px) !important;
   }
 }
 @media (min-width: 1024px) {
-  .carousel-card {
+  .carousel-card.card {
     width: calc(33.333% - 22px) !important;
   }
 }
@@ -884,7 +919,7 @@
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Andratx</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Baño de Diseño con Bañera Exenta</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Reforma de Baño Minimalista con Bañera Exenta</h3>
           </div>
         </div>
 
@@ -895,7 +930,7 @@
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Calvià</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Escalera Helicoidal de Yeso Pulido</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Escalera de Diseño Escultural en Yeso Pulido</h3>
           </div>
         </div>
 
@@ -906,7 +941,7 @@
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Sóller</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Ducha de Obra con Hornacinas Iluminadas</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Ducha Revestida en Piedra con Iluminación LED Integrada</h3>
           </div>
         </div>
 
@@ -917,18 +952,18 @@
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Palma de Mallorca</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Cocina Moderna Integrada y Minimalista</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Cocina Minimalista Totalmente Integrada</h3>
           </div>
         </div>
 
         <!-- Card 5 -->
         <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
           <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
-            <img src="./assets/img/portfolio/IMG_2129.jpg" alt="Terraza exterior y solárium" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+            <img src="./assets/img/portfolio/IMG_2129.jpg" alt="Terraza exterior y solárium" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" style="object-position: 80% center;">
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Santanyí</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Terraza Exterior y Solárium</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Terraza Rústica con Cocina de Obra y Solárium</h3>
           </div>
         </div>
 
@@ -939,7 +974,7 @@
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Marratxí</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Aseo Minimalista de Cortesía</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Aseo de Cortesía con Acabados en Microcemento</h3>
           </div>
         </div>
 
@@ -950,7 +985,7 @@
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Palma de Mallorca</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Distribuidor con Iluminación Indirecta</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Distribuidor Moderno con Líneas de Luz LED</h3>
           </div>
         </div>
 
@@ -961,7 +996,7 @@
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Palma de Mallorca</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Nicho Iluminado para Coleccionismo</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Hornacinas de Obra Iluminadas para Decoración</h3>
           </div>
         </div>
 
@@ -972,7 +1007,7 @@
           </div>
           <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
             <span class="location-badge">Calvià</span>
-            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Detalle de Escalera Helicoidal</h3>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Perspectiva y Acabados de la Escalera Helicoidal</h3>
           </div>
         </div>
 
