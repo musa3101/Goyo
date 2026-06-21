@@ -737,6 +737,23 @@
   75% { transform: translate(-100%, -100%) translate3d(0, 100%, 0); }
   100% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
 }
+/* Portfolio Carousel custom gaps and sizes overrides */
+#carousel-track {
+  gap: 2rem !important; /* gap-8 equivalent */
+}
+.carousel-card {
+  width: 100% !important;
+}
+@media (min-width: 640px) {
+  .carousel-card {
+    width: calc(50% - 16px) !important;
+  }
+}
+@media (min-width: 1024px) {
+  .carousel-card {
+    width: calc(33.333% - 22px) !important;
+  }
+}
 </style>
 
 </head>
@@ -825,7 +842,7 @@
 
 <section id="reformas" class="scroll-mt-20">
 <!-- Separator Section with Animated Text -->
-<div class="py-12 bg-[#161413] border-t border-b border-white/5 overflow-hidden">
+<div class="py-20 bg-[#161413] border-t border-b border-white/5 overflow-hidden">
   <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop flex justify-center items-center">
     <div id="separator-text" class="font-['Montserrat'] flex flex-row flex-wrap justify-center items-center text-white/90 uppercase transition-all duration-[1200ms] ease-out opacity-0 -translate-x-24 gap-3 md:gap-5">
       <span class="text-sm md:text-lg font-bold tracking-[0.25em] pt-1">MORE HOME REMODELS</span>
@@ -837,7 +854,11 @@
 </div>
 
 <!-- Portfolio Card Carousel -->
-<div  class="pt-12 pb-24 scroll-mt-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div  class="pt-24 pb-24 scroll-mt-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+
+  <div class="text-center mb-12">
+    <span class="font-label-caps text-xs md:text-sm tracking-[0.3em] text-[#795746] uppercase font-bold">Our Recent Work</span>
+  </div>
 
   <!-- Outer wrapper (relative, no overflow-hidden so buttons don't get cut off) -->
   <div class="relative px-2 md:px-4" id="portfolio-carousel-wrapper">
@@ -845,7 +866,7 @@
     <!-- Inner wrapper (overflow-hidden to clip track) -->
     <div class="overflow-hidden" id="portfolio-carousel">
       <!-- Track: all 9 cards in a flex row -->
-      <div id="carousel-track" class="flex gap-6 transition-transform duration-500 ease-in-out py-4">
+      <div id="carousel-track" class="flex gap-8 transition-transform duration-500 ease-in-out py-4">
 
         <!-- Card 1 -->
         <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
