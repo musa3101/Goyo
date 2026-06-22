@@ -2446,13 +2446,13 @@ function showPageLoader(duration = 1500) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  showPageLoader(3500);
+  showPageLoader(2000);
 });
 
 window.addEventListener('pageshow', (event) => {
   // Show loader on page show (history navigation or BFCache)
   if (event.persisted) {
-    showPageLoader(3500);
+    showPageLoader(2000);
   }
 });
 

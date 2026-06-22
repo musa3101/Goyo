@@ -1,17 +1,18 @@
 # Roadmap del Proyecto
 
 ## Tareas Completadas
-- [x] Creación de estructura web con soporte multi-idioma (Español e Inglés).
-- [x] Aplicación de correcciones de Copywriting en secciones "Hero" y "Servicios".
+- [x] Soporte multi-idioma (Español e Inglés) completo en todas las secciones, incluyendo pies de página y aviso legal.
+- [x] Creación de página legal en inglés (`legal-notice.html`) y enlazado del selector de idioma cruzado (ES/EN).
 - [x] Actualización global de la marca a **J & G**.
-- [x] Configuración de formularios y redirección de correos hacia `ecuaplac.jyg.sl@gmail.com`.
-- [x] Implementación de pantalla de carga (Loader) personalizada con animación de lápiz.
+- [x] Configuración de formularios y redirección de correos hacia `ecuaplac.jyg.sl@gmail.com` con respuestas traducidas.
+- [x] Pantalla de carga (Preloader) integrada a nivel de HTML en todas las páginas.
+- [x] Carrusel de portafolio optimizado en móviles (ancho 100% de tarjeta, espaciado alineado a 24px y arrastre interactivo fluido).
+- [x] Sincronización del esquema y datos iniciales en la base de datos remota de Supabase.
 
 ## Tareas en Progreso
-- [ ] Verificación de la experiencia de usuario (UX) en móviles con la nueva animación del loader.
-- [ ] Pruebas finales de envíos en el formulario de contacto para certificar la recepción en el nuevo Gmail.
+- *Ninguna tarea técnica activa en esta fase de entrega.*
 
 ## Próximas Mejoras Prioritarias
-- [ ] Optimización de peso de imágenes (WebP) y revisión de tiempos de carga general.
-- [ ] Subida de fotografías en alta resolución de proyectos terminados al portafolio/galería.
-- [ ] Mejorar o implementar SEO básico en metadatos para posicionamiento orgánico en Palma de Mallorca.
+- [ ] Optimización de peso de imágenes (conversión a WebP) y revisión de tiempos de carga general.
+- [ ] Subida de fotografías en alta resolución de nuevos proyectos terminados al portafolio y galería.
+- [ ] Implementación de SEO básico en metadatos (títulos, descripciones y etiquetas alt) para optimizar el posicionamiento en Palma de Mallorca.

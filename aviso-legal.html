@@ -718,23 +718,13 @@ function showPageLoader(duration = 1500) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const isReload = (performance.navigation && performance.navigation.type === 1) || 
-    (performance.getEntriesByType && performance.getEntriesByType('navigation').length > 0 && performance.getEntriesByType('navigation')[0].type === 'reload');
-  
-  if (isReload) {
-    showPageLoader(2500); // 1.5s + 1s = 2.5s
-  } else {
-    const logo = document.querySelector('.logo-header');
-    setTimeout(() => {
-      if (logo) logo.classList.add('reveal-active');
-    }, 300);
-  }
+  showPageLoader(2000);
 });
 
 window.addEventListener('pageshow', (event) => {
   // Show loader on page show (history navigation or BFCache)
   if (event.persisted) {
-    showPageLoader(2500);
+    showPageLoader(2000);
   }
 });
 

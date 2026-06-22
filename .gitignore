@@ -5,3 +5,4 @@ node_modules/
 fots del cliente. no tocar/
 # Documentos internos de diseño (no necesarios en producción)
 DESIGN.md
+venv/
