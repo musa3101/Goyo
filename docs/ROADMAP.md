@@ -8,6 +8,8 @@
 - [x] Pantalla de carga (Preloader) integrada a nivel de HTML en todas las páginas.
 - [x] Carrusel de portafolio optimizado en móviles (ancho 100% de tarjeta, espaciado alineado a 24px y arrastre interactivo fluido).
 - [x] Sincronización del esquema y datos iniciales en la base de datos remota de Supabase.
+- [x] Sección de Preguntas Frecuentes (FAQ) interactiva tipo acordeón con soporte multi-idioma (ES/EN) y CTA de WhatsApp.
+- [x] Unificación global de la trayectoria comercial a 10 años en toda la web.
 
 ## Tareas en Progreso
 - *Ninguna tarea técnica activa en esta fase de entrega.*
