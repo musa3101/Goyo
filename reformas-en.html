@@ -263,6 +263,12 @@
 .hand-loader-overlay {
   position: fixed;
   inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(8px);
   z-index: 9999;
@@ -557,7 +563,7 @@
     const loader = document.getElementById('hand-loader');
     if (loader) {
       loader.classList.remove('active');
-      loader.style.display = 'none';
+      loader.remove();
     }
   }
 </script>
@@ -1220,7 +1226,7 @@ function showPageLoader(duration = 1500) {
     const loader = document.getElementById('hand-loader');
     if (loader) {
       loader.classList.remove('active');
-      loader.style.display = 'none';
+      loader.remove();
     }
     const logo = document.querySelector('.logo-header');
     if (logo) logo.classList.add('reveal-active');
@@ -1240,7 +1246,7 @@ function showPageLoader(duration = 1500) {
     if (overlay) {
       overlay.classList.remove('active');
       setTimeout(() => {
-        overlay.style.display = 'none';
+        overlay.remove();
       }, 500);
     }
     const logo = document.querySelector('.logo-header');
