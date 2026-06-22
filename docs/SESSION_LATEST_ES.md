@@ -5,7 +5,7 @@
 - Lógica Vanilla JS para expandir/colapsar las preguntas con animaciones de altura fluidas, asegurando que solo una pregunta permanezca abierta a la vez (auto-colapso automático).
 - Integración visual premium de las tarjetas de preguntas con bordes, sombreados sutiles y micro-animación de rotación de 180° en el icono SVG de flecha.
 - Bloque final de conversión sutil y centrado para WhatsApp con enlaces directos "click-to-chat" adaptados al idioma del usuario.
-- Unificación de los años de experiencia a **10 años** de forma global en la web (tarjetas de "Sobre Nosotros" y descripciones de servicios técnicos), corrigiendo las menciones que indicaban 20 años.
+- Unificación de los años de experiencia a **10 años** de forma global en la web (tarjetas de "Sobre Nosotros" y descripciones de servicios técnicos), corrigiendo las menciones que indicaba 20 años.
 - Ajuste visual y de posición del indicador flotante "Descubre Más / Discover More" con su flecha curva en desktop, cambiando su color del azul genérico al marrón de marca (#795746) y acercándolo más al botón para lograr un diseño más limpio y cohesionado.
 
 **Archivos modificados:**
