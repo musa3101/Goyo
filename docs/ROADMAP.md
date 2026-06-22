@@ -10,6 +10,7 @@
 - [x] Sincronización del esquema y datos iniciales en la base de datos remota de Supabase.
 - [x] Sección de Preguntas Frecuentes (FAQ) interactiva tipo acordeón con soporte multi-idioma (ES/EN) y CTA de WhatsApp.
 - [x] Unificación global de la trayectoria comercial a 10 años en toda la web.
+- [x] Ajuste visual y corrección cromática del indicador "Descubre Más / Discover More" en desktop.
 
 ## Tareas en Progreso
 - *Ninguna tarea técnica activa en esta fase de entrega.*

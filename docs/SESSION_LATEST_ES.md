@@ -6,14 +6,17 @@
 - Integración visual premium de las tarjetas de preguntas con bordes, sombreados sutiles y micro-animación de rotación de 180° en el icono SVG de flecha.
 - Bloque final de conversión sutil y centrado para WhatsApp con enlaces directos "click-to-chat" adaptados al idioma del usuario.
 - Unificación de los años de experiencia a **10 años** de forma global en la web (tarjetas de "Sobre Nosotros" y descripciones de servicios técnicos), corrigiendo las menciones que indicaban 20 años.
+- Ajuste visual y de posición del indicador flotante "Descubre Más / Discover More" con su flecha curva en desktop, cambiando su color del azul genérico al marrón de marca (#795746) y acercándolo más al botón para lograr un diseño más limpio y cohesionado.
 
 **Archivos modificados:**
 - [index.html](file:///Users/musa/Downloads/proyectos%20recientes/ecuaplac/ecuaplac%E2%9C%85%203/index.html)
 - [index-en.html](file:///Users/musa/Downloads/proyectos%20recientes/ecuaplac/ecuaplac%E2%9C%85%203/index-en.html)
+- [docs/SESSION_LATEST_ES.md](file:///Users/musa/Downloads/proyectos%20recientes/ecuaplac/ecuaplac%E2%9C%85%203/docs/SESSION_LATEST_ES.md)
 
 **Problemas solucionados:**
 - Discrepancia en la trayectoria comercial de la empresa (se indicaban 10 años en unas zonas de la web y 20 años en otras).
 - Falta de una sección informativa de preguntas frecuentes para reducir fricción antes de la captación de clientes.
+- Indicador flotante "Descubre Más / Discover More" desalineado y en color azul que rompía la paleta cromática de Ecuaplac en desktop.
 
 **Qué queda pendiente:**
 - Ninguna tarea técnica pendiente para esta sesión. Los cambios han sido validados y subidos con éxito a GitHub para su despliegue en Cloudflare Pages.
