@@ -1,22 +1,26 @@
-# Sesión Actual - Resumen
+# Resumen de Sesión - 30 de Junio de 2026
 
-**Qué se ha hecho hoy:**
-- Implementación de una nueva sección de **Preguntas Frecuentes (FAQ)** interactiva tipo acordeón, colocada entre la sección de contacto y el pie de página (footer) tanto en la versión en español (`index.html`) como en la de inglés (`index-en.html`).
-- Lógica Vanilla JS para expandir/colapsar las preguntas con animaciones de altura fluidas, asegurando que solo una pregunta permanezca abierta a la vez (auto-colapso automático).
-- Integración visual premium de las tarjetas de preguntas con bordes, sombreados sutiles y micro-animación de rotación de 180° en el icono SVG de flecha.
-- Bloque final de conversión sutil y centrado para WhatsApp con enlaces directos "click-to-chat" adaptados al idioma del usuario.
-- Unificación de los años de experiencia a **10 años** de forma global en la web (tarjetas de "Sobre Nosotros" y descripciones de servicios técnicos), corrigiendo las menciones que indicaba 20 años.
-- Ajuste visual y de posición del indicador flotante "Descubre Más / Discover More" con su flecha curva en desktop, cambiando su color del azul genérico al marrón de marca (#795746) y acercándolo más al botón para lograr un diseño más limpio y cohesionado.
+¡Hola! Aquí tienes el resumen de todos los cambios que hemos realizado hoy en la web de **Ecuaplac**:
 
-**Archivos modificados:**
-- [index.html](file:///Users/musa/Downloads/proyectos%20recientes/ecuaplac/ecuaplac%E2%9C%85%203/index.html)
-- [index-en.html](file:///Users/musa/Downloads/proyectos%20recientes/ecuaplac/ecuaplac%E2%9C%85%203/index-en.html)
-- [docs/SESSION_LATEST_ES.md](file:///Users/musa/Downloads/proyectos%20recientes/ecuaplac/ecuaplac%E2%9C%85%203/docs/SESSION_LATEST_ES.md)
+### ¿Qué se ha hecho hoy?
+1. **Carrusel Swiper 3D en Móvil:** Implementamos un nuevo carrusel táctil Coverflow 3D exclusivo para móviles y tablets. Ajustamos la velocidad de transición (5.5s), la opacidad de los lados (45%) y eliminamos las "cajetillas negras" vacías en los lados para un efecto flotante limpio.
+2. **Sincronización Total al Inglés:** Traducimos completamente al inglés todas las nuevas secciones añadidas en español (incluyendo marcadores del formulario, tarjetas FAQ actualizadas y políticas legales).
+3. **Enlaces del Footer y Términos:** Corregimos los enlaces legales del pie de página para que bajen automáticamente hasta su respectiva sección. También renombramos "Uso del Portal" a "Términos y Condiciones de Uso" para mayor claridad.
+4. **Mini-Header y Logos:** Ajustamos el tamaño del logo en móviles e integramos la franja de Ecuador en el menú móvil para simular un header premium.
+5. **Vista Previa al Compartir (WhatsApp):** Cambiamos la etiqueta `og:image` de SVG a un formato rasterizado (.webp) para garantizar que, cuando compartas el enlace, WhatsApp muestre correctamente el logo de Ecuaplac.
 
-**Problemas solucionados:**
-- Discrepancia en la trayectoria comercial de la empresa (se indicaban 10 años en unas zonas de la web y 20 años en otras).
-- Falta de una sección informativa de preguntas frecuentes para reducir fricción antes de la captación de clientes.
-- Indicador flotante "Descubre Más / Discover More" desalineado y en color azul que rompía la paleta cromática de Ecuaplac en desktop.
+### Archivos Modificados
+- `index.html` (Español)
+- `index-en.html` (Inglés)
+- `reformas.html` (Español)
+- `reformas-en.html` (Inglés)
+- `aviso-legal.html` (Español)
+- `legal-notice.html` (Inglés)
 
-**Qué queda pendiente:**
-- Ninguna tarea técnica pendiente para esta sesión. Los cambios han sido validados y subidos con éxito a GitHub para su despliegue en Cloudflare Pages.
+### Problemas Solucionados
+- Bug de traducción en el menú móvil donde se leía "ES - ES".
+- Marcadores de formulario y textos del footer que seguían en español en la versión inglesa.
+- El link de compartir no cargaba la imagen del logo en redes sociales por estar en formato SVG.
+
+### ¿Qué queda pendiente?
+- Ningún cambio técnico inmediato. La web ha sido subida con éxito a GitHub y GitLab, por lo que Cloudflare ya la está sirviendo en producción con los cambios.

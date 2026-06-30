@@ -1,21 +1,16 @@
-# Roadmap del Proyecto
+# Proyecto Ecuaplac - Roadmap
 
 ## Tareas Completadas
-- [x] Soporte multi-idioma (Español e Inglés) completo en todas las secciones, incluyendo pies de página y aviso legal.
-- [x] Creación de página legal en inglés (`legal-notice.html`) y enlazado del selector de idioma cruzado (ES/EN).
-- [x] Actualización global de la marca a **J & G**.
-- [x] Configuración de formularios y redirección de correos hacia `ecuaplac.jyg.sl@gmail.com` con respuestas traducidas.
-- [x] Pantalla de carga (Preloader) integrada a nivel de HTML en todas las páginas.
-- [x] Carrusel de portafolio optimizado en móviles (ancho 100% de tarjeta, espaciado alineado a 24px y arrastre interactivo fluido).
-- [x] Sincronización del esquema y datos iniciales en la base de datos remota de Supabase.
-- [x] Sección de Preguntas Frecuentes (FAQ) interactiva tipo acordeón con soporte multi-idioma (ES/EN) y CTA de WhatsApp.
-- [x] Unificación global de la trayectoria comercial a 10 años en toda la web.
-- [x] Ajuste visual y corrección cromática del indicador "Descubre Más / Discover More" en desktop.
+- [x] Corrección de responsividad en menú móvil (banda de Ecuador y rediseño de cabecera en móvil).
+- [x] Implementación de Swiper Coverflow 3D táctil en la sección de trabajos para móviles y tablets.
+- [x] Ajustes estéticos en carrusel móvil (opacidad lateral al 45%, eliminación de fondos negros).
+- [x] Traducción completa al inglés de todo el sitio web (`index-en.html`, `reformas-en.html`, `legal-notice.html`), incluyendo placeholders y textos legales nuevos.
+- [x] Anclas de scroll automático en el footer de los términos legales.
+- [x] Corrección del formato de la imagen de vista previa compartida (`og:image` en formato `.webp`).
 
 ## Tareas en Progreso
-- *Ninguna tarea técnica activa en esta fase de entrega.*
+- Ninguna. Todos los desarrollos activos han sido validados en local y desplegados en producción.
 
 ## Próximas Mejoras Prioritarias
-- [ ] Optimización de peso de imágenes (conversión a WebP) y revisión de tiempos de carga general.
-- [ ] Subida de fotografías en alta resolución de nuevos proyectos terminados al portafolio y galería.
-- [ ] Implementación de SEO básico en metadatos (títulos, descripciones y etiquetas alt) para optimizar el posicionamiento en Palma de Mallorca.
+- [ ] Monitorizar las analíticas y comportamiento de usuarios en la versión de producción.
+- [ ] Optimizar aún más la carga de imágenes si el cliente añade más proyectos pesados en el futuro.
