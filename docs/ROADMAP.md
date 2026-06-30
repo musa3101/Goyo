@@ -1,6 +1,7 @@
 # Proyecto Ecuaplac - Roadmap
 
 ## Tareas Completadas
+- [x] Integración de Microsoft Clarity para analíticas y grabación de comportamiento de usuarios en producción.
 - [x] Ajuste de posición del logo del header en la versión móvil (alineado a la izquierda).
 - [x] Optimización y legibilidad del logo en el pie de página (escala al 90% y sin recortes).
 - [x] Rediseño circular del icono de Instagram en el footer con su degradado original.
@@ -16,5 +17,5 @@
 - Ninguna. Todos los desarrollos activos han sido validados en local y listos para producción.
 
 ## Próximas Mejoras Prioritarias
-- [ ] Monitorizar las analíticas y comportamiento de usuarios en la versión de producción.
+- [ ] Monitorizar los mapas de calor y grabaciones en Microsoft Clarity tras recibir las primeras visitas.
 - [ ] Optimizar la carga de imágenes si el cliente añade más proyectos pesados en el futuro.
