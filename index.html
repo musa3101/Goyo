@@ -6,9 +6,10 @@
 <meta name="keywords" content="reformas integrales Palma de Mallorca, reformas Mallorca, empresa de reformas Palma, pladur Palma de Mallorca, aislamientos, construcción Mallorca, J&G, Ecuaplac">
 <meta property="og:title" content="Ecuaplac | Reformas Integrales y Construcción en Palma de Mallorca">
 <meta property="og:description" content="Ecuaplac: Especialistas en reformas integrales, pladur, aislamientos y proyectos de construcción en Palma de Mallorca.">
-<meta property="og:image" content="https://ecuaplac.com/assets/img/logos/LogoHedder.svg?v=1">
+<meta property="og:image" content="https://ecuaplac.com/assets/img/logos/LogoHedder.webp">
 <meta property="og:url" content="https://ecuaplac.com">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Montserrat:wght@300;400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -212,6 +213,59 @@
             opacity: 1; 
           }
         }
+    
+    /* Swiper Mobile Styles */
+    .portfolio-swiper {
+      width: 100%;
+      max-width: 100vw;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      overflow-x: hidden;
+    }
+    .portfolio-swiper .swiper-slide {
+      width: 280px;
+      height: 380px;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s;
+      background-color: transparent !important;
+    }
+    .portfolio-swiper .swiper-slide-active {
+      background-color: #0C0C0C !important;
+    }
+    /* Apply dark overlay ONLY to the image container */
+    .portfolio-swiper .swiper-slide .h-\[75\%\]::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .portfolio-swiper .swiper-slide:not(.swiper-slide-active) .h-\[75\%\]::after {
+      opacity: 1;
+    }
+    /* Hide the text container entirely on inactive slides */
+    .portfolio-swiper .swiper-slide .h-\[25\%\] {
+      transition: opacity 0.3s;
+    }
+    .portfolio-swiper .swiper-slide:not(.swiper-slide-active) .h-\[25\%\] {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .portfolio-swiper .swiper-slide h3 {
+      color: #FFFFFF !important;
+    }
+    .portfolio-swiper .location-badge {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: #FCD116 !important;
+    }
+    .portfolio-swiper .swiper-button-next, .portfolio-swiper .swiper-button-prev {
+      top: 38%;
+      transform: scale(0.8);
+    }
     </style>
 <script id="tailwind-config">
       tailwind.config = {
@@ -445,8 +499,8 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
+  background: #000000;
+  
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -644,6 +698,66 @@
     transform: translate(100px,100px) rotate(112deg);
   }
 }
+
+    /* Swiper Mobile Styles */
+    .portfolio-swiper {
+      width: 100%;
+      max-width: 100vw;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      overflow-x: hidden;
+    }
+    .portfolio-swiper .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 280px;
+      height: 380px;
+      border-radius: 8px;
+      overflow: hidden;
+      opacity: 0.15; filter: grayscale(30%);
+      transition: opacity 0.3s;
+    }
+    .portfolio-swiper .swiper-slide-active {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+    .portfolio-swiper .swiper-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .portfolio-swiper .swiper-slide:not(.swiper-slide-active)::after {
+      opacity: 1;
+    }
+    .portfolio-swiper .swiper-button-next, .portfolio-swiper .swiper-button-prev {
+      top: 38%;
+      transform: scale(0.8);
+    }
+    
+
+    /* Hide text on inactive slides and style dark background for mobile cards */
+    .portfolio-swiper .swiper-slide .h-\[25\%\] {
+      transition: opacity 0.3s;
+    }
+    .portfolio-swiper .swiper-slide:not(.swiper-slide-active) .h-\[25\%\] {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .portfolio-swiper .swiper-slide {
+      background-color: #0C0C0C !important;
+    }
+    .portfolio-swiper .swiper-slide h3 {
+      color: #FFFFFF !important;
+    }
+    .portfolio-swiper .location-badge {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: #FCD116 !important;
+    }
+    
 </style>
 
 
@@ -689,6 +803,102 @@
 .played .ecuaplac-text-logo .letter:nth-child(6) { animation-delay: 0.6s, 1.5s; }
 .played .ecuaplac-text-logo .letter:nth-child(7) { animation-delay: 0.7s, 1.6s; }
 .played .ecuaplac-text-logo .letter:nth-child(8) { animation-delay: 0.8s, 1.7s; }
+
+/* Custom glow animations for J&G */
+@keyframes sweepLightJ {
+  0% { color: #FCD116; text-shadow: none; }
+  10% { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(252,209,22,0.8); }
+  20% { color: #FCD116; text-shadow: none; }
+  100% { color: #FCD116; text-shadow: none; }
+}
+@keyframes sweepLightAmp {
+  0% { color: #003893; text-shadow: none; }
+  10% { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(0,56,147,0.8); }
+  20% { color: #003893; text-shadow: none; }
+  100% { color: #003893; text-shadow: none; }
+}
+@keyframes sweepLightG {
+  0% { color: #CE1126; text-shadow: none; }
+  10% { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(206,17,38,0.8); }
+  20% { color: #CE1126; text-shadow: none; }
+  100% { color: #CE1126; text-shadow: none; }
+}
+
+.played .ecuaplac-text-logo .letter.jyg-j {
+  color: #FCD116;
+  animation: revealLetter 0.8s forwards, sweepLightJ 3s linear infinite;
+  animation-delay: 0.9s, 1.8s;
+}
+.played .ecuaplac-text-logo .letter.jyg-amp {
+  color: #003893;
+  animation: revealLetter 0.8s forwards, sweepLightAmp 3s linear infinite;
+  animation-delay: 1.0s, 1.9s;
+}
+.played .ecuaplac-text-logo .letter.jyg-g {
+  color: #CE1126;
+  animation: revealLetter 0.8s forwards, sweepLightG 3s linear infinite;
+  animation-delay: 1.1s, 2.0s;
+}
+
+    /* Swiper Mobile Styles */
+    .portfolio-swiper {
+      width: 100%;
+      max-width: 100vw;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      overflow-x: hidden;
+    }
+    .portfolio-swiper .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 280px;
+      height: 380px;
+      border-radius: 8px;
+      overflow: hidden;
+      opacity: 0.15; filter: grayscale(30%);
+      transition: opacity 0.3s;
+    }
+    .portfolio-swiper .swiper-slide-active {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+    .portfolio-swiper .swiper-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .portfolio-swiper .swiper-slide:not(.swiper-slide-active)::after {
+      opacity: 1;
+    }
+    .portfolio-swiper .swiper-button-next, .portfolio-swiper .swiper-button-prev {
+      top: 38%;
+      transform: scale(0.8);
+    }
+    
+
+    /* Hide text on inactive slides and style dark background for mobile cards */
+    .portfolio-swiper .swiper-slide .h-\[25\%\] {
+      transition: opacity 0.3s;
+    }
+    .portfolio-swiper .swiper-slide:not(.swiper-slide-active) .h-\[25\%\] {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .portfolio-swiper .swiper-slide {
+      background-color: #0C0C0C !important;
+    }
+    .portfolio-swiper .swiper-slide h3 {
+      color: #FFFFFF !important;
+    }
+    .portfolio-swiper .location-badge {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: #FCD116 !important;
+    }
+    
 </style>
 
 
@@ -817,6 +1027,66 @@
 .faq-item.active .faq-answer {
   opacity: 1;
 }
+
+    /* Swiper Mobile Styles */
+    .portfolio-swiper {
+      width: 100%;
+      max-width: 100vw;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      overflow-x: hidden;
+    }
+    .portfolio-swiper .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 280px;
+      height: 380px;
+      border-radius: 8px;
+      overflow: hidden;
+      opacity: 0.15; filter: grayscale(30%);
+      transition: opacity 0.3s;
+    }
+    .portfolio-swiper .swiper-slide-active {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+    .portfolio-swiper .swiper-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .portfolio-swiper .swiper-slide:not(.swiper-slide-active)::after {
+      opacity: 1;
+    }
+    .portfolio-swiper .swiper-button-next, .portfolio-swiper .swiper-button-prev {
+      top: 38%;
+      transform: scale(0.8);
+    }
+    
+
+    /* Hide text on inactive slides and style dark background for mobile cards */
+    .portfolio-swiper .swiper-slide .h-\[25\%\] {
+      transition: opacity 0.3s;
+    }
+    .portfolio-swiper .swiper-slide:not(.swiper-slide-active) .h-\[25\%\] {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .portfolio-swiper .swiper-slide {
+      background-color: #0C0C0C !important;
+    }
+    .portfolio-swiper .swiper-slide h3 {
+      color: #FFFFFF !important;
+    }
+    .portfolio-swiper .location-badge {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: #FCD116 !important;
+    }
+    
 </style>
 
 </head>
@@ -870,7 +1140,7 @@
 <div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <!-- Brand -->
 <a class="flex items-center" href="index.html">
-  <img src="./assets/img/logos/LogoHedder.svg?v=1" alt="ECUAPLAC Logo" class="logo-header h-11 md:h-14 w-auto object-contain select-none" loading="eager">
+  <img src="./assets/img/logos/LogoHedder.webp" alt="ECUAPLAC Logo" class="logo-header h-14 md:h-14 w-auto object-contain select-none" loading="eager">
 </a>
 <!-- Desktop Nav -->
 <ul class="hidden lg:flex items-center gap-8 uppercase font-semibold text-[13px] tracking-[0.18em]">
@@ -964,6 +1234,10 @@
       <span class="text-sm md:text-lg font-bold tracking-[0.25em] pt-1">MÁS REFORMAS DE LA CASA</span>
       <div class="ecuaplac-text-logo">
       <span class="letter">E</span><span class="letter">C</span><span class="letter">U</span><span class="letter">A</span><span class="letter">P</span><span class="letter">L</span><span class="letter">A</span><span class="letter">C</span>
+      <span class="letter-separator" style="display: inline-block; width: 0.25em;"></span>
+      <span class="letter jyg-j">J</span>
+      <span class="letter jyg-amp">&amp;</span>
+      <span class="letter jyg-g">G</span>
     </div>
     </div>
   </div>
@@ -977,7 +1251,118 @@
   </div>
 
   <!-- Outer wrapper (relative, no overflow-hidden so buttons don't get cut off) -->
-  <div class="relative px-2 md:px-4" id="portfolio-carousel-wrapper">
+  
+  <!-- Mobile Swiper Carousel -->
+  <div class="block lg:hidden w-full swiper portfolio-swiper">
+    <div class="swiper-wrapper">
+<!-- Card 1 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2131.webp" alt="Baño de diseño con bañera exenta" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Andratx</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Reforma de Baño Minimalista con Bañera Exenta</h3>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2135.webp" alt="Escalera helicoidal de yeso pulido" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Calvià</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Escalera de Diseño Escultural en Yeso Pulido</h3>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2134.webp" alt="Ducha de obra con hornacinas iluminadas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Sóller</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Ducha Revestida en Piedra con Iluminación LED Integrada</h3>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2119.webp" alt="Cocina moderna integrada y minimalista" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Palma de Mallorca</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Cocina Minimalista Totalmente Integrada</h3>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2129.webp" alt="Terraza exterior y solárium" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" style="object-position: 80% center;">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Santanyí</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Terraza Rústica con Cocina de Obra y Solárium</h3>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2132.webp" alt="Aseo minimalista de cortesía" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Marratxí</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Aseo de Cortesía con Acabados en Microcemento</h3>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2133.webp" alt="Distribuidor con iluminación indirecta" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Palma de Mallorca</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Distribuidor Moderno con Líneas de Luz LED</h3>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2136.webp" alt="Nicho iluminado para coleccionismo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Palma de Mallorca</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Hornacinas de Obra Iluminadas para Decoración</h3>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="swiper-slide group cursor-pointer overflow-hidden flex flex-col p-0 bg-white dark:bg-[#1C1C1E]">
+          <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
+            <img src="./assets/img/portfolio/IMG_2138.webp" alt="Detalle de escalera helicoidal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="h-[25%] flex flex-col items-center justify-center px-4 text-center">
+            <span class="location-badge">Calvià</span>
+            <h3 class="font-bold text-[16px] text-[#111] leading-tight transition-colors duration-300 group-hover:text-[#1E4E7C] dark:group-hover:text-[#4A90E2]">Perspectiva y Acabados de la Escalera Helicoidal</h3>
+          </div>
+        </div>
+
+      
+    </div>
+    <div class="swiper-button-prev" style="color: #FCD116;"></div>
+    <div class="swiper-button-next" style="color: #FCD116;"></div>
+  </div>
+  
+  <!-- Desktop Original Carousel Wrapper -->
+  <div class="hidden lg:block">
+    <div class="relative px-2 md:px-4" id="portfolio-carousel-wrapper">
 
     <!-- Inner wrapper (overflow-hidden to clip track) -->
     <div class="overflow-hidden" id="portfolio-carousel">
@@ -1098,6 +1483,7 @@
 
   <!-- Dot indicators -->
   <div id="carousel-dots" class="flex justify-center gap-2 mt-8"></div>
+  </div><!-- end desktop wrapper -->
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
@@ -1117,7 +1503,14 @@
           .order('sort_order', { ascending: true });
         
         if (!error && data && data.length > 0) {
-          track.innerHTML = data.map(item => `
+          const processedData = data.map(item => {
+            if (item.image_url) item.image_url = item.image_url.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+            if (item.title_es === 'Baño de Diseño con Bañera Exenta') {
+              item.title_es = 'Reforma Integral de Baño con Bañera Exenta';
+            }
+            return item;
+          });
+          track.innerHTML = processedData.map(item => `
             <div class="carousel-card card flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group cursor-pointer overflow-hidden flex flex-col p-0">
               <div class="w-full h-[75%] bg-surface-container overflow-hidden relative">
                 <img src="${item.image_url}" alt="${item.title_es}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
@@ -1364,14 +1757,7 @@
 <div class="flex justify-center mt-20 mb-8 pb-12 w-full clear-both">
   <div class="relative">
     
-    <!-- Curved Arrow pointing to the button (Desktop) -->
-    <div class="absolute -top-16 -left-6 text-[#795746] hidden md:flex flex-col items-center animate-bounce z-20">
-      <span class="font-['Montserrat'] font-bold text-[11px] italic opacity-85 mb-1 tracking-widest uppercase">Descubre Más</span>
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transform scale-x-[-1] rotate-[45deg]">
-        <path d="M5 9c0 4 3 7 7 7h9"></path>
-        <path d="M17 12l4 4-4 4"></path>
-      </svg>
-    </div>
+
 
     <!-- Button Container with decorative aura -->
     <div class="relative group">
@@ -1433,7 +1819,7 @@
       </div>
       
       <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed flex-grow">
-        Nos encargamos de coordinar cada fase de la obra, desde la planificación inicial hasta la entrega final, ofreciendo un servicio completo y una ejecución cuidada en cada detalle.
+        Nos encargamos de coordinar cada fase del proyecto, desde la planificación inicial hasta la entrega final, ofreciendo un servicio completo y una ejecución cuidada en cada detalle.
       </p>
     </div>
 
@@ -1455,7 +1841,7 @@
       </div>
       
       <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed flex-grow">
-        Instalamos soluciones de pladur, aislamiento acústico y aislamiento térmico adaptadas a viviendas, locales comerciales y espacios con necesidades específicas de confort.
+        Instalamos pladur, aislamiento acústico y aislamiento térmico adaptados a viviendas, locales comerciales y espacios con necesidades específicas de confort.
       </p>
     </div>
 
@@ -1537,8 +1923,8 @@
           </div>
           <div>
             <span class="font-label-caps text-[11px] uppercase tracking-widest text-primary block mb-3 font-bold">SOBRE NOSOTROS</span>
-            <div class="p-6 -[#E5E7EB] card !p-6">
-              <p class="m-0 text-on-surface-variant leading-relaxed text-[15px]">Especialistas en Pladur, Aislamiento Técnico y Reformas Integrales de Alto Standing con más de 10 años de trayectoria en Baleares.</p>
+            <div class="p-6 bg-white border border-[#E5E7EB] rounded-lg">
+              <p class="m-0 text-on-surface-variant leading-relaxed text-[15px]">Especialistas en reformas integrales de alto standing, con más de 10 años de trayectoria en Islas Baleares.</p>
             </div>
           </div>
         </div>
@@ -1665,7 +2051,7 @@
         </button>
         <div class="faq-answer max-h-0 overflow-hidden">
           <div class="p-6 md:p-8 pt-0 font-body-md text-body-md text-on-surface-variant leading-relaxed border-t border-primary/5">
-            Realizamos reformas integrales, trabajos de pladur, falsos techos, divisiones interiores, acabados, rehabilitaciones y diferentes soluciones para viviendas, locales comerciales y espacios profesionales.
+            Realizamos reformas integrales, trabajos de pladur, falsos techos, divisiones interiores, acabados, rehabilitaciones, trabajos interiores y exteriores, y diferentes soluciones para viviendas, locales comerciales y espacios profesionales.
           </div>
         </div>
       </div>
@@ -1770,9 +2156,9 @@
             <span class="absolute -bottom-2 left-1/2 md:left-auto md:right-0 -translate-x-1/2 md:translate-x-0 w-8 h-[2px] bg-secondary"></span>
           </h4>
           <ul class="flex flex-col gap-3 font-body-md w-full">
-            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Aviso Legal</a></li>
-            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Política de Cookies</a></li>
-            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Términos y Condiciones</a></li>
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#aviso-legal">Aviso Legal</a></li>
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#cookies">Política de Cookies</a></li>
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#terminos">Términos y Condiciones</a></li>
           </ul>
         </div>
         
@@ -1808,18 +2194,18 @@
   <div class="absolute inset-0 bg-black/40 backdrop-blur-sm cursor-pointer" onclick="closePresupuestoModal()"></div>
   
   <!-- Modal Content Container -->
-  <div class="relative w-full max-w-2xl bg-surface-container-lowest border border-outline-variant p-8 md:p-12 z-10 transition-transform duration-300 transform scale-95 shadow-xl max-h-[90dvh] overflow-y-auto">
+  <div class="relative w-full max-w-2xl bg-[#0C0C0C] border border-white/20 p-8 md:p-12 z-10 transition-transform duration-300 transform scale-95 shadow-xl max-h-[90dvh] overflow-y-auto">
     <!-- Close Button -->
-    <button class="absolute top-6 right-6 text-primary hover:text-secondary cursor-pointer w-12 h-12 flex items-center justify-center" onclick="closePresupuestoModal()">
+    <button class="absolute top-6 right-6 text-white hover:text-[#888888] cursor-pointer w-12 h-12 flex items-center justify-center" onclick="closePresupuestoModal()">
       <span class="material-symbols-outlined text-3xl">close</span>
     </button>
     
     <div class="mb-8">
-      <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-2">Presupuesto sin compromiso</span>
-      <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary leading-tight">
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-[#888888] block mb-2">Presupuesto sin compromiso</span>
+      <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-white leading-tight">
         Solicitar Presupuesto.
       </h2>
-      <p class="font-body-md text-body-md text-on-surface-variant mt-2">
+      <p class="font-body-md text-body-md text-[#C5C5C5] mt-2">
         Facilítanos algunos detalles preliminares de tu obra y nuestro equipo técnico realizará un estudio inicial de viabilidad.
       </p>
     </div>
@@ -1829,61 +2215,61 @@
         <!-- Client Details Row -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="p_nombre" class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-1">Nombre Completo</label>
-            <input type="text" name="p_nombre" id="p_nombre" required class="border-b border-outline-variant focus:border-primary bg-transparent py-2 w-full text-on-surface placeholder-mortar-grey/50 focus:outline-none transition-colors duration-300 font-body-md" placeholder="Ej. Carlos Martínez">
+            <label for="p_nombre" class="font-label-caps text-label-caps uppercase tracking-widest text-[#888888] block mb-1">Nombre Completo</label>
+            <input type="text" name="p_nombre" id="p_nombre" required class="border-b border-white/20 focus:border-white bg-transparent py-2 w-full text-white placeholder-white/30 focus:outline-none transition-colors duration-300 font-body-md" placeholder="Ej. Carlos Martínez">
           </div>
           <div>
-            <label for="p_email" class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-1">Correo Electrónico</label>
-            <input type="email" name="p_email" id="p_email" required class="border-b border-outline-variant focus:border-primary bg-transparent py-2 w-full text-on-surface placeholder-mortar-grey/50 focus:outline-none transition-colors duration-300 font-body-md" placeholder="Ej. carlos@empresa.com">
+            <label for="p_email" class="font-label-caps text-label-caps uppercase tracking-widest text-[#888888] block mb-1">Correo Electrónico</label>
+            <input type="email" name="p_email" id="p_email" required class="border-b border-white/20 focus:border-white bg-transparent py-2 w-full text-white placeholder-white/30 focus:outline-none transition-colors duration-300 font-body-md" placeholder="Ej. carlos@empresa.com">
           </div>
         </div>
         
         <!-- Project Details Row -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="p_tipo" class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-1">Tipo de Proyecto</label>
-            <select name="p_tipo" id="p_tipo" required class="border-b border-outline-variant focus:border-primary bg-transparent py-2 w-full text-on-surface focus:outline-none transition-colors duration-300 font-body-md cursor-pointer rounded-none">
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="Reforma Integral">Reforma Integral de Vivienda</option>
-              <option value="Cocina / Baño">Reforma de Cocina o Baño</option>
-              <option value="Obra Nueva">Obra Nueva / Construcción</option>
-              <option value="Diseño de Interiores">Diseño de Interiores & Decoración</option>
-              <option value="Otros">Otros Trabajos / Locales Comerciales</option>
+            <label for="p_tipo" class="font-label-caps text-label-caps uppercase tracking-widest text-[#888888] block mb-1">Tipo de Proyecto</label>
+            <select name="p_tipo" id="p_tipo" required class="border-b border-white/20 focus:border-white bg-transparent py-2 w-full text-white focus:outline-none transition-colors duration-300 font-body-md cursor-pointer rounded-none">
+              <option class="bg-[#0C0C0C] text-white" value="" disabled selected>Selecciona una opción</option>
+              <option class="bg-[#0C0C0C] text-white" value="Reforma Integral">Reforma Integral de Vivienda</option>
+              <option class="bg-[#0C0C0C] text-white" value="Cocina / Baño">Reforma de Cocina o Baño</option>
+              <option class="bg-[#0C0C0C] text-white" value="Obra Nueva">Obra Nueva / Construcción</option>
+              <option class="bg-[#0C0C0C] text-white" value="Diseño de Interiores">Diseño de Interiores & Decoración</option>
+              <option class="bg-[#0C0C0C] text-white" value="Otros">Otros Trabajos / Locales Comerciales</option>
             </select>
           </div>
           <div>
-            <label for="p_metros" class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-1">Dimensiones Aprox. (m²)</label>
-            <input type="number" name="p_metros" id="p_metros" required min="1" class="border-b border-outline-variant focus:border-primary bg-transparent py-2 w-full text-on-surface placeholder-mortar-grey/50 focus:outline-none transition-colors duration-300 font-body-md" placeholder="Ej. 120">
+            <label for="p_metros" class="font-label-caps text-label-caps uppercase tracking-widest text-[#888888] block mb-1">Dimensiones Aprox. (m²)</label>
+            <input type="number" name="p_metros" id="p_metros" required min="1" class="border-b border-white/20 focus:border-white bg-transparent py-2 w-full text-white placeholder-white/30 focus:outline-none transition-colors duration-300 font-body-md" placeholder="Ej. 120">
           </div>
         </div>
         
         <!-- Budget & Location -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="p_presupuesto" class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-1">Presupuesto Estimado (€)</label>
-            <select name="p_presupuesto" id="p_presupuesto" required class="border-b border-outline-variant focus:border-primary bg-transparent py-2 w-full text-on-surface focus:outline-none transition-colors duration-300 font-body-md cursor-pointer rounded-none">
-              <option value="" disabled selected>Rango de presupuesto</option>
-              <option value="< 25k">Menos de 25.000 €</option>
-              <option value="25k - 75k">25.000 € - 75.000 €</option>
-              <option value="75k - 150k">75.000 € - 150.000 €</option>
-              <option value="> 150k">Más de 150.000 €</option>
+            <label for="p_presupuesto" class="font-label-caps text-label-caps uppercase tracking-widest text-[#888888] block mb-1">Presupuesto Estimado (€)</label>
+            <select name="p_presupuesto" id="p_presupuesto" required class="border-b border-white/20 focus:border-white bg-transparent py-2 w-full text-white focus:outline-none transition-colors duration-300 font-body-md cursor-pointer rounded-none">
+              <option class="bg-[#0C0C0C] text-white" value="" disabled selected>Rango de presupuesto</option>
+              <option class="bg-[#0C0C0C] text-white" value="< 25k">Menos de 25.000 €</option>
+              <option class="bg-[#0C0C0C] text-white" value="25k - 75k">25.000 € - 75.000 €</option>
+              <option class="bg-[#0C0C0C] text-white" value="75k - 150k">75.000 € - 150.000 €</option>
+              <option class="bg-[#0C0C0C] text-white" value="> 150k">Más de 150.000 €</option>
             </select>
           </div>
           <div>
-            <label for="p_ubicacion" class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-1">Ubicación de la obra</label>
-            <input type="text" name="p_ubicacion" id="p_ubicacion" required class="border-b border-outline-variant focus:border-primary bg-transparent py-2 w-full text-on-surface placeholder-mortar-grey/50 focus:outline-none transition-colors duration-300 font-body-md" placeholder="Ej. Palma de Mallorca (Centro)">
+            <label for="p_ubicacion" class="font-label-caps text-label-caps uppercase tracking-widest text-[#888888] block mb-1">Ubicación de la obra</label>
+            <input type="text" name="p_ubicacion" id="p_ubicacion" required class="border-b border-white/20 focus:border-white bg-transparent py-2 w-full text-white placeholder-white/30 focus:outline-none transition-colors duration-300 font-body-md" placeholder="Ej. Palma de Mallorca (Centro)">
           </div>
         </div>
         
         <!-- Description -->
         <div>
-          <label for="p_descripcion" class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey block mb-1">Detalles o requerimientos específicos</label>
-          <textarea name="p_descripcion" id="p_descripcion" rows="3" class="border-b border-outline-variant focus:border-primary bg-transparent py-2 w-full text-on-surface placeholder-mortar-grey/50 focus:outline-none transition-colors duration-300 font-body-md resize-none" placeholder="Indica especificaciones sobre distribución, materiales, plazos u otros detalles..."></textarea>
+          <label for="p_descripcion" class="font-label-caps text-label-caps uppercase tracking-widest text-[#888888] block mb-1">Detalles o requerimientos específicos</label>
+          <textarea name="p_descripcion" id="p_descripcion" rows="3" class="border-b border-white/20 focus:border-white bg-transparent py-2 w-full text-white placeholder-white/30 focus:outline-none transition-colors duration-300 font-body-md resize-none" placeholder="Indica especificaciones sobre distribución, materiales, plazos u otros detalles..."></textarea>
         </div>
         
         <!-- Button Row -->
         <div class="flex justify-end mt-4">
-          <button type="submit" class="inline-flex items-center justify-center font-bold uppercase tracking-widest text-[12px] text-primary border border-primary/40 rounded-full px-10 py-3.5 bg-transparent hover:bg-primary hover:text-white hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer">
+          <button type="submit" class="inline-flex items-center justify-center font-bold uppercase tracking-widest text-[12px] text-white border border-white/40 rounded-full px-10 py-3.5 bg-transparent hover:bg-white hover:text-black hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer">
             Enviar Solicitud
           </button>
         </div>
@@ -1893,15 +2279,18 @@
 </div>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobileMenu" class="fixed inset-0 z-50 bg-black invisible opacity-0 transition-all duration-300 ease-in-out flex flex-col justify-between p-8">
-  <!-- Top Bar inside Mobile Menu -->
-  <div class="flex justify-between items-center h-20">
-    <a class="flex items-center" href="index.html" onclick="toggleMobileMenu()">
-      <img src="./assets/img/logos/LogoHedder.svg?v=1" alt="ECUAPLAC Logo" class="h-10 w-auto object-contain select-none" loading="lazy">
-    </a>
-    <button class="text-white cursor-pointer" onclick="toggleMobileMenu()">
-      <span class="material-symbols-outlined text-3xl">close</span>
-    </button>
+<div id="mobileMenu" class="fixed inset-0 z-50 bg-black invisible opacity-0 transition-all duration-300 ease-in-out flex flex-col justify-between p-8 pt-[120px]">
+  <!-- Top Bar inside Mobile Menu (Mini Header) -->
+  <div class="absolute top-0 left-0 w-full bg-black z-10">
+    <div class="flex justify-between items-center h-24 px-8">
+      <a class="flex items-center" href="index.html" onclick="toggleMobileMenu()">
+        <img src="./assets/img/logos/LogoHedder.webp" alt="ECUAPLAC Logo" class="h-14 w-auto object-contain select-none" loading="lazy">
+      </a>
+      <button class="text-white cursor-pointer" onclick="toggleMobileMenu()">
+        <span class="material-symbols-outlined text-3xl">close</span>
+      </button>
+    </div>
+    <div class="ecuador-divider w-full"></div>
   </div>
   
   <!-- Navigation Links -->
@@ -2676,4 +3065,36 @@ document.addEventListener('click', (e) => {
   }
 });
 </script>
+
+<!-- Swiper JS Integration -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Swiper !== 'undefined') {
+      const swiper = new Swiper('.portfolio-swiper', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        grabCursor: true,
+        loop: true,
+        autoplay: {
+          delay: 5500,
+          disableOnInteraction: false,
+        },
+        effect: 'coverflow',
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 100,
+          depth: 300,
+          modifier: 1,
+          slideShadows: false
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      });
+    }
+  });
+</script>
+
 </body></html>

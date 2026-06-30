@@ -83,8 +83,8 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
+  background: #000000;
+  
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -380,7 +380,7 @@
 <nav class="fixed top-0 w-full border-b border-[#1C1C1E] z-50">
 <div class="flex justify-between items-center h-[72px] px-[20px] md:px-[64px] max-w-[1440px] mx-auto">
   <a class="flex items-center" href="index.html">
-    <img src="./assets/img/logos/LogoHedder.svg?v=1" alt="ECUAPLAC Logo" class="h-11 md:h-14 w-auto object-contain select-none" loading="lazy">
+    <img src="./assets/img/logos/LogoHedder.webp" alt="ECUAPLAC Logo" class="h-14 md:h-14 w-auto object-contain select-none" loading="lazy">
   </a>
   <div class="flex items-center gap-6">
     <a href="index.html" class="text-white/70 hover:text-white text-[12px] font-semibold tracking-[0.15em] uppercase transition-colors duration-300">← Volver al inicio</a>
@@ -433,7 +433,7 @@
       <li><strong>Reclamaciones:</strong> Tiene derecho a presentar reclamación ante la Agencia Española de Protección de Datos (aepd.es)</li>
     </ul>
 
-    <h2>5. Política de Cookies</h2>
+    <h2 id="cookies">5. Política de Cookies</h2>
     <p>Este sitio web no utiliza cookies propias de seguimiento, analítica ni publicidad. Únicamente pueden generarse cookies técnicas estrictamente necesarias para el correcto funcionamiento de la navegación, las cuales no almacenan datos personales identificativos.</p>
     <p>Las imágenes del sitio son servidas a través de <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>, un servicio externo, que puede gestionar sus propias cookies conforme a su política de privacidad.</p>
 
@@ -494,9 +494,9 @@
             <span class="absolute -bottom-2 left-1/2 md:left-auto md:right-0 -translate-x-1/2 md:translate-x-0 w-8 h-[2px] bg-[#795746]"></span>
           </h4>
           <ul class="flex flex-col gap-3 font-['Open_Sans'] w-full">
-            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Aviso Legal</a></li>
-            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Política de Cookies</a></li>
-            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Términos y Condiciones</a></li>
+            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#aviso-legal">Aviso Legal</a></li>
+            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#cookies">Política de Cookies</a></li>
+            <li><a class="hover:text-[#FFFFFF] transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#terminos">Términos y Condiciones</a></li>
           </ul>
         </div>
         

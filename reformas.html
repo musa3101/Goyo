@@ -6,7 +6,7 @@
 <meta name="keywords" content="proyectos de reformas Palma de Mallorca, reformas integrales Palma, acabados premium, baños lujo Palma, vestidores a medida Mallorca, Ecuaplac">
 <meta property="og:title" content="Ecuaplac | Proyectos de Reformas Integrales en Palma de Mallorca">
 <meta property="og:description" content="Galería de proyectos de Ecuaplac: reformas integrales de baño, vestidores, escaleras y acabados premium en Palma de Mallorca.">
-<meta property="og:image" content="https://ecuaplac.com/assets/img/logos/LogoHedder.svg?v=1">
+<meta property="og:image" content="https://ecuaplac.com/assets/img/logos/LogoHedder.webp">
 <meta property="og:url" content="https://ecuaplac.com/reformas.html">
 <meta name="twitter:card" content="summary_large_image">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -269,8 +269,8 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
+  background: #000000;
+  
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -572,7 +572,7 @@
 <div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <!-- Brand -->
 <a class="flex items-center" href="index.html">
-  <img src="./assets/img/logos/LogoHedder.svg?v=1" alt="ECUAPLAC Logo" class="h-11 md:h-14 w-auto object-contain select-none" loading="lazy">
+  <img src="./assets/img/logos/LogoHedder.webp" alt="ECUAPLAC Logo" class="h-14 md:h-14 w-auto object-contain select-none" loading="lazy">
 </a>
 <!-- Desktop Nav -->
 <ul class="hidden lg:flex items-center gap-8 uppercase font-semibold text-[13px] tracking-[0.18em]">
@@ -633,7 +633,7 @@
               <span class="w-2 h-2 rounded-full bg-[#EF3D3D] animate-pulse"></span>
               Estado Inicial
             </div>
-            <div class="w-full aspect-[3/4] overflow-hidden rounded-xl mt-2 relative flex-shrink-0">
+            <div class="w-full aspect-[2/3] overflow-hidden rounded-xl mt-2 relative flex-shrink-0">
               <img loading="lazy" alt="Baño antes de reformar" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/img/portfolio/antes.webp">
             </div>
             <div class="mt-6 flex-grow flex items-start">
@@ -649,7 +649,7 @@
               <span class="material-symbols-outlined text-[16px]">verified</span>
               Resultado Final
             </div>
-            <div class="w-full aspect-[3/4] overflow-hidden rounded-xl mt-2 relative flex-shrink-0 border border-outline-variant/20">
+            <div class="w-full aspect-[2/3] overflow-hidden rounded-xl mt-2 relative flex-shrink-0 border border-outline-variant/20">
               <img loading="lazy" alt="Baño después de reformar" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/img/portfolio/despues.webp">
             </div>
             <div class="mt-6 flex-grow flex items-start">
@@ -847,9 +847,9 @@
             <span class="absolute -bottom-2 left-1/2 md:left-auto md:right-0 -translate-x-1/2 md:translate-x-0 w-8 h-[2px] bg-secondary"></span>
           </h4>
           <ul class="flex flex-col gap-3 font-body-md w-full">
-            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Aviso Legal</a></li>
-            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Política de Cookies</a></li>
-            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html">Términos y Condiciones</a></li>
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#aviso-legal">Aviso Legal</a></li>
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#cookies">Política de Cookies</a></li>
+            <li><a class="hover:text-monolith-white transition-colors duration-300 flex items-center justify-center md:justify-end h-11" href="aviso-legal.html#terminos">Términos y Condiciones</a></li>
           </ul>
         </div>
         
@@ -880,52 +880,52 @@
 
 <!-- Presupuesto Modal (Functional overlay) -->
 <div id="presupuestoModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-margin-mobile">
-  <div class="bg-surface dark:bg-on-background w-full max-w-3xl border border-primary p-8 md:p-12 animate-fade-in relative max-h-[90dvh] overflow-y-auto">
+  <div class="bg-[#0C0C0C] w-full max-w-3xl border border-white/20 p-8 md:p-12 animate-fade-in relative max-h-[90dvh] overflow-y-auto">
     <!-- Close Button -->
-    <button class="absolute top-6 right-6 text-primary hover:opacity-75 transition-opacity w-12 h-12 flex items-center justify-center" onclick="closePresupuestoModal()">
+    <button class="absolute top-6 right-6 text-white hover:opacity-75 transition-opacity w-12 h-12 flex items-center justify-center" onclick="closePresupuestoModal()">
       <span class="material-symbols-outlined text-3xl">close</span>
     </button>
     
     <!-- Modal Content -->
     <div id="modalFormContent">
       <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-2">Solicitud de Presupuesto</span>
-      <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary mb-8 leading-tight">Cuéntanos tu proyecto.</h2>
+      <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-white mb-8 leading-tight">Cuéntanos tu proyecto.</h2>
       
-      <form onsubmit="submitPresupuesto(event)" class="space-y-8 font-body-md text-body-md text-on-surface-variant">
+      <form onsubmit="submitPresupuesto(event)" class="space-y-8 font-body-md text-body-md text-[#C5C5C5]">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Nombre Completo</label>
-            <input type="text" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Juan Pérez">
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-[#888888] block mb-1">Nombre Completo</label>
+            <input type="text" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-white/20 focus:border-white/20 focus:ring-0 px-0 py-2 text-white font-body-md placeholder-white/30" placeholder="Ej. Juan Pérez">
           </div>
           <div>
-            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Correo Electrónico</label>
-            <input type="email" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. juan@correo.com">
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-[#888888] block mb-1">Correo Electrónico</label>
+            <input type="email" required class="w-full bg-transparent border-t-0 border-x-0 border-b border-white/20 focus:border-white/20 focus:ring-0 px-0 py-2 text-white font-body-md placeholder-white/30" placeholder="Ej. juan@correo.com">
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-2">Tipo de Proyecto</label>
-            <select class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md">
-              <option value="reforma-integral" class="bg-surface text-primary">Reforma Integral</option>
-              <option value="reforma-cocina" class="bg-surface text-primary">Reforma de Cocina</option>
-              <option value="reforma-bano" class="bg-surface text-primary">Reforma de Baño</option>
-              <option value="arquitectura" class="bg-surface text-primary">Diseño & Arquitectura</option>
-              <option value="otro" class="bg-surface text-primary">Otro</option>
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-[#888888] block mb-2">Tipo de Proyecto</label>
+            <select class="w-full bg-transparent border-t-0 border-x-0 border-b border-white/20 focus:border-white/20 focus:ring-0 px-0 py-2 text-white font-body-md">
+              <option class="bg-[#0C0C0C] text-white" value="reforma-integral" class="bg-surface text-white">Reforma Integral</option>
+              <option class="bg-[#0C0C0C] text-white" value="reforma-cocina" class="bg-surface text-white">Reforma de Cocina</option>
+              <option class="bg-[#0C0C0C] text-white" value="reforma-bano" class="bg-surface text-white">Reforma de Baño</option>
+              <option class="bg-[#0C0C0C] text-white" value="arquitectura" class="bg-surface text-white">Diseño & Arquitectura</option>
+              <option class="bg-[#0C0C0C] text-white" value="otro" class="bg-surface text-white">Otro</option>
             </select>
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Superficie aprox. (m²)</label>
-              <input type="number" min="1" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md" placeholder="Ej. 90">
+              <label class="font-label-caps text-[10px] uppercase tracking-widest text-[#888888] block mb-1">Superficie aprox. (m²)</label>
+              <input type="number" min="1" class="w-full bg-transparent border-t-0 border-x-0 border-b border-white/20 focus:border-white/20 focus:ring-0 px-0 py-2 text-white font-body-md" placeholder="Ej. 90">
             </div>
             <div>
-              <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-2">Presupuesto Estimado</label>
-              <select class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md">
-                <option value="rango-1" class="bg-surface text-primary">&lt; 15.000 €</option>
-                <option value="rango-2" class="bg-surface text-primary">15.000 € - 45.000 €</option>
-                <option value="rango-3" class="bg-surface text-primary">45.000 € - 90.000 €</option>
-                <option value="rango-4" class="bg-surface text-primary">&gt; 90.000 €</option>
+              <label class="font-label-caps text-[10px] uppercase tracking-widest text-[#888888] block mb-2">Presupuesto Estimado</label>
+              <select class="w-full bg-transparent border-t-0 border-x-0 border-b border-white/20 focus:border-white/20 focus:ring-0 px-0 py-2 text-white font-body-md">
+                <option class="bg-[#0C0C0C] text-white" value="rango-1" class="bg-surface text-white">&lt; 15.000 €</option>
+                <option class="bg-[#0C0C0C] text-white" value="rango-2" class="bg-surface text-white">15.000 € - 45.000 €</option>
+                <option class="bg-[#0C0C0C] text-white" value="rango-3" class="bg-surface text-white">45.000 € - 90.000 €</option>
+                <option class="bg-[#0C0C0C] text-white" value="rango-4" class="bg-surface text-white">&gt; 90.000 €</option>
               </select>
             </div>
           </div>
@@ -933,12 +933,12 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Localización de la Obra</label>
-            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Palma de Mallorca">
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-[#888888] block mb-1">Localización de la Obra</label>
+            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-white/20 focus:border-white/20 focus:ring-0 px-0 py-2 text-white font-body-md placeholder-white/30" placeholder="Ej. Palma de Mallorca">
           </div>
           <div>
-            <label class="font-label-caps text-[10px] uppercase tracking-widest text-mortar-grey block mb-1">Descripción del Proyecto</label>
-            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-primary font-body-md placeholder-mortar-grey/50" placeholder="Ej. Reforma completa de piso con acabados limpios y de alta calidad">
+            <label class="font-label-caps text-[10px] uppercase tracking-widest text-[#888888] block mb-1">Descripción del Proyecto</label>
+            <input type="text" class="w-full bg-transparent border-t-0 border-x-0 border-b border-white/20 focus:border-white/20 focus:ring-0 px-0 py-2 text-white font-body-md placeholder-white/30" placeholder="Ej. Reforma completa de piso con acabados limpios y de alta calidad">
           </div>
         </div>
 
@@ -951,11 +951,11 @@
     <!-- Success Screen (Hidden by default) -->
     <div id="modalSuccessContent" class="hidden py-12 text-center flex flex-col items-center justify-center">
       <span class="material-symbols-outlined text-6xl text-secondary mb-4">task_alt</span>
-      <h3 class="font-headline-lg text-headline-lg text-primary mb-2">¡Solicitud Recibida!</h3>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto mb-8">
+      <h3 class="font-headline-lg text-headline-lg text-white mb-2">¡Solicitud Recibida!</h3>
+      <p class="font-body-lg text-body-lg text-[#C5C5C5] max-w-md mx-auto mb-8">
         Tu solicitud ha sido registrada correctamente. Nuestro equipo de arquitectura se pondrá en contacto contigo a la brevedad para agendar tu primera visita técnica.
       </p>
-      <button onclick="closePresupuestoModal()" class="inline-flex items-center justify-center font-bold uppercase tracking-widest text-[12px] text-primary border border-primary/40 rounded-full px-10 py-3.5 hover:bg-primary hover:text-white hover:-translate-y-0.5 hover:shadow-md active:scale-95 transition-all duration-300 cursor-pointer">Entendido</button>
+      <button onclick="closePresupuestoModal()" class="inline-flex items-center justify-center font-bold uppercase tracking-widest text-[12px] text-white border border-white/20/40 rounded-full px-10 py-3.5 hover:bg-white hover:text-black hover:-translate-y-0.5 hover:shadow-md active:scale-95 transition-all duration-300 cursor-pointer">Entendido</button>
     </div>
   </div>
 </div>
@@ -963,6 +963,7 @@
 <!-- Mobile Side Navigation Drawer (Functional) -->
 <div id="mobileMenu" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex justify-end">
   <div class="bg-black w-[280px] h-full p-8 flex flex-col justify-between border-l border-white/10 animate-slide-up relative">
+    <div class="ecuador-divider absolute top-0 left-0 w-full"></div>
     <button class="absolute top-6 right-6 text-white" onclick="toggleMobileMenu()">
       <span class="material-symbols-outlined text-3xl">close</span>
     </button>
@@ -980,7 +981,7 @@
       <a href="reformas-en.html" class="text-white/60 hover:text-white transition-colors cursor-pointer pb-1">EN</a>
     </div>
     <div class="flex items-center mb-3">
-        <img src="./assets/img/logos/LogoHedder.svg?v=1" alt="ECUAPLAC Logo" class="h-10 w-auto object-contain select-none" loading="lazy">
+        <img src="./assets/img/logos/LogoHedder.webp" alt="ECUAPLAC Logo" class="h-14 w-auto object-contain select-none" loading="lazy">
       </div>
       <p>© 2026. Todos los derechos reservados.</p>
     </div>
@@ -1295,7 +1296,21 @@ document.addEventListener('click', (e) => {
           .order('sort_order', { ascending: true });
           
         if (!error && data && data.length > 0) {
-          container.innerHTML = data.map((item, index) => {
+          const processedData = data.map(item => {
+            if (item.image_before) item.image_before = item.image_before.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+            if (item.image_after) item.image_after = item.image_after.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+            if (item.title_es === 'Baño de Diseño con Bañera Exenta') {
+              item.title_es = 'Reforma Integral de Baño con Bañera Exenta';
+            }
+            if (item.id === 'fadfd1e1-fa17-4f41-9731-25433aa10992') {
+              item.caption_before_es = 'Fase Inicial';
+              item.caption_after_es = 'Fase Terminada';
+              item.description_es = 'Diseño e instalación de encimera volada de piedra tecnológica en tonos neutros, con lavabo cerámico negro mate sobre encimera, grifería mural empotrada e instalaciones totalmente ocultas.';
+              item.description_after_es = 'Lavabo negro mate sobre encimera de piedra volada y grifería mural minimalista.';
+            }
+            return item;
+          });
+          container.innerHTML = processedData.map((item, index) => {
             const indexRoman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'][index] || (index + 1);
             return `
               <div class="border-b border-outline-variant pb-24 relative">
@@ -1316,7 +1331,7 @@ document.addEventListener('click', (e) => {
                       <span class="w-2 h-2 rounded-full bg-[#EF3D3D] animate-pulse"></span>
                       ${item.caption_before_es || 'Estado Inicial'}
                     </div>
-                    <div class="w-full aspect-[3/4] overflow-hidden rounded-xl mt-2 relative flex-shrink-0">
+                    <div class="w-full aspect-[2/3] overflow-hidden rounded-xl mt-2 relative flex-shrink-0">
                       <img loading="lazy" alt="${item.title_es} antes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="${item.image_before}">
                     </div>
                     <div class="mt-6 flex-grow flex items-start">
@@ -1332,7 +1347,7 @@ document.addEventListener('click', (e) => {
                       <span class="material-symbols-outlined text-[16px]">verified</span>
                       ${item.caption_after_es || 'Resultado Final'}
                     </div>
-                    <div class="w-full aspect-[3/4] overflow-hidden rounded-xl mt-2 relative flex-shrink-0 border border-outline-variant/20">
+                    <div class="w-full aspect-[2/3] overflow-hidden rounded-xl mt-2 relative flex-shrink-0 border border-outline-variant/20">
                       <img loading="lazy" alt="${item.title_es} después" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="${item.image_after}">
                     </div>
                     <div class="mt-6 flex-grow flex items-start">
