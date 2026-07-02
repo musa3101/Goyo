@@ -6,6 +6,7 @@
 - [x] Rediseño premium de los botones de navegación y paginación del carrusel de reformas (completamente visibles en móvil y ordenador).
 - [x] Traducción al 100% en inglés de todo el sitio web, incluyendo textos de base de datos en `reformas-en.html`.
 - [x] Corrección del comportamiento de los logos (enlace a home y smooth scroll en portadas).
+- [x] Actualización del logotipo del footer al nuevo diseño SVG transparente con escala y encuadre óptimos.
 - [x] Limpieza de archivos redundantes y temporales en el espacio de trabajo local.
 - [x] Migración del backend de Supabase a la cuenta del cliente (`ecuaplacbyjg@gmail.com`).
 - [x] Creación de archivo de persistencia de configuración `.agents/AGENTS.md` para próximas sesiones.
