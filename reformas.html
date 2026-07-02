@@ -12,6 +12,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Montserrat:wght@300;400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <style>
         .material-symbols-outlined {
           font-variation-settings:
@@ -813,10 +814,161 @@
     </div>
   </section>
 
-  <!-- Back Home Button -->
-  <div class="flex justify-center mt-24 mb-12">
-    <a class="inline-flex items-center justify-center font-bold uppercase tracking-widest text-[12px] text-monolith-white bg-primary border border-transparent rounded-full px-10 py-3.5 hover:bg-secondary hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer" href="index.html">VOLVER AL INICIO</a>
+  <!-- Gallery Toggle Button -->
+  <div class="flex justify-center mt-24 mb-16">
+    <button id="gallery-toggle-btn" onclick="toggleGallery()" class="group inline-flex items-center justify-center gap-3 font-bold uppercase tracking-widest text-[12px] text-monolith-white bg-primary border border-transparent rounded-full px-10 py-3.5 hover:bg-secondary hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer">
+      <span id="gallery-toggle-text">VER MÁS REFORMAS</span>
+      <span id="gallery-toggle-arrow" class="material-symbols-outlined text-[18px] transition-transform duration-500 group-hover:translate-y-0.5">expand_more</span>
+    </button>
   </div>
+
+  <!-- Gallery Carousel Section -->
+  <section id="gallery-section" class="max-w-[1400px] mx-auto px-4 md:px-8 overflow-hidden transition-all duration-700 ease-in-out" style="max-height: 0; opacity: 0; margin-bottom: 0;">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-12 pt-8">
+      <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-3 font-bold">Galería</span>
+      <h2 class="font-headline-xl text-[28px] md:text-[40px] leading-tight font-bold text-primary">Más Proyectos Realizados</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto mt-4">Una selección de trabajos recientes: cerramientos, techos decorativos, baños de diseño y mucho más.</p>
+    </div>
+
+    <!-- Swiper Carousel -->
+    <div class="swiper gallery-swiper rounded-2xl pb-10" style="--swiper-navigation-color: #ffffff; --swiper-pagination-color: #ffffff; --swiper-navigation-size: 24px;">
+      <div class="swiper-wrapper">
+        <!-- Slide 1: ANTES -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/bano-antes-collage.webp" alt="Baño en fase de obra - pladur, alicatado e instalaciones" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Reforma integral de baño — Fase de obra</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2: DESPUÉS -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/bano-despues-collage.webp" alt="Baño reformado - resultado final con ducha, espejo LED y mueble de roble" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Reforma integral de baño — Resultado final</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/bano-piedra-espejos.webp" alt="Baño de piedra natural con doble espejo retroiluminado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Baño en piedra natural con espejos retroiluminados</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/cerramiento-cristal-1.webp" alt="Cerramiento de cristal con ventanales panorámicos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Cerramiento de cristal con ventanales panorámicos</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/cerramiento-cristal-frontal.webp" alt="Cerramiento panorámico vista frontal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Cerramiento panorámico — Vista frontal</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 6 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/techo-pladur-construccion.webp" alt="Falso techo de pladur decorativo en construcción" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Falso techo decorativo de pladur en construcción</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 7 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/techo-circular-andamios.webp" alt="Techo circular de pladur con estructura decorativa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Techo circular de pladur — Fase estructural</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 8 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/techo-circular-detalle.webp" alt="Detalle de techo circular de pladur terminado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Techo circular de pladur — Detalle de acabado</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 9 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/salon-led-vistas.webp" alt="Salón con iluminación LED perimetral y vistas al mar" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Salón con iluminación LED perimetral y vistas</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 10 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/piedra-natural-downlights.webp" alt="Revestimiento de piedra natural con downlights empotrados" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Revestimiento de piedra natural con iluminación</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 11 -->
+        <div class="swiper-slide">
+          <div class="group rounded-2xl overflow-hidden shadow-lg border border-outline-variant/20 bg-[#1a1a1a]">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img loading="lazy" src="./assets/img/portfolio/galeria/porche-ventanales-obra.webp" alt="Porche con ventanales en fase de pintura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="px-4 py-3">
+              <p class="text-white/90 font-medium text-xs md:text-sm">Porche con ventanales — Fase de acabados</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation -->
+      <div class="swiper-button-prev !bg-black/70 !w-12 !h-12 !rounded-full !shadow-xl hover:!bg-black/90 transition-all"></div>
+      <div class="swiper-button-next !bg-black/70 !w-12 !h-12 !rounded-full !shadow-xl hover:!bg-black/90 transition-all"></div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="pb-12"></div>
+  </section>
+
+
+
 </main><footer class="w-full bg-[#141414] text-[#A3A3A3] pt-20 pb-10 border-t border-[#1C1C1E] transition-colors duration-300">
   <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
     <!-- 3 Column Layout -->
@@ -1374,6 +1526,62 @@ document.addEventListener('click', (e) => {
       }
     }
   });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // Gallery toggle
+  let galleryOpen = false;
+  function toggleGallery() {
+    const section = document.getElementById('gallery-section');
+    const arrow = document.getElementById('gallery-toggle-arrow');
+    const text = document.getElementById('gallery-toggle-text');
+    galleryOpen = !galleryOpen;
+    if (galleryOpen) {
+      section.style.maxHeight = section.scrollHeight + 200 + 'px';
+      section.style.opacity = '1';
+      section.style.marginBottom = '2rem';
+      arrow.style.transform = 'rotate(180deg)';
+      text.textContent = 'OCULTAR GALERÍA';
+      setTimeout(() => { section.style.maxHeight = 'none'; }, 800);
+      // Initialize Swiper only once
+      if (!window.gallerySwiperInstance) {
+        window.gallerySwiperInstance = new Swiper('.gallery-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          grabCursor: true,
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          },
+          navigation: {
+            nextEl: '.gallery-swiper .swiper-button-next',
+            prevEl: '.gallery-swiper .swiper-button-prev',
+          },
+          pagination: {
+            el: '.gallery-swiper .swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+          },
+          breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 28 },
+          },
+        });
+      }
+    } else {
+      section.style.maxHeight = section.scrollHeight + 'px';
+      requestAnimationFrame(() => {
+        section.style.maxHeight = '0';
+        section.style.opacity = '0';
+        section.style.marginBottom = '0';
+      });
+      arrow.style.transform = 'rotate(0deg)';
+      text.textContent = 'VER MÁS REFORMAS';
+    }
+  }
 </script>
 
 </body></html>
