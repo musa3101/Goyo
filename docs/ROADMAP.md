@@ -7,6 +7,7 @@
 - [x] Traducción al 100% en inglés de todo el sitio web (`index-en.html`, `reformas-en.html`, `legal-notice.html`).
 - [x] Limpieza de archivos redundantes y temporales en el espacio de trabajo local.
 - [x] Migración del backend de Supabase a la cuenta del cliente (`ecuaplacbyjg@gmail.com`).
+- [x] Creación de archivo de persistencia de configuración `.agents/AGENTS.md` para próximas sesiones.
 - [x] Despliegue de los últimos cambios y sincronización tanto en GitHub como en GitLab.
 
 ## Tareas en Progreso
