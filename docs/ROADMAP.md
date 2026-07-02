@@ -1,21 +1,17 @@
 # Proyecto Ecuaplac - Roadmap
 
 ## Tareas Completadas
-- [x] Integración de Microsoft Clarity para analíticas y grabación de comportamiento de usuarios en producción.
-- [x] Ajuste de posición del logo del header en la versión móvil (alineado a la izquierda).
-- [x] Optimización y legibilidad del logo en el pie de página (escala al 90% y sin recortes).
-- [x] Rediseño circular del icono de Instagram en el footer con su degradado original.
-- [x] Ampliación y realce de las líneas divisoras inspiradas en la bandera de Ecuador (del 5% al 95% de ancho y 100% de opacidad).
-- [x] Implementación de un botón interactivo y minimalista para "Ver más proyectos" en versión española e inglesa con efecto hover de barrido y desplazamiento.
-- [x] Corrección de responsividad en menú móvil (banda de Ecuador y rediseño de cabecera en móvil).
-- [x] Implementación de Swiper Coverflow 3D táctil en la sección de trabajos para móviles y tablets.
-- [x] Traducción completa al inglés de todo el sitio web (`index-en.html`, `reformas-en.html`, `legal-notice.html`).
-- [x] Anclas de scroll automático en el footer de los términos legales.
-- [x] Corrección del formato de la imagen de vista previa compartida (`og:image` en formato `.webp`).
+- [x] Integración de 11 nuevas fotos de reformas en una galería colapsable y táctil.
+- [x] Configuración de reproducción automática (autoplay) y control táctil para el carrusel de reformas.
+- [x] Rediseño premium de los botones de navegación y paginación del carrusel de reformas (completamente visibles en móvil y ordenador).
+- [x] Traducción al 100% en inglés de todo el sitio web (`index-en.html`, `reformas-en.html`, `legal-notice.html`).
+- [x] Limpieza de archivos redundantes y temporales en el espacio de trabajo local.
+- [x] Migración del backend de Supabase a la cuenta del cliente (`ecuaplacbyjg@gmail.com`).
+- [x] Despliegue de los últimos cambios y sincronización tanto en GitHub como en GitLab.
 
 ## Tareas en Progreso
-- Ninguna. Todos los desarrollos activos han sido validados en local y listos para producción.
+- Ninguna. El proyecto actual se encuentra en un estado estable y 100% finalizado de acuerdo con las especificaciones del cliente.
 
 ## Próximas Mejoras Prioritarias
-- [ ] Monitorizar los mapas de calor y grabaciones en Microsoft Clarity tras recibir las primeras visitas.
-- [ ] Optimizar la carga de imágenes si el cliente añade más proyectos pesados en el futuro.
+- [ ] Monitorear el panel de Microsoft Clarity para analizar la interacción del usuario con el nuevo carrusel de reformas.
+- [ ] Optimizar la carga de nuevas imágenes en Supabase si el cliente decide sustituir o añadir contenido dinámico en el futuro.
