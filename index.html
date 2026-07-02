@@ -1203,7 +1203,7 @@
 <nav class="fixed top-0 w-full border-b border-[#1C1C1E] z-50">
 <div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <!-- Brand -->
-<a class="flex items-center -ml-8 md:ml-0" href="index.html">
+<a class="flex items-center -ml-8 md:ml-0" href="#">
   <img src="./assets/img/logos/LogoHedder.webp" alt="ECUAPLAC Logo" class="logo-header h-14 md:h-14 w-auto object-contain select-none" loading="eager">
 </a>
 <!-- Desktop Nav -->
@@ -2207,7 +2207,7 @@
       </div>
 
       <div class="flex flex-col items-center justify-center text-center">
-        <a href="index.html" class="block cursor-pointer inline-flex">
+        <a href="#" class="block cursor-pointer inline-flex">
           <div class="w-36 h-36 mb-8 group rounded-full border-[3px] border-[#FFB81C] bg-white flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105 shadow-md">
             <img src="./assets/img/logos/Logofotter.webp" alt="ECUAPLAC Logo" class="w-full h-full object-cover scale-90" loading="lazy">
           </div>
@@ -2352,7 +2352,7 @@
   <!-- Top Bar inside Mobile Menu (Mini Header) -->
   <div class="absolute top-0 left-0 w-full bg-black z-10">
     <div class="flex justify-between items-center h-24 px-8">
-      <a class="flex items-center -ml-8 md:ml-0" href="index.html" onclick="toggleMobileMenu()">
+      <a class="flex items-center -ml-8 md:ml-0" href="#" onclick="toggleMobileMenu()">
         <img src="./assets/img/logos/LogoHedder.webp" alt="ECUAPLAC Logo" class="h-14 w-auto object-contain select-none" loading="lazy">
       </a>
       <button class="text-white cursor-pointer" onclick="toggleMobileMenu()">
@@ -2530,7 +2530,10 @@
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        if (targetId === '#') {
+          smoothScrollTo(0, 600);
+          return;
+        }
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 72;
