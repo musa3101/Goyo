@@ -126,3 +126,33 @@ INSERT INTO ecuaplac_projects (
     'Escalera revestida en roble natural masivo con rodapié oculto iluminado.', 'Staircase clad in massive natural oak with concealed illuminated baseboards.',
     40
 );
+
+-- Tabla de Información de Contacto Dinámica
+CREATE TABLE IF NOT EXISTS ecuaplac_contact (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    key TEXT UNIQUE NOT NULL,
+    name_es TEXT NOT NULL,
+    name_en TEXT NOT NULL,
+    value_es TEXT NOT NULL,
+    value_en TEXT NOT NULL,
+    icon TEXT, -- 'phone', 'mail', 'map-pin'
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    active BOOLEAN DEFAULT true,
+    sort_order INTEGER DEFAULT 0
+);
+
+-- Habilitar RLS para ecuaplac_contact
+ALTER TABLE ecuaplac_contact ENABLE ROW LEVEL SECURITY;
+
+-- Política de lectura pública para contacto
+CREATE POLICY "Permitir lectura pública de contacto" ON ecuaplac_contact
+    FOR SELECT USING (active = true);
+
+-- Limpiar e Insertar datos iniciales de contacto
+TRUNCATE TABLE ecuaplac_contact;
+
+INSERT INTO ecuaplac_contact (key, name_es, name_en, value_es, value_en, icon, sort_order) VALUES
+('address', 'Dirección de Proyectos', 'Project Management', 'Palma de Mallorca, Islas Baleares', 'Palma de Mallorca, Balearic Islands', 'map-pin', 10),
+('goyo', 'Goyo', 'Goyo', '+34 678 15 98 78', '+34 678 15 98 78', 'phone', 20),
+('jofrre', 'Jofrre', 'Jofrre', '+34 603 40 44 50', '+34 603 40 44 50', 'phone', 30),
+('email', 'Email', 'Email', 'ecuaplac.jyg.sl@gmail.com', 'ecuaplac.jyg.sl@gmail.com', 'mail', 40);

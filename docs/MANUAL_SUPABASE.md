@@ -34,9 +34,10 @@ Para que la web cargue la imagen desde internet, la foto debe estar guardada en 
 Con el enlace de la imagen copiado, ahora debemos indicarle a la web qué fila o proyecto debe usar esa imagen.
 
 1. En la barra lateral de Supabase, haz clic en el icono de la cuadrícula llamado **Table Editor** (Editor de Tablas).
-2. Verás dos tablas principales asociadas a la web de Ecuaplac:
+2. Verás tres tablas principales asociadas a la web de Ecuaplac:
    * **`ecuaplac_carousel`**: Controla las fotos que giran en la página de inicio (Home).
    * **`ecuaplac_projects`**: Controla la lista de reformas y el carrusel de la galería inferior de la página de reformas.
+   * **`ecuaplac_contact`**: Controla la información de contacto de la web (dirección, teléfonos de contacto y correo electrónico).
 3. Haz clic en la tabla que desees modificar:
    * **Para cambiar una foto del inicio (`ecuaplac_carousel`)**:
      * Busca la fila del proyecto que quieras modificar.
@@ -47,6 +48,12 @@ Con el enlace de la imagen copiado, ahora debemos indicarle a la web qué fila o
      * Busca la fila correspondiente.
      * Tienes dos columnas de imágenes por fila: **`image_before`** (Antes / Fase de obra) e **`image_after`** (Después / Finalizado).
      * Haz doble clic en el campo que quieras cambiar, pega el nuevo enlace de la imagen y guarda.
+   * **Para cambiar teléfonos, email o dirección (`ecuaplac_contact`)**:
+     * Busca la fila del dato que quieres actualizar (identificado por la columna **`key`**: `address`, `goyo`, `jofrre`, o `email`).
+     * Edita el campo **`value_es`** para la versión en español de la web.
+     * Edita el campo **`value_en`** para la versión en inglés de la web.
+     * También puedes cambiar el nombre mostrado modificando **`name_es`** o **`name_en`** (por ejemplo, si cambias de encargado del teléfono).
+     * Pulsa **Enter** para guardar. Si necesitas desactivar temporalmente un contacto sin borrarlo, desmarca la casilla **`active`**.
 
 ---
 

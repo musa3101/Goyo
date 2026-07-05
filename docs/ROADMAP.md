@@ -13,10 +13,13 @@
 - [x] Limpieza de archivos redundantes y temporales en el espacio de trabajo local.
 - [x] Migración del backend de Supabase a la cuenta del cliente (`ecuaplacbyjg@gmail.com`).
 - [x] Creación de archivo de persistencia de configuración `.agents/AGENTS.md` para próximas sesiones.
-- [x] Despliegue de los últimos cambios y sincronización tanto en GitHub como en GitLab.
+- [x] Creación de la sección interactiva y responsive "Contacto Directo" en el formulario de contacto con diseño premium y micro-animaciones.
+- [x] Dinamización completa de la información de contacto y dirección a través de la tabla `ecuaplac_contact` de Supabase, incluyendo sistema de respaldo estático (fallback).
+- [x] Actualización del script de la base de datos `supabase_schema.sql` y del manual de gestión para el cliente (`docs/MANUAL_SUPABASE.md`).
+- [x] Despliegue final y sincronización en GitHub y GitLab.
 
 ## Tareas en Progreso
-- Ninguna. El proyecto actual se encuentra en un estado estable y 100% finalizado de acuerdo con las especificaciones del cliente.
+- Ninguna. El proyecto se encuentra en un estado estable y 100% finalizado de acuerdo con las especificaciones del cliente.
 
 ## Próximas Mejoras Prioritarias
 - [ ] Monitorear el panel de Microsoft Clarity para analizar la interacción del usuario con el nuevo carrusel de reformas y navegación.
