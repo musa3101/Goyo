@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="width=device-width, initial-scale=1.0, interactive-widget=resizes-visual" name="viewport">
 <title>Ecuaplac | Comprehensive Renovations and Construction in Palma de Mallorca</title>
 <meta name="description" content="Ecuaplac: Specialists in comprehensive renovations, drywall, insulation and construction projects in Palma de Mallorca. Premium quality and attention to detail by J&G.">
 <meta name="keywords" content="comprehensive renovations Palma de Mallorca, Mallorca renovations, renovation company Palma, drywall Palma de Mallorca, insulation, construction Mallorca, J&G, Ecuaplac">
@@ -101,10 +101,49 @@
         .lang-separator {
             border-color: rgba(255, 255, 255, 0.15) !important;
         }
-        /* Smooth transitions for scrollytelling layers */
+        /* GPU-accelerated scrollytelling layers — NO CSS transition (driven by JS per-frame) */
         #hero-sticky-element > div[id^="hero-layer-"] {
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: transform, opacity;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+        /* Stable mobile viewport for hero sticky element */
+        #hero-sticky-element {
+            height: calc(100vh - 72px);
+            height: calc(100dvh - 72px);
+        }
+        /* Prevent iOS overscroll rubber-banding inside hero */
+        #hero-scroll-container {
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+        }
+        /* Desktop: taller hero for smoother, slower transitions */
+        @media (min-width: 768px) {
+            #hero-scroll-container {
+                height: 450vh !important;
+                height: 450dvh !important;
+            }
+        }
+
+        /* Typography: balanced wrapping & max prose width */
+        h1, h2 {
+            text-wrap: balance;
+            -webkit-text-wrap: balance;
+        }
+        section p {
+            max-width: 65ch;
+        }
+
+        /* Subtle scroll-reveal for section headings */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Minimalist Vertical Scroll Pagination Dots */
@@ -474,9 +513,33 @@
                     "headline-xl": [
                             "48px",
                             {
-                                    "lineHeight": "1.1",
-                                    "letterSpacing": "-0.02em",
+                                    "lineHeight": "1.08",
+                                    "letterSpacing": "-0.025em",
                                     "fontWeight": "300"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.15",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.55",
+                                    "letterSpacing": "0.005em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.55",
+                                    "letterSpacing": "0.005em",
+                                    "fontWeight": "400"
                             }
                     ],
                     "label-caps": [
@@ -1231,8 +1294,8 @@
 </nav>
 <main>
 <!-- Pinned Hero Section with Scroll-Triggered Collage Animation -->
-<section id="hero-scroll-container" class="relative w-full h-[300vh] md:h-[450vh] bg-black">
-  <div id="hero-sticky-element" class="sticky top-[72px] w-full h-[calc(100vh-72px)] overflow-hidden">
+<section id="hero-scroll-container" class="relative w-full bg-black" style="height: 300vh; height: 300dvh;">
+  <div id="hero-sticky-element" class="sticky top-[72px] w-full overflow-hidden">
     <!-- Image Layers -->
     <!-- Image 1: Minimalist Villa -->
     <div id="hero-layer-1" class="absolute inset-0 z-0 opacity-100">
@@ -1804,7 +1867,7 @@
 <div class="ecuador-divider"></div>
 <div class="py-24 bg-surface-container-lowest">
 <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-16 border-b border-primary pb-4">
+<div class="mb-16 border-b border-primary pb-4 scroll-reveal">
 <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary">Real Transformations</h2>
 </div>
 <!-- Interactive Slider (Replaces Stack Item 1) -->
@@ -1896,7 +1959,7 @@
 <section id="servicios" class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto scroll-mt-20">
   
   <!-- Section Title & Intro (Top) -->
-  <div class="mb-16 border-b border-primary pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+  <div class="mb-16 border-b border-primary pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 scroll-reveal">
     <div class="max-w-xl">
       <span class="font-label-caps text-label-caps uppercase tracking-widest text-mortar-grey mb-3 block">Our Experience</span>
       <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary leading-tight font-bold">
@@ -2011,7 +2074,7 @@
   <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
       <!-- Contact Info (Left) -->
-      <div class="md:col-span-4 flex flex-col justify-start">
+      <div class="md:col-span-4 flex flex-col justify-start scroll-reveal">
         <span class="font-label-caps text-sm md:text-base font-bold uppercase tracking-widest text-primary mb-2 block">SHALL WE TALK ABOUT YOUR SPACE?</span>
         <h2 class="font-headline-xl text-[3rem] md:text-[4rem] text-primary leading-none mb-12 font-light tracking-tight">
           Contact.
@@ -2137,7 +2200,7 @@
 <section id="faq" class="py-24 bg-[#F5F6F7] scroll-mt-20">
   <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
     <!-- Title Area (matching Servicios style) -->
-    <div class="mb-16 border-b border-primary pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+    <div class="mb-16 border-b border-primary pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 scroll-reveal">
       <div class="max-w-xl">
         <span class="font-label-caps text-label-caps uppercase tracking-widest text-[#795746] mb-3 block">Doubt Resolution</span>
         <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary leading-tight font-bold">
@@ -2709,20 +2772,30 @@
       document.getElementById('hero-text-3')
     ];
 
+    // Cache viewport height to avoid Safari address-bar resize jank
+    let cachedVH = window.innerHeight;
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { cachedVH = window.innerHeight; }, 150);
+    }, { passive: true });
+
     function handleHeroScroll() {
       if (!heroContainer) return;
       
       const rect = heroContainer.getBoundingClientRect();
       const containerHeight = rect.height;
-      const viewportHeight = window.innerHeight;
+      
+      // Use cached viewport height to avoid Safari address-bar resize jank
+      const viewportHeight = cachedVH;
       
       // Calculate scroll progress (0 to 1) for the entire container scrollable area
       const totalScrollable = containerHeight - viewportHeight;
+      if (totalScrollable <= 0) return;
       let progress = -rect.top / totalScrollable;
       progress = Math.min(Math.max(progress, 0), 1);
       
-      // We want the transitions between the images to finish at 80% of scroll progress.
-      // The remaining 20% acts as a "mini descanso" (static pause) on the last image.
+      // Transitions finish at 80% of scroll; remaining 20% is a static pause on last image
       let transitionProgress = progress / 0.8;
       transitionProgress = Math.min(Math.max(transitionProgress, 0), 1);
       
@@ -2730,36 +2803,30 @@
       const numTransitions = numStages - 1;
       const step = 1 / numTransitions;
       
-      // Find current transition index based on transitionProgress (0 to 1)
       let transitionIndex = Math.floor(transitionProgress / step);
       if (transitionIndex >= numTransitions) {
         transitionIndex = numTransitions - 1;
       }
       
-      // local progress within the current transition (0 to 1)
       const localProg = (transitionProgress - (transitionIndex * step)) / step;
       
-      // Set active layers with a clean vertical slide-up parallax transition
+      // GPU-accelerated layer transitions using translate3d (no CSS transition delay)
       layers.forEach((layer, idx) => {
         if (!layer) return;
         if (idx === transitionIndex) {
-          // Outgoing layer: drifts upward slightly (parallax) and stays active underneath
-          layer.style.transform = `translateY(${-localProg * 25}%)`;
+          layer.style.transform = `translate3d(0, ${-localProg * 25}%, 0)`;
           layer.style.opacity = '1';
           layer.style.zIndex = '1';
         } else if (idx === transitionIndex + 1) {
-          // Incoming layer: slides up from 100% to 0% on top of the outgoing layer
-          layer.style.transform = `translateY(${(1 - localProg) * 100}%)`;
+          layer.style.transform = `translate3d(0, ${(1 - localProg) * 100}%, 0)`;
           layer.style.opacity = '1';
           layer.style.zIndex = '2';
         } else if (idx < transitionIndex) {
-          // Passed layers: completely out of view at the top
-          layer.style.transform = 'translateY(-100%)';
+          layer.style.transform = 'translate3d(0, -100%, 0)';
           layer.style.opacity = '0';
           layer.style.zIndex = '0';
         } else {
-          // Future layers: waiting below the screen
-          layer.style.transform = 'translateY(100%)';
+          layer.style.transform = 'translate3d(0, 100%, 0)';
           layer.style.opacity = '0';
           layer.style.zIndex = '0';
         }
@@ -2862,12 +2929,18 @@
       sepObserver.observe(sepText);
     }
 
+    // Optimized scroll handler — hero runs every rAF, nav/pagination run at reduced rate
     let ticking = false;
+    let lastScrollHandleTime = 0;
     function onScroll() {
-      handleScroll();
       if (!ticking) {
-        window.requestAnimationFrame(() => {
+        window.requestAnimationFrame((now) => {
           handleHeroScroll();
+          // Throttle non-critical scroll work to ~60ms intervals
+          if (now - lastScrollHandleTime > 60) {
+            handleScroll();
+            lastScrollHandleTime = now;
+          }
           ticking = false;
         });
         ticking = true;
@@ -2875,6 +2948,23 @@
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    // Run once on load to set correct initial state
+    handleHeroScroll();
+    handleScroll();
+
+    // Scroll-reveal: subtle fade-in for section headings
+    const revealEls = document.querySelectorAll('.scroll-reveal');
+    if (revealEls.length) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target); // fire once
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => revealObserver.observe(el));
+    }
 
     // Image Comparison Slider Logic
     const slider = document.getElementById('before-after-slider');

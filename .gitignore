@@ -6,3 +6,5 @@ fots del cliente. no tocar/
 # Documentos internos de diseño (no necesarios en producción)
 DESIGN.md
 venv/
+# Script local con tokens MCP (no subir a repos)
+setup.sh
