@@ -153,6 +153,6 @@ TRUNCATE TABLE ecuaplac_contact;
 
 INSERT INTO ecuaplac_contact (key, name_es, name_en, value_es, value_en, icon, sort_order) VALUES
 ('address', 'Dirección de Proyectos', 'Project Management', 'Palma de Mallorca, Islas Baleares', 'Palma de Mallorca, Balearic Islands', 'map-pin', 10),
-('goyo', 'Goyo', 'Goyo', '+34 678 15 98 78', '+34 678 15 98 78', 'phone', 20),
-('jofrre', 'Jofrre', 'Jofrre', '+34 603 40 44 50', '+34 603 40 44 50', 'phone', 30),
+('goyo', 'José Rivadeneira', 'José Rivadeneira', '+34 678 15 98 78', '+34 678 15 98 78', 'phone', 20),
+('jofrre', 'Joffre Méndez', 'Joffre Méndez', '+34 603 40 44 50', '+34 603 40 44 50', 'phone', 30),
 ('email', 'Email', 'Email', 'ecuaplac.jyg.sl@gmail.com', 'ecuaplac.jyg.sl@gmail.com', 'mail', 40);
