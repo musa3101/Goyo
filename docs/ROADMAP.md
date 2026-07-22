@@ -14,6 +14,7 @@
 - [x] Optimización de rendimiento a 60fps en el scroll del Hero para dispositivos móviles (GPU `translate3d`, `dvh`, eliminación de latencia CSS transition).
 - [x] Refinamiento tipográfico global (tokens Tailwind) y animación sutil `scroll-reveal` (fade-in) en encabezados de sección.
 - [x] Despliegue final a producción en GitHub y Cloudflare Pages.
+- [x] Actualización de nombres de los socios y formato de contacto (José Rivadeneira y Joffre Méndez) en frontend y esquema SQL de Supabase.
 
 ## Tareas en Progreso
 - Ninguna. El proyecto se encuentra 100% finalizado, optimizado y desplegado en producción.
