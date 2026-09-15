@@ -156,3 +156,30 @@ INSERT INTO ecuaplac_contact (key, name_es, name_en, value_es, value_en, icon, s
 ('goyo', 'José Rivadeneira', 'José Rivadeneira', '+34 678 15 98 78', '+34 678 15 98 78', 'phone', 20),
 ('jofrre', 'Joffre Méndez', 'Joffre Méndez', '+34 603 40 44 50', '+34 603 40 44 50', 'phone', 30),
 ('email', 'Email', 'Email', 'ecuaplac.jyg.sl@gmail.com', 'ecuaplac.jyg.sl@gmail.com', 'mail', 40);
+
+-- ========================================================
+-- TABLA DE SOLICITUDES / LEADS (Presupuestos y Contactos)
+-- ========================================================
+CREATE TABLE IF NOT EXISTS ecuaplac_leads (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    name TEXT,
+    phone TEXT,
+    email TEXT,
+    project_type TEXT,
+    message TEXT,
+    source_page TEXT DEFAULT 'index.html',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    status TEXT DEFAULT 'nuevo'
+);
+
+-- Habilitar RLS para ecuaplac_leads
+ALTER TABLE ecuaplac_leads ENABLE ROW LEVEL SECURITY;
+
+-- Permitir la inserción anónima desde el formulario web
+CREATE POLICY "Permitir insercion anonima de leads" ON ecuaplac_leads
+    FOR INSERT WITH CHECK (true);
+
+-- Permitir la lectura de solicitudes
+CREATE POLICY "Permitir lectura publica de leads" ON ecuaplac_leads
+    FOR SELECT USING (true);
+

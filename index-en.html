@@ -628,9 +628,15 @@
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+@keyframes forceHideLoader {
+  0%, 85% { opacity: 1; pointer-events: auto; }
+  100% { opacity: 0; pointer-events: none; visibility: hidden; }
+}
+
 .hand-loader-overlay.active {
   opacity: 1;
   pointer-events: auto;
+  animation: forceHideLoader 3.5s forwards;
 }
 
 .pencil {
@@ -1254,13 +1260,23 @@
   </svg>
 </div>
 <script>
-  if (sessionStorage.getItem('skipLoader') === 'true') {
-    const loader = document.getElementById('hand-loader');
-    if (loader) {
-      loader.classList.remove('active');
-      loader.remove();
+  (function() {
+    if (sessionStorage.getItem('skipLoader') === 'true') {
+      const loader = document.getElementById('hand-loader');
+      if (loader) {
+        loader.classList.remove('active');
+        loader.remove();
+      }
+    } else {
+      window.__handLoaderSafetyTimer = setTimeout(function() {
+        const loader = document.getElementById('hand-loader');
+        if (loader) {
+          loader.classList.remove('active');
+          setTimeout(function() { if (loader && loader.parentNode) loader.remove(); }, 400);
+        }
+      }, 2500);
     }
-  }
+  })();
 </script>
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full border-b border-[#1C1C1E] z-50">
@@ -3096,7 +3112,7 @@ function handleVerMasProyectos(event) {
   }, 1500);
 }
 
-// Global update to handleFormSubmit to use formsubmit.co
+// Global update to handleFormSubmit to save to Supabase + FormSubmit.co
 async function handleFormSubmit(formId) {
   const form = document.getElementById(formId);
   if(!form) return;
@@ -3108,14 +3124,43 @@ async function handleFormSubmit(formId) {
     submitBtn.innerText = 'ENVIANDO...';
   }
   
+  const formData = new FormData(form);
+
+  // 1. Guardar copia del Lead en Supabase (ecuaplac_leads)
   try {
-    const formData = new FormData(form);
+    if (window.supabase && typeof window.supabase.createClient === 'function') {
+      const supabaseUrl = 'https://wkfddccsantywcrsxpox.supabase.co';
+      const supabaseKey = 'sb_publishable_ym3HAoFGlToeBAQu1yMd3A_m7Gx4GNI';
+      const sbClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+      const nameVal = formData.get('name') || formData.get('nombre') || '';
+      const phoneVal = formData.get('phone') || formData.get('telefono') || '';
+      const emailVal = formData.get('email') || '';
+      const projectTypeVal = formData.get('project_type') || formData.get('tipo_proyecto') || formData.get('service') || '';
+      const messageVal = formData.get('message') || formData.get('mensaje') || formData.get('comments') || '';
+
+      await sbClient.from('ecuaplac_leads').insert([{
+        name: String(nameVal),
+        phone: String(phoneVal),
+        email: String(emailVal),
+        project_type: String(projectTypeVal),
+        message: String(messageVal),
+        source_page: window.location.pathname.split('/').pop() || 'index-en.html',
+        status: 'nuevo'
+      }]);
+    }
+  } catch (sbErr) {
+    console.warn('Supabase Lead insert notice:', sbErr);
+  }
+
+  // 2. Enviar correo via FormSubmit.co
+  try {
     await fetch("https://formsubmit.co/ajax/ecuaplac.jyg.sl@gmail.com", {
       method: "POST",
       body: formData
     });
   } catch(err) {
-    console.error(err);
+    console.error('FormSubmit fetch error:', err);
   }
   
   if (formId === 'presupuestoForm') {
@@ -3252,7 +3297,12 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- Loader on Reload -->
 <script>
 // Unified Page Loader script
-function showPageLoader(duration = 1500) {
+function showPageLoader(duration = 1200) {
+  if (window.__handLoaderSafetyTimer) {
+    clearTimeout(window.__handLoaderSafetyTimer);
+    window.__handLoaderSafetyTimer = null;
+  }
+
   if (sessionStorage.getItem('skipLoader') === 'true') {
     sessionStorage.removeItem('skipLoader');
     const loader = document.getElementById('hand-loader');
@@ -3278,16 +3328,29 @@ function showPageLoader(duration = 1500) {
     if (overlay) {
       overlay.classList.remove('active');
       setTimeout(() => {
-        overlay.remove();
-      }, 500);
+        if (overlay && overlay.parentNode) overlay.remove();
+      }, 400);
     }
     const logo = document.querySelector('.logo-header');
     if (logo) logo.classList.add('reveal-active');
   }, duration);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  showPageLoader(2000);
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  showPageLoader(1000);
+} else {
+  window.addEventListener('DOMContentLoaded', () => {
+    showPageLoader(1200);
+  });
+}
+
+// Safety fallback on window load
+window.addEventListener('load', () => {
+  const loader = document.getElementById('hand-loader');
+  if (loader) {
+    loader.classList.remove('active');
+    setTimeout(() => { if (loader && loader.parentNode) loader.remove(); }, 400);
+  }
 });
 
 window.addEventListener('pageshow', (event) => {

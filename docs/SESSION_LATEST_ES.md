@@ -1,29 +1,29 @@
-# Resumen de Sesión - 22 de Julio de 2026
-
-¡Hola! Aquí tienes el resumen de las tareas realizadas en esta sesión para la web de **Ecuaplac**:
+# Resumen de Sesión - 15 de Septiembre de 2026
 
 ### ¿Qué se ha hecho hoy?
-1. **Actualización de Datos de Contacto:**
-   - Se modificaron los nombres de contacto en el frontend para reflejar la información completa de los socios: **José Rivadeneira** (reemplazando a Goyo) y **Joffre Méndez** (reemplazando a Jofrre/Joffre).
-   - Se ajustó el código HTML tanto en español (`index.html`) como en inglés (`index-en.html`).
-2. **Actualización de Base de Datos (Supabase):**
-   - Se actualizó el archivo de configuración inicial `supabase_schema.sql` con los nombres correctos.
-   - El cliente realizó la consulta SQL en el panel de control de Supabase para reflejar la actualización en la base de datos real (lo que alimenta dinámicamente la web).
-3. **Despliegue y Pruebas:**
-   - Se subieron todos los cambios actualizados a GitHub (producción).
-   - Se inició y se probó el servidor de desarrollo local para verificar la integración.
+1. **Solución del problema de carga (Pantalla Negra):**
+   - Se diagnosticó e implementó un sistema de protección triple capa en el cargador (`hand-loader`) en `index.html`, `index-en.html`, `reformas.html` y `reformas-en.html`.
+   - Incluye animación de desvanecimiento por CSS a los 3.5s, temporizador de emergencia en línea de 2.5s y verificación de `document.readyState`.
+2. **Sistema de Guardado Dual de Solicitudes (Leads):**
+   - Se configuró la función `handleFormSubmit` para registrar las solicitudes de presupuesto en la tabla `ecuaplac_leads` de Supabase a la vez que se envía la notificación por correo con FormSubmit.co.
+3. **Creación de la tabla `ecuaplac_leads` en Supabase:**
+   - Se añadió la definición SQL y las políticas RLS en `supabase_schema.sql` y se verificó la inserción correcta en el proyecto de producción.
+4. **Configuración del MCP de Supabase:**
+   - Se actualizó el token de acceso local de Supabase MCP.
 
 ### Archivos Modificados
-- `index.html` (Nombres y teléfonos actualizados en la tarjeta de contacto)
-- `index-en.html` (Mismos cambios aplicados en inglés)
-- `supabase_schema.sql` (Esquema y datos por defecto actualizados)
-- `docs/SESSION_LATEST_ES.md` (Este resumen)
-- `docs/ROADMAP.md` (Hoja de ruta del proyecto actualizada)
+- `index.html`
+- `index-en.html`
+- `reformas.html`
+- `reformas-en.html`
+- `supabase_schema.sql`
+- `.agents/AGENTS.md`
+- `docs/SESSION_LATEST_ES.md`
+- `docs/ROADMAP.md`
 
 ### Problemas Solucionados
-- Se corrigieron los nombres de contacto informales o incompletos, dándole un aspecto corporativo y correcto a la sección de contacto directo.
-- Se coordinó y aplicó la actualización en la base de datos de producción dinámica de Supabase.
+- Se eliminó el riesgo de pantalla negra congelada en móviles y redes lentas al cargar la web.
+- Se habilitó el registro permanente de solicitudes en Supabase además de los avisos por email a `ecuaplac.jyg.sl@gmail.com`.
 
 ### Qué queda pendiente
-- Monitorear el correcto funcionamiento de la web en producción con los nuevos datos.
-
+- Ninguno. La web está 100% funcional y actualizada.

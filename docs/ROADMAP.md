@@ -11,13 +11,13 @@
 - [x] Auditoría automatizada de navegación 360º.
 - [x] Migración del backend de Supabase a la cuenta del cliente (`ecuaplacbyjg@gmail.com`).
 - [x] Creación de la sección interactiva "Contacto Directo" dinamizada con la tabla `ecuaplac_contact` de Supabase.
-- [x] Optimización de rendimiento a 60fps en el scroll del Hero para dispositivos móviles (GPU `translate3d`, `dvh`, eliminación de latencia CSS transition).
-- [x] Refinamiento tipográfico global (tokens Tailwind) y animación sutil `scroll-reveal` (fade-in) en encabezados de sección.
-- [x] Despliegue final a producción en GitHub y Cloudflare Pages.
-- [x] Actualización de nombres de los socios y formato de contacto (José Rivadeneira y Joffre Méndez) en frontend y esquema SQL de Supabase.
+- [x] Optimización de rendimiento a 60fps en el scroll del Hero para dispositivos móviles.
+- [x] Solución anti-bloqueo de pantalla negra del cargador (sistema triple capa CSS/Timer/State).
+- [x] Implementación de guardado dual de Leads en la tabla `ecuaplac_leads` de Supabase + envío por email (FormSubmit.co).
+- [x] Configuración del token MCP de Supabase para operaciones futuras.
 
 ## Tareas en Progreso
-- Ninguna. El proyecto se encuentra 100% finalizado, optimizado y desplegado en producción.
+- Ninguna. El proyecto se encuentra 100% finalizado, optimizado y sincronizado.
 
 ## Próximas Mejoras Prioritarias
-- [ ] Monitorear el panel de Microsoft Clarity para analizar la interacción del usuario.
+- [ ] Monitorear la recepción de solicitudes en Supabase y el panel de Microsoft Clarity.
