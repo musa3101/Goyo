@@ -12,12 +12,14 @@
 - [x] Migración del backend de Supabase a la cuenta del cliente (`ecuaplacbyjg@gmail.com`).
 - [x] Creación de la sección interactiva "Contacto Directo" dinamizada con la tabla `ecuaplac_contact` de Supabase.
 - [x] Optimización de rendimiento a 60fps en el scroll del Hero para dispositivos móviles.
-- [x] Solución anti-bloqueo de pantalla negra del cargador (sistema triple capa CSS/Timer/State).
 - [x] Implementación de guardado dual de Leads en la tabla `ecuaplac_leads` de Supabase + envío por email (FormSubmit.co).
 - [x] Configuración del token MCP de Supabase para operaciones futuras.
+- [x] **Arquitectura Safe-by-Default en el cargador (`#hand-loader`)**: Erradicación definitiva del riesgo de pantalla negra en móviles y navegadores lentos.
+- [x] **Protección de BFCache en Safari**: Implementación de `ensureLoaderHidden()` en eventos `pageshow`.
+- [x] **Expediente Técnico Completo**: Generación y archivo del informe técnico en PDF de 9 páginas en `/Users/musa/Desktop/ECUAPLAC_DOCUMENTACION/`.
 
 ## Tareas en Progreso
-- Ninguna. El proyecto se encuentra 100% finalizado, optimizado y sincronizado.
+- Ninguna. El proyecto se encuentra 100% finalizado, optimizado, probado y documentado.
 
 ## Próximas Mejoras Prioritarias
-- [ ] Monitorear la recepción de solicitudes en Supabase y el panel de Microsoft Clarity.
+- [ ] Monitoreo continuo de analíticas y conversiones en Microsoft Clarity.
