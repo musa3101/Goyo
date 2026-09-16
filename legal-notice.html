@@ -341,7 +341,7 @@
 <body class="bg-[#F5F6F7] text-[#141414] antialiased pt-[72px] overflow-x-hidden">
 
 <!-- Page Loader -->
-<div id="hand-loader" class="hand-loader-overlay active">
+<div id="hand-loader" class="hand-loader-overlay">
   <svg xmlns="http://www.w3.org/2000/svg" height="200px" width="200px" viewBox="0 0 200 200" class="pencil" style="color: #fff;">
     <defs>
       <clipPath id="pencil-eraser">
@@ -375,13 +375,11 @@
   </svg>
 </div>
 <script>
-  if (sessionStorage.getItem('skipLoader') === 'true') {
+  (function() {
+    sessionStorage.removeItem('skipLoader');
     const loader = document.getElementById('hand-loader');
-    if (loader) {
-      loader.classList.remove('active');
-      loader.remove();
-    }
-  }
+    if (loader) loader.classList.remove('active');
+  })();
 </script>
 
 <!-- TopNavBar -->
@@ -586,10 +584,15 @@ function handleVerMasProyectos(event) {
     overlay.classList.add('active');
   }, 10);
   
-  // Redirect after 1.5 seconds
+  // Safety fallback: auto-deactivate after 3s if navigation fails or is delayed
+  setTimeout(() => {
+    if (overlay) overlay.classList.remove('active');
+  }, 3000);
+
+  // Redirect after 1.2 seconds
   setTimeout(() => {
     window.location.href = url;
-  }, 1500);
+  }, 1200);
 }
 
 // Global update to handleFormSubmit to use formsubmit.co
@@ -695,67 +698,21 @@ async function handleFormSubmit(formId) {
     }
   });
 </script>
+<!-- Loader & Page Lifecycle Safety -->
 <script>
-// Unified Page Loader script
-function showPageLoader(duration = 1500) {
-  if (sessionStorage.getItem('skipLoader') === 'true') {
-    sessionStorage.removeItem('skipLoader');
-    const loader = document.getElementById('hand-loader');
-    if (loader) {
-      loader.classList.remove('active');
-      loader.remove();
-    }
-    const logo = document.querySelector('.logo-header');
-    if (logo) logo.classList.add('reveal-active');
-    return;
+function ensureLoaderHidden() {
+  const loader = document.getElementById('hand-loader');
+  if (loader) {
+    loader.classList.remove('active');
   }
-
-  const overlay = document.getElementById('hand-loader');
-  if (overlay) {
-    overlay.style.display = 'flex';
-    setTimeout(() => {
-      overlay.classList.add('active');
-    }, 10);
-  }
-  
-  // Remove loader after specified duration
-  setTimeout(() => {
-    if (overlay) {
-      overlay.classList.remove('active');
-      setTimeout(() => {
-        overlay.remove();
-      }, 500);
-    }
-    const logo = document.querySelector('.logo-header');
-    if (logo) logo.classList.add('reveal-active');
-  }, duration);
+  const logo = document.querySelector('.logo-header');
+  if (logo) logo.classList.add('reveal-active');
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  showPageLoader(2000);
-});
-
-window.addEventListener('pageshow', (event) => {
-  // Show loader on page show (history navigation or BFCache)
-  if (event.persisted) {
-    showPageLoader(2000);
-  }
-});
-
-// Intercept clicks on logos or homepage links to skip loader
-document.addEventListener('click', (e) => {
-  const link = e.target.closest('a');
-  if (link) {
-    const href = link.getAttribute('href') || '';
-    const isHome = href === 'index.html' || href === 'index-en.html' || href.startsWith('index.html#') || href.startsWith('index-en.html#') || href === '/' || href === './';
-    const isLogo = link.classList.contains('logo-header') || link.querySelector('img[alt*="Logo"]') || link.querySelector('img[alt*="logo"]') || link.classList.contains('logo-link');
-    const currentPath = window.location.pathname;
-    const isSamePage = href.startsWith('#') || (href.includes('#') && href.split('#')[0] === currentPath.split('/').pop());
-    
-    if ((isHome || isLogo) && !isSamePage) {
-      sessionStorage.setItem('skipLoader', 'true');
-    }
-  }
-});
+// Execute immediately and on all lifecycle / BFCache events
+ensureLoaderHidden();
+window.addEventListener('DOMContentLoaded', ensureLoaderHidden);
+window.addEventListener('load', ensureLoaderHidden);
+window.addEventListener('pageshow', ensureLoaderHidden);
 </script>
 </body></html>
