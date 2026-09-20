@@ -175,11 +175,24 @@ CREATE TABLE IF NOT EXISTS ecuaplac_leads (
 -- Habilitar RLS para ecuaplac_leads
 ALTER TABLE ecuaplac_leads ENABLE ROW LEVEL SECURITY;
 
--- Permitir la inserción anónima desde el formulario web
-CREATE POLICY "Permitir insercion anonima de leads" ON ecuaplac_leads
-    FOR INSERT WITH CHECK (true);
+-- 1. Eliminar políticas previas si existen
+DROP POLICY IF EXISTS "Permitir insercion anonima de leads" ON ecuaplac_leads;
+DROP POLICY IF EXISTS "Permitir lectura publica de leads" ON ecuaplac_leads;
+DROP POLICY IF EXISTS "Permitir insercion de leads desde web" ON ecuaplac_leads;
 
--- Permitir la lectura de solicitudes
-CREATE POLICY "Permitir lectura publica de leads" ON ecuaplac_leads
-    FOR SELECT USING (true);
+-- 2. Permitir inserciones válidas desde el formulario web (requiere nombre y contacto)
+CREATE POLICY "Permitir insercion de leads desde web" ON ecuaplac_leads
+    FOR INSERT
+    TO anon, authenticated
+    WITH CHECK (
+        (name IS NOT NULL AND length(trim(name)) > 0)
+        AND (
+            (phone IS NOT NULL AND length(trim(phone)) > 0)
+            OR (email IS NOT NULL AND length(trim(email)) > 0)
+        )
+    );
+
+-- NOTA DE SEGURIDAD:
+-- No se añade política de SELECT para 'anon' ni 'authenticated'.
+-- Los leads solo son visibles desde el panel de control de Supabase o mediante service_role.
 
