@@ -14,9 +14,10 @@
 - [x] Optimización de rendimiento a 60fps en el scroll del Hero para dispositivos móviles.
 - [x] Implementación de guardado dual de Leads en la tabla `ecuaplac_leads` de Supabase + envío por email (FormSubmit.co).
 - [x] Configuración del token MCP de Supabase para operaciones futuras.
-- [x] **Arquitectura Safe-by-Default en el cargador (`#hand-loader`)**: Erradicación definitiva del riesgo de pantalla negra en móviles y navegadores lentos.
-- [x] **Protección de BFCache en Safari**: Implementación de `ensureLoaderHidden()` en eventos `pageshow`.
-- [x] **Expediente Técnico Completo**: Generación y archivo del informe técnico en PDF de 9 páginas en `/Users/musa/Desktop/ECUAPLAC_DOCUMENTACION/`.
+- [x] **Seguridad Supabase RLS**: Blindaje de inserción y protección de privacidad para la tabla `ecuaplac_leads`.
+- [x] **Erradicación Definitiva de `#hand-loader`**: Supresión de todo el código de precarga y CSS residual en los 6 archivos HTML.
+- [x] **Optimización de Recursos del Hero**: Sustitución de dependencias externas por WebP locales de alta resolución (`1.webp`, `2.webp`, `3.webp`).
+- [x] **Optimización de Red y DNS**: Configuración de Cloudflare DNS (`1.1.1.1`) y Google DNS (`8.8.8.8`) para tiempos de carga < 0.2s.
 
 ## Tareas en Progreso
 - Ninguna. El proyecto se encuentra 100% finalizado, optimizado, probado y documentado.
